@@ -203,10 +203,15 @@
             border-left: 2px solid $black-color;
             cursor: pointer;
             transition: background-color 0.2s;
+            a {
+                color: $black-color;
+            }
         }
         .reg-link:hover {
             background-color: $black-color;
-            color: $white-color;
+            a {
+                color: $white-color;
+            }
         }
         .social-media {
             border-right: 2px solid $black-color;

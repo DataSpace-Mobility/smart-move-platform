@@ -15,7 +15,7 @@ function Home() {
                     <div className="row">
                         <div className="col-md-2 social-media extra-padding">1</div>
                         <div className="col-md-8"></div>
-                        <div className="col-md-2 reg-link extra-padding">REGISTRATION</div>
+                        <div className="col-md-2 reg-link extra-padding"><a href="https://hack.dataspace.mobi">REGISTRATION</a></div>
                     </div>
                     <div className="row bottom-bar">
                         <div className="col-md-12">
@@ -49,8 +49,10 @@ function Home() {
 
             <section className="about">
                 <div className="container">
-                    <p>SMART MOVE is a global urban mobility challenge to address complex mobility issues faced by cities across India. We encourage you to develop innovative technology for mobility management, development of data-driven digital products to improve the way we commute, or  proposals that would act as an incentives to promote sustainable mobility.</p>
-                    <p>Let’s build on the efforts of the Ministry of Housing and Urban Affairs and Smart Cities Mission with support from GIZ and National Institute of Urban Affairs</p>
+                    <p>Do you think you can solve India’s most complex urban mobility challenges? Let’s bring your ideas from the drawing board to reality! </p>
+                    <p>Collaborate with multidisciplinary teams and co-create data-powered sustainable digital solutions to reimagine the way we walk, run, cycle, ride, drive and transit through our cities. </p>
+                    <p>Keep in mind the principles of Atma Nirbhar Bharat, Digital India and DataSmart Cities to unlock innovation through co-creation. </p>
+                    <p>SMART MOVE Innovative Urban Mobility Challenge is an initiative by the Ministry of Housing and Urban Affairs supported by the Smart Cities Mission, the National Institute of Urban Affairs and GIZ India. </p>
                 
                     <iframe width="100%" height="500px" src="https://www.youtube.com/embed/daV9J5zhftw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
@@ -91,7 +93,7 @@ function Home() {
                 <div className="row unlock-item">
                     <div className="col-md-8 align-right">
                         <p className="themes">Multi-modal integration</p>
-                        <p className="themes">Sustainable transport mode</p>
+                        <p className="themes">Sustainable transport modes</p>
                         <p>Build data-powered solutions to reimagine our streets equitably with adequate space for pedestrians, cyclists and other paratransit modes. Follow through with a holistic plan to ensure multi-modal integration and shift towards sustainable transport.</p>
                     </div>
                     <div className="col-md-4">
