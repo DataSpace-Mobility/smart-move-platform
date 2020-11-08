@@ -1,0 +1,24 @@
+@import '../../Variables.scss';
+
+.Footer {
+    background-color: $secondary-color;
+    border-top: 5px solid $black-color;
+    padding: 40px 0px;
+    color: $white-color;
+    text-align: center;
+    img {
+        width: 140px;
+    }
+    small {
+        padding: 0px 20px;
+        display: block;
+        font-size: 0.9em;
+        margin-bottom: 30px;
+    }
+    .social-media {
+        img {
+            width: 50px;
+            padding: 0px 10px;
+        }
+    }
+}
