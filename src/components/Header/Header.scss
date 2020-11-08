@@ -18,6 +18,10 @@
     }
     .social-media {
         border-right: 2px solid $black-color;
+        img {
+            width: 40px;
+            padding: 0px 8px;
+        }
     }
     .extra-padding {
         padding: 10px 0px;
