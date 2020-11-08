@@ -114,7 +114,7 @@ function Home() {
                     <div className="col-md-8 align-left">
                         <p className="themes">Gender and safety</p>
                         <p className="themes">Inclusivity and efficiency improvement</p>
-                        <p>The city is for one and all. Look at urban mobility through the lens of women and children, the young and the old, the rich and the poor, and ideate for safer, more inclusive and efficient transportation.</p>
+                        <p>The city is for one and all. Look at urban mobility through the lens of the differently-abled, women and children, the young and the old, the rich and the poor, and ideate for safer, more inclusive and efficient transportation.</p>
                     </div>
                 </div>
 
