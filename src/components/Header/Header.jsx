@@ -24,10 +24,10 @@ function Header() {
                         <ul>
                             <li><a href="/">HOME</a></li>
                             <li><a href="/">GUIDELINES</a></li>
-                            <li><a href="/">JURY</a></li>
-                            <li><a href="/">WINNERS</a></li>
+                            {/* <li><a href="/">JURY</a></li> */}
+                            {/* <li><a href="/">WINNERS</a></li> */}
                             <li><a href="/">PARTNERS</a></li>
-                            <li><a href="/">FAQ</a></li>
+                            {/* <li><a href="/">FAQ</a></li> */}
                         </ul>
                     </div>
                 </div>
