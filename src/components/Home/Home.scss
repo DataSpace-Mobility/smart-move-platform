@@ -197,44 +197,5 @@
         }
     }
 
-    .Header {
-        .reg-link {
-            font-weight: 900;
-            border-left: 2px solid $black-color;
-            cursor: pointer;
-            transition: background-color 0.2s;
-            a {
-                color: $black-color;
-            }
-        }
-        .reg-link:hover {
-            background-color: $black-color;
-            a {
-                color: $white-color;
-            }
-        }
-        .social-media {
-            border-right: 2px solid $black-color;
-        }
-        .extra-padding {
-            padding: 10px 0px;
-        } 
-        .bottom-bar {
-            background-color: $black-color;
-            color: $white-color;
-            padding: 10px 0px;
-            ul {
-                margin: 0;
-                padding: 0;
-                li {
-                    display: inline-block;
-                    a {
-                        color: $white-color;
-                        padding: 0px 15px;
-                        font-size: 1.3em;
-                    }
-                }
-            }
-        }
-    }
+    
 }
