@@ -36,7 +36,7 @@ function Home() {
                     <p>Keep in mind the principles of Atma Nirbhar Bharat, Digital India and DataSmart Cities to unlock innovation through co-creation. </p>
                     <p>SMART MOVE Innovative Urban Mobility Challenge is an initiative by the Ministry of Housing and Urban Affairs supported by the Smart Cities Mission, the National Institute of Urban Affairs and GIZ India. </p>
                 
-                    <iframe width="100%" height="500px" src="https://www.youtube.com/embed/daV9J5zhftw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="100%" height="500px" src="https://www.youtube.com/embed/vwHQo5ywPCo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </section>
 
