@@ -59,7 +59,7 @@ function Home() {
                     <h1>UNLOCK INNOVATION</h1>
                 </div>
 
-                <p className="align-left">Calling all creatives, techies, entrepreneurs and philosophers! Put on your thinking caps, ideate, innovate and share with us a brief concept note on any of the following themes. </p>
+                <p className="align-left">Calling all students, researchers and curious minds! Put on your thinking caps, ideate, innovate and share with us a brief concept note on any of the following themes. </p>
 
                 <div className="row unlock-item">
                     <div className="col-md-4">
