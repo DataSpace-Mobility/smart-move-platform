@@ -1,8 +1,5 @@
 import React from 'react';
 
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
-
 import './Home.scss';
 
 import Hero from './hero.svg'
@@ -13,8 +10,6 @@ function Home() {
     return(
         <section className="Home">
             
-            <Header/>
-
             <section className="hero">
                 <div className="container">
                     <div className="row">
@@ -126,7 +121,7 @@ function Home() {
             </section>
 
 
-            <Footer/>
+            
 
 
             

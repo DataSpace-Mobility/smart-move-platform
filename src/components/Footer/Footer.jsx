@@ -21,9 +21,9 @@ function Footer() {
                         <small><b>The SMART MOVE Challenge is a part of the Indian-German Green Urban Mobility Partnership</b></small>
                     </div>
                     <div className="col-md-3 social-media">
-                        <a href="https://twitter.com/SmartMove2020" target="_blank"><img src={TwitterLogo} alt=""/></a>
-                        <a href="https://www.instagram.com/smartmove_2020/" target="_blank"><img src={InstagramLogo} alt=""/></a>
-                        <a href="https://www.linkedin.com/company/smartmove2020" target="_blank"><img src={LinkedinLogo} alt=""/></a>
+                        <a href="https://twitter.com/SmartMove2020" target="_blank" rel="noreferrer"><img src={TwitterLogo} alt=""/></a>
+                        <a href="https://www.instagram.com/smartmove_2020/" target="_blank" rel="noreferrer"><img src={InstagramLogo} alt=""/></a>
+                        <a href="https://www.linkedin.com/company/smartmove2020" target="_blank" rel="noreferrer"><img src={LinkedinLogo} alt=""/></a>
                     </div>
                 </div>
             </div>
