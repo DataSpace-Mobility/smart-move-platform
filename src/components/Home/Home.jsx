@@ -5,6 +5,12 @@ import './Home.scss';
 import Hero from './hero.svg'
 import PartnerLogos from './partner-logos.png'
 import Timeline from './timeline.svg'
+import MOHUA from './partners/mohua.svg'
+import NIUA from './partners/niua.svg'
+import SCM from './partners/scm.svg'
+import GIZ from './partners/giz.svg'
+import CitiesForum from './partners/cities_forum.png'
+import DataSpace from './partners/dataspace.svg'
 
 function Home() {
     return(
@@ -85,7 +91,7 @@ function Home() {
 
                 <div className="row unlock-item">
                     <div className="col-md-4">
-                        <div className="heading-box heading-box-red">
+                        <div className="heading-box heading-box-red equity-box">
                             <h1 class="big">3</h1>
                             <h1>EQUITY IN MOBILITY</h1>
                         </div>
@@ -120,7 +126,43 @@ function Home() {
                 </div>
             </section>
 
-
+            <section className="partners">
+                <div className="container">
+                    <div className="heading heading-black heading-center">
+                        <h1>MEET OUR PARTNERS</h1>
+                    </div>
+                    <div className="item-container">
+                        <div className="row">
+                            <div className="col-md-4">
+                                <img src={NIUA} alt=""/>
+                                <p>Implementation Partner: <a href="http://niua.org/" target="_blank" rel="noreferrer">National Institute of Urban Affairs</a></p>
+                            </div>
+                            <div className="col-md-4">
+                                <img src={MOHUA} alt=""/>
+                                <p>Organised by the <a href="http://mohua.gov.in/" target="_blank" rel="noreferrer">Ministry of Housing and Urban Affairs</a></p>
+                            </div>
+                            <div className="col-md-4">
+                                <img className="scm-logo" src={SCM} alt=""/>
+                                <p>Supported by the <a href="http://smartcities.gov.in/content/" target="_blank" rel="noreferrer">Smart Cities Mission</a></p>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-md-4">
+                                <img className="dataspace-logo" src={DataSpace} alt=""/>
+                                <p>Technology Partner: <a href="https://dataspace.mobi/" target="_blank" rel="noreferrer">DataSpace Mobility (ISCF)</a></p>
+                            </div>
+                            <div className="col-md-4">
+                                <img className="giz-logo" src={GIZ} alt=""/>
+                                <p>Supported by <a href="https://www.giz.de/en/worldwide/368.html" target="_blank" rel="noreferrer">GIZ India</a></p>
+                            </div>
+                            <div className="col-md-4">
+                                <img src={CitiesForum} alt=""/>
+                                <p>Technical Partner: <a href="https://www.citiesforum.org/" target="_blank" rel="noreferrer">Cities Forum</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
             
 
 

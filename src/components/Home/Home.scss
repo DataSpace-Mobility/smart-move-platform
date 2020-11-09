@@ -106,6 +106,9 @@
     .unlock {
         .unlock-item {
             margin: 80px 0px;
+            .equity-box {
+                padding-bottom: 60px;
+            }
         }
         p.themes {
             color: $secondary-color;
@@ -181,6 +184,36 @@
     }
 
     
-
+    .partners {
+        margin: 40px 0px;
+        padding: 40px 0px;
+        .item-container {
+            margin-top: 50px;
+            .row {
+                margin-top: 30px;
+            }
+            img {
+                width: 190px;
+                height: 190px;
+            }
+            p {
+                margin-top: 10px;
+                font-size: 1.3em;
+            }
+            a {
+                color: $black-color;
+                font-weight: 600;
+            }
+            .scm-logo {
+                width: 120px;
+            }
+            .giz-logo {
+                width: 110%;
+            }
+            .dataspace-logo {
+                width: 70%;
+            }
+        }
+    }
     
 }
