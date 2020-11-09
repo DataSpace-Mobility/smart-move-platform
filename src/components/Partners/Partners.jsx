@@ -43,7 +43,7 @@ function Partner() {
                         <div className="col-md-4">
                             <img className="giz-logo" src={GIZ} alt=""/>
                             <p>Supported by <a href="https://www.giz.de/en/worldwide/368.html" target="_blank" rel="noreferrer">GIZ India</a></p>
-                            <small>GIZ India is part of the German Development Agency. GIZ-backed SMART-SUT project is supporting the Ministry of Housing and Urban Affairs (MoHUA) in organizing this national-level challenge to address urban mobility challenges faced by Indian cities.</small>
+                            <small>GIZ is a service provider in the field of international cooperation for sustainable development and international education work, we are dedicated to shaping a future worth living around the world.  GIZ is supporting the Ministry of Housing and Urban Affairs (MoHUA) in organizing this national-level challenge to address urban mobility challenges faced by Indian cities.</small>
                         </div>
                         <div className="col-md-4">
                             <img src={CitiesForum} alt=""/>
