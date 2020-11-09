@@ -36,7 +36,7 @@ function Home() {
                     <p>Keep in mind the principles of Atma Nirbhar Bharat, Digital India and DataSmart Cities to unlock innovation through co-creation. </p>
                     <p>SMART MOVE Innovative Urban Mobility Challenge is an initiative by the Ministry of Housing and Urban Affairs supported by the Smart Cities Mission, the National Institute of Urban Affairs and GIZ India. </p>
                 
-                    <iframe width="100%" height="500px" src="https://www.youtube.com/embed/vwHQo5ywPCo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="100%" height="500px" title="Launch Video" src="https://www.youtube.com/embed/vwHQo5ywPCo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </section>
 
@@ -57,6 +57,8 @@ function Home() {
                 <div className="heading">
                     <h1>UNLOCK INNOVATION</h1>
                 </div>
+
+                <p className="align-left">Calling all creatives, techies, entrepreneurs and philosophers! Put on your thinking caps, ideate, innovate and share with us a brief concept note on any of the following themes. </p>
 
                 <div className="row unlock-item">
                     <div className="col-md-4">
