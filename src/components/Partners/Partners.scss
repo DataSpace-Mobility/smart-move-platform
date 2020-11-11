@@ -3,6 +3,26 @@
 .Partners {
     margin: 40px 0px;
     padding: 40px 0px;
+    .heading-black {
+        
+        border-bottom: 7px solid $black-color;
+        width: 40%;
+        @media screen and (max-width: 768px) {
+            border-bottom: 0px solid $tertiary-color;
+            text-align:center;
+            width: 100%;
+        }
+        h1 {
+            color: $black-color;
+            font-weight: 700;
+            @media screen and (max-width: 768px) {
+                font-weight: 500;
+            }
+           
+        }
+        margin: 0px auto;
+        
+    }
     .item-container {
         margin-top: 50px;
         .row {
@@ -25,7 +45,11 @@
             width: 120px;
         }
         .giz-logo {
-            width: 110%;
+            width: 100%;
+            @media screen and (max-width: 740px) {
+                width: 100%;
+                
+              }
         }
         .dataspace-logo {
             width: 70%;

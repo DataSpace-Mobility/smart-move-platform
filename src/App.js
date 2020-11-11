@@ -8,6 +8,7 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 
 import './App.scss';
+import Guideline from './components/Guidelines/Guidelines';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
 			<Route exact path="/" component={Home} />
 			<Route path="/partners" component={Partners} />
 			<Route path="/privacy" component={Privacy} />
+			<Route path="/guidelines" component={Guideline} />
 		</Switch>
 		<Footer/>
 	</Router>

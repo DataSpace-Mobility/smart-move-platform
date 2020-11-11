@@ -7,3 +7,22 @@ html, body {
 .App {
   text-align: center;
 }
+
+
+@media screen and (min-width: 741px) {
+    
+  .webhide{
+      display: none;
+  }
+
+}
+
+@media screen and (max-width: 740px) {
+  
+  .mobilehide{
+      display: none;
+  }
+  
+
+
+}

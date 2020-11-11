@@ -11,7 +11,7 @@ import DataSpace from '../Home/partners/dataspace.svg'
 
 function Partner() {
     return (
-        <section className="Partners">
+        <section className="Partners ">
             <div className="container">
                 <div className="heading heading-black heading-center">
                     <h1>MEET OUR PARTNERS</h1>

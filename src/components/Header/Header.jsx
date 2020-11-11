@@ -23,7 +23,7 @@ function Header() {
                     <div className="col-md-12">
                         <ul>
                             <li><a href="/">HOME</a></li>
-                            <li><a href="/guidelines">GUIDELINES</a></li>
+                            <li><a href="/#/guidelines">GUIDELINES</a></li>
                             {/* <li><a href="/">JURY</a></li> */}
                             {/* <li><a href="/">WINNERS</a></li> */}
                             <li><a href="/#/partners">PARTNERS</a></li>

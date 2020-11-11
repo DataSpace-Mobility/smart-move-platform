@@ -8,7 +8,12 @@
     text-align: center;
     img {
         width: 140px;
+        @media screen and (max-width: 740px) {
+            padding: 40px 10px;
+            
+          }
     }
+    
     small {
         padding: 0px 20px;
         display: block;
