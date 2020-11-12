@@ -18,10 +18,9 @@ import Theme2 from "./Theme2.svg";
 import Theme3 from "./Theme3.svg";
 import button1 from "./Button1.png";
 import button2 from "./Button2.png";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Home() {
-  const history = useHistory();
   return (
     <section className="Home">
       <section className="hero">
@@ -50,7 +49,7 @@ function Home() {
           <p>
             Collaborate with multidisciplinary teams of students/researchers and
             co-create data-powered sustainable digital solutions to reimagine
-            the way we commute through our India cities.
+            the way we commute in our India cities.
           </p>
           <p>
             Keep in mind the principles of

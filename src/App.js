@@ -13,11 +13,13 @@ import SignIn from './Admin/Signin';
 import CityForm from './components/CityForm/CityForm';
 import AdminDashboard from './Admin/Dashboard/AdminDashboard';
 import Cities from './components/Cities/Cities';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
 	<div className="App">
 	<Router>
+		<ScrollToTop />
 		<Header/>
 		<Switch>
 			<Route exact path="/" component={Home} />
