@@ -3,7 +3,6 @@
 .vscode
 
 # client .gitignore
-/client/build
 /client/node_modules
 /client/firebase.json
 /client/.firebase
