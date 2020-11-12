@@ -49,7 +49,7 @@ function Home() {
           <p>
             Collaborate with multidisciplinary teams of students/researchers and
             co-create data-powered sustainable digital solutions to reimagine
-            the way we commute in our India cities.
+            the way we commute in our Indian cities.
           </p>
           <p>
             Keep in mind the principles of
