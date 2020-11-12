@@ -25,8 +25,4 @@ router.get("/getdata", (req, res) => {
   });
 });
 
-router.get("/", (req, res) => {
-  console.log(" get home data received ", req.body);
-});
-
 module.exports = router;
