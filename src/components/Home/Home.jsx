@@ -16,8 +16,12 @@ import DataSpace from "./partners/dataspace.svg";
 import Theme1 from "./Theme1.svg";
 import Theme2 from "./Theme2.svg";
 import Theme3 from "./Theme3.svg";
+import button1 from "./Button1.png";
+import button2 from "./Button2.png";
+import { Link, useHistory } from "react-router-dom";
 
 function Home() {
+  const history = useHistory();
   return (
     <section className="Home">
       <section className="hero">
@@ -41,45 +45,48 @@ function Home() {
           <p>
             Do you think you can solve India’s most complex urban mobility
             challenges? Let’s bring your ideas from the drawing board to
-            reality!{" "}
+            reality!
           </p>
           <p>
             Collaborate with multidisciplinary teams of students/researchers and
             co-create data-powered sustainable digital solutions to reimagine
-            they way we commute through our India cities.{" "}
+            the way we commute through our India cities.
           </p>
           <p>
-            Keep in mind the principles of{" "}
+            Keep in mind the principles of
             <a
               href="https://www.india.gov.in/spotlight/building-atmanirbhar-bharat-overcoming-covid-19"
               target="_blank"
               rel="noreferrer"
             >
+              {" "}
               AatmaNirbhar Bharat Abhiyan
             </a>
-            ,{" "}
+            ,
             <a
               href="https://www.digitalindia.gov.in"
               target="_blank"
               rel="noreferrer"
             >
-              Digital India
-            </a>{" "}
-            and{" "}
+              {" "}
+              Digital India{" "}
+            </a>
+            and
             <a
               href="https://smartnet.niua.org/dsc/"
               rel="noreferrer"
               target="_blank"
             >
-              DataSmart Cities
-            </a>{" "}
-            to unlock innovation through co-creation.{" "}
+              {" "}
+              DataSmart Cities{" "}
+            </a>
+            to unlock innovation through co-creation.
           </p>
           <p>
             SMART MOVE Innovative Urban Mobility Challenge is an initiative by
             the Ministry of Housing and Urban Affairs supported by the Smart
             Cities Mission, the National Institute of Urban Affairs and GIZ
-            India.{" "}
+            India.
           </p>
 
           <iframe
@@ -98,12 +105,27 @@ function Home() {
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-6 compete">
-              <button className="compete-text">COMPETE IN THE CHALLENGE</button>
+              {/* <button className="compete-text">COMPETE IN THE CHALLENGE</button> */}
+              <a href="https://hack.dataspace.mobi/login">
+                <img
+                  className="compete-text"
+                  src={button1}
+                  alt="compete partner"
+                />
+              </a>
             </div>
             <div className="col-md-6 data-partner">
-              <button className="data-partner-text">
+              <Link to="/cities">
+              <img
+                className="data-partner-text"
+                src={button2}
+                alt="data partner"
+              />
+              </Link>
+              
+              {/* <button className="data-partner-text">
                 BECOME A DATA PARTNER
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
@@ -117,7 +139,7 @@ function Home() {
         <p className="align-left">
           Calling all students and researchers from India and around the world!
           Put on your thinking caps, ideate, innovate and share with us a brief
-          concept note on any of the following themes.{" "}
+          concept note on any of the following themes.
         </p>
 
         <div className="row">
@@ -195,7 +217,7 @@ function Home() {
             The top 3 proposals will be provided contracts jointly worth ₹
             20,00,000 with a minimum contract value of ₹ 5,00,000. Additionally,
             the winning teams will have an opportunity to present their solution
-            to Smart Cities Mission, Government of India.{" "}
+            to Smart Cities Mission, Government of India.
           </p>
         </div>
       </section>
@@ -220,7 +242,7 @@ function Home() {
               <div className="col-md-4">
                 <img src={NIUA} alt="" />
                 <p>
-                  Implementation Partner:{" "}
+                  Implementation Partner:
                   <a href="http://niua.org/" target="_blank" rel="noreferrer">
                     National Institute of Urban Affairs
                   </a>

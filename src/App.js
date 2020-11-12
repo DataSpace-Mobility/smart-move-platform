@@ -9,6 +9,10 @@ import Footer from './components/Footer/Footer';
 
 import './App.scss';
 import Guideline from './components/Guidelines/Guidelines';
+import SignIn from './Admin/Signin';
+import CityForm from './components/CityForm/CityForm';
+import AdminDashboard from './Admin/Dashboard/AdminDashboard';
+import Cities from './components/Cities/Cities';
 
 function App() {
   return (
@@ -20,6 +24,10 @@ function App() {
 			<Route path="/partners" component={Partners} />
 			<Route path="/privacy" component={Privacy} />
 			<Route path="/guidelines" component={Guideline} />
+			<Route path="/cities" component={Cities} />
+			<Route path="/admin" component={SignIn} />
+			<Route path="/form" component={CityForm} />
+			<Route path="/dashboard" component={AdminDashboard} />
 		</Switch>
 		<Footer/>
 	</Router>

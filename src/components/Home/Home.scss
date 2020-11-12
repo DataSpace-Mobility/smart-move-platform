@@ -47,7 +47,6 @@
             
           }
         .col-md-6 {
-            padding: 100px 6f0px;
             @media screen and (max-width: 740px) {
                 padding: 10px 6px;
                 
@@ -63,8 +62,11 @@
             text-align: right;
             color: $secondary-color;
             font-size: 5em;
+            cursor: pointer;
+            width:100%;
+            height:100%;
             @media screen and (max-width: 740px) {
-                font-size: 2.2em;
+                font-size: 3em;
                 
               }
         }
@@ -72,8 +74,11 @@
             text-align: left;
             color: $blue-color;
             font-size: 5em;
+            cursor: pointer;
+            width:100%;
+            height:100%;
             @media screen and (max-width: 740px) {
-                font-size: 2.2em;
+                font-size: 3em;
                 
               }
         }
@@ -85,18 +90,18 @@
                 
               }
         }
-        .compete:hover {
-            background-color: $secondary-color;
-            .compete-text {
-                color: $white-color;
-            }
-        }
-        .data-partner:hover {
-            background-color: $blue-color;
-            .data-partner-text {
-                color: $white-color;
-            }
-        }
+        // .compete:hover {
+        //     background-color: $secondary-color;
+        //     .compete-text {
+        //         color: $white-color;
+        //     }
+        // }
+        // .data-partner:hover {
+        //     background-color: $blue-color;
+        //     .data-partner-text {
+        //         color: $white-color;
+        //     }
+        // }
 
     }
 
@@ -235,13 +240,14 @@
     }
     .reward {
         .prize-money {
-            width: 50%;
+            width: 70%;
             margin: 30px auto;
             font-size: 5em;
             background-color: $blue-color;
             color: $white-color;
             font-weight: 600;
             padding: 10px 20px;
+            max-width: 500px;
             span {
                 font-family: Courier, monospace;
             }

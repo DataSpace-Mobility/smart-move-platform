@@ -81,16 +81,16 @@ function Guideline() {
                   <li>
                     <p className="whatpara">
                       Combine different mobility datasets on a platform to
-                      create integrated and multi-modal customer propositions
+                      create integrated and multi-modal customer propositions.
                     </p>
                   </li>
                   <li>
                     <p className="whatpara">
-                      Combine different mobility datasets on a platform to
-                      create integrated and multi-modal customer propositions
+                      Combine on-board & off-board vehicle data with users’ data
+                      (e.g. from smartphones) and other data sources to create
+                      value for customers.
                     </p>
                   </li>
-
                   <li>
                     <p className="whatpara">
                       Create a decision-making tool by linking mobility data
@@ -102,7 +102,7 @@ function Guideline() {
                     <p className="whatpara">
                       Provide some Fin-tech solutions that deliver contactless,
                       integrated, seamless payment (e.g. multi-modal services,
-                      fuel, EV charging, parking)
+                      fuel, EV charging, parking).
                     </p>
                   </li>
                 </ul>
@@ -247,6 +247,9 @@ function Guideline() {
             </div>
 
             <div className="row">
+              <div className="col-md-6 webhide">
+                <img className="datachal-image" src={DataIdea} alt="DataIdea" />
+              </div>
               <div className="col-md-6 chalpara">
                 <p chalpara>
                   Log on to{" "}
@@ -266,7 +269,7 @@ function Guideline() {
                 </p>
               </div>
 
-              <div className="col-md-6">
+              <div className="col-md-6 mobilehide">
                 <img className="datachal-image" src={DataIdea} alt="DataIdea" />
               </div>
             </div>
@@ -276,7 +279,7 @@ function Guideline() {
         <section className="looking top">
           <div className="container top">
             <div className="heading heading-black getsetgoheadingbox heading-center">
-              <h1>GET, SET, GO!</h1>
+              <h1>GET SET, GO!</h1>
             </div>
             <div className="row">
               <div className="col-md-12">
