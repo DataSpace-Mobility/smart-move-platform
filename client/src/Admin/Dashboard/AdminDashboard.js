@@ -21,10 +21,11 @@ import Switch from "@material-ui/core/Switch";
 import CloudDownloadIcon from "@material-ui/icons/CloudDownload";
 import { useHistory } from "react-router-dom";
 import { CSVLink } from "react-csv";
-import smartlogo from '../logo-color.svg';
+import smartlogo from "../logo-color.svg";
 
 import { Button } from "@material-ui/core";
-import { auth, db } from "../../firebase";
+// import { auth } from "../../firebase";
+import axios from "axios";
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -151,9 +152,9 @@ const useToolbarStyles = makeStyles((theme) => ({
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
-    position:"absolute",
-    top:"0px",
-    zIndex:'9999',
+    position: "absolute",
+    top: "0px",
+    zIndex: "9999",
   },
   paper: {
     width: "100%",
@@ -179,7 +180,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const AdminDashboard = () => {
-
   // console.log('Admin Dashboard');
   const history = useHistory();
   const classes = useStyles();
@@ -248,31 +248,69 @@ const AdminDashboard = () => {
     history.push("/admin");
   };
 
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((authUser) => {
-      if (authUser) {
-        // // user has logged in
-        // console.log(authUser);
-        setUser(authUser);
-        let formdata = [];
-        db.collection("forms").onSnapshot((snapshot) => {
-          formdata.push(snapshot.docs.map((doc) => doc.data()));
-          setRows(formdata[0]);
-        });
-        // console.log("data from db",formdata);
-      } else {
-        // user has logged out
+  const signOut = () => {
+    const url = "api/users/logout";
+    axios
+      .get(url)
+      .then((res) => {
+        // console.log("logout", res);
         setUser(null);
         setRows([]);
-        history.push('/admin')
-      }
-    });
+        history.push("/admin");
+      })
+      .catch((err) => console.log(err));
+  };
 
-    return () => {
-      // perform some cleanup actions
-      unsubscribe();
-    };
-  }, [user,history]);
+  useEffect(() => {
+    const url = "api/users/auth";
+    axios
+      .get(url)
+      .then((res) => {
+        const { isAuth } = res.data;
+        // console.log("isAuth", isAuth);
+        if (isAuth) {
+          setUser(isAuth);
+          const url = "/api/cities/getdata";
+          axios
+            .get(url)
+            .then((res) => setRows(res.data))
+            .catch((err) => console.log(err));
+        } else {
+          setUser(null);
+          setRows([]);
+          history.push("/admin");
+        }
+      })
+      .catch((err) => console.log(err));
+
+    // const unsubscribe = auth.onAuthStateChanged((authUser) => {
+    //   if (authUser) {
+    //     // // user has logged in
+    //     // console.log(authUser);
+    //     setUser(authUser);
+    //     // let formdata = [];
+
+    //     // Firebase
+    //     // db.collection("forms").onSnapshot((snapshot) => {
+    //     //   formdata.push(snapshot.docs.map((doc) => doc.data()));
+    //     //   setRows(formdata[0]);
+    //     // });
+    //     // console.log("data from db",formdata);
+    //   } else {
+    //     // user has logged out
+    //     setUser(null);
+    //     setRows([]);
+    //     history.push("/admin");
+    //   }
+    // });
+
+    // return () => {
+    //   // perform some cleanup actions
+    //   unsubscribe();
+    // };
+  }, [user, history]);
+
+  // console.log('rows',rows);
   const EnhancedTableToolbar = (props) => {
     const classes = useToolbarStyles();
     const { numSelected } = props;
@@ -283,7 +321,11 @@ const AdminDashboard = () => {
           [classes.highlight]: numSelected > 0,
         })}
       >
-        <img src={smartlogo} alt="smartmovelogo" style={{maxWidth:"120px", maxHeight:"80px"}}/>
+        <img
+          src={smartlogo}
+          alt="smartmovelogo"
+          style={{ maxWidth: "120px", maxHeight: "80px" }}
+        />
         <Typography
           className={classes.title}
           variant="h6"
@@ -323,7 +365,8 @@ const AdminDashboard = () => {
         {user ? (
           <Tooltip title="Login">
             <IconButton aria-label="login">
-              <Button onClick={() => auth.signOut()} style={{ color: "#fff" }}>
+              {/* firebase () => auth.signOut() */}
+              <Button onClick={signOut} style={{ color: "#fff" }}>
                 Logout
               </Button>
             </IconButton>
@@ -388,9 +431,13 @@ const AdminDashboard = () => {
                   .map((row, index) => {
                     const isItemSelected = isSelected(row.Poc);
                     const labelId = `enhanced-table-checkbox-${index}`;
-                    const sectorsList = Object.keys(row.datasets);
+
+                    const datasetList = row.datasets[0];
+                    // console.log('datasetsList',datasetList);
+                    const sectorsList = Object.keys(datasetList);
+                    // console.log('sectorlist',sectorsList);
                     let subsectors = sectorsList.map((sector) => {
-                      return { [sector]: row.datasets[sector].join(',') };
+                      return { [sector]: datasetList[sector].join(",") };
                     });
                     // let subsector = ...sectors;
                     // console.log(...subsectors);

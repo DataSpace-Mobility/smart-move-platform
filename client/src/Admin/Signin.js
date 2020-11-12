@@ -9,8 +9,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { auth } from "../firebase";
 import { useHistory } from "react-router-dom";
-import smartlogo from './logo-color.svg';
-
+import smartlogo from "./logo-color.svg";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -18,19 +18,19 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    marginBottom:"150px"
+    marginBottom: "150px",
   },
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: "100%", 
+    width: "100%",
     marginTop: theme.spacing(1),
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
-    backgroundColor:"#dc4351",
+    backgroundColor: "#dc4351",
   },
 }));
 
@@ -43,20 +43,35 @@ const SignIn = () => {
 
   const login = (event) => {
     event.preventDefault();
-    auth
-      .signInWithEmailAndPassword(email, password)
-      .then((auth) => {
-        history.push("/dashboard");
-      })
-      .catch((event) => alert(event.message));
+    const url = "api/users/login";
+    const cred = {
+      email,
+      password,
+    };
+    axios
+      .post(url, cred)
+      .then((res) => history.push("/dashboard"))
+      .catch((err) => console.log(err));
+
+    // // Firebase auth
+    // auth
+    //   .signInWithEmailAndPassword(email, password)
+    //   .then((auth) => {
+    //     // history.push("/dashboard");
+    //   })
+    //   .catch((event) => alert(event.message));
   };
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
         {/* <Avatar className={classes.avatar}> */}
-          {/* <LockOutlinedIcon /> */}
-          <img src={smartlogo} alt="smartmovelogo" style={{maxWidth:"100px"}}/>
+        {/* <LockOutlinedIcon /> */}
+        <img
+          src={smartlogo}
+          alt="smartmovelogo"
+          style={{ maxWidth: "100px" }}
+        />
         {/* </Avatar> */}
         <Typography component="h1" variant="h5">
           Sign in
@@ -106,6 +121,6 @@ const SignIn = () => {
       </div>
     </Container>
   );
-}
+};
 
 export default SignIn;
