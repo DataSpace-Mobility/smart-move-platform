@@ -7,7 +7,7 @@ import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import { auth } from "../firebase";
+// import { auth } from "../firebase";
 import { useHistory } from "react-router-dom";
 import smartlogo from "./logo-color.svg";
 import axios from "axios";
