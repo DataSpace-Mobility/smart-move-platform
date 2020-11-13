@@ -1,6 +1,14 @@
 const mongoose = require('mongoose');
 
 const cityDataSchema = mongoose.Schema({
+    OrganizationType: {
+        type: String,
+        default: ''
+    },
+    OrganizationName: {
+        type: String,
+        default: ''
+    },
     City: {
         type: String,
         default: ''
