@@ -54,6 +54,8 @@ function stableSort(array, comparator) {
 }
 
 const headCells = [
+  { id: "OrganizationType", numeric: true, disablePadding: false, label: "OrganizationType" },
+  { id: "OrganizationName", numeric: true, disablePadding: false, label: "OrganizationName" },
   {
     id: "Poc",
     numeric: false,
@@ -457,6 +459,8 @@ const AdminDashboard = () => {
                             inputProps={{ "aria-labelledby": labelId }}
                           />
                         </TableCell>
+                        <TableCell align="right">{row.OrganizationType}</TableCell>
+                        <TableCell align="right">{row.OrganizationName}</TableCell>
                         <TableCell
                           component="th"
                           id={labelId}

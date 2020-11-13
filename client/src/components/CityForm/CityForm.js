@@ -69,7 +69,7 @@ const useStyles = makeStyles((theme) => ({
   },
   yellowColor: {
     color: "#F4C75B",
-    fontWeight:"500"
+    fontWeight: "500",
   },
 }));
 
@@ -83,6 +83,7 @@ const CityForm = () => {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const [cityData, setCityData] = React.useState(initialCityData);
+  const [showNextPage, setShowNextPage] = React.useState(false);
   const history = useHistory();
 
   function getStepContent(step) {
@@ -90,7 +91,13 @@ const CityForm = () => {
       case 0:
         return <PersonDetails next={saveData} back={handleBack} />;
       case 1:
-        return <SectorDetails next={saveData} back={handleBack} />;
+        return (
+          <SectorDetails
+            showNext={showNextPage}
+            next={saveData}
+            back={handleBack}
+          />
+        );
       case 2:
         return <Review data={cityData} submit={submitData} back={handleBack} />;
       default:
@@ -100,8 +107,36 @@ const CityForm = () => {
 
   const saveData = (childData) => {
     setCityData({ ...cityData, ...childData });
+    console.log(childData);
+    if (childData.personData) {
+      const type = childData.personData.OrganizationType;
+      if (type === "Smart City / SPV" || type === "Municipal Corporation") {
+        setShowNextPage(true);
+        console.log("Organization type true", childData.personData.OrganizationType);
+      } else {
+        setShowNextPage(false);
+        console.log("Organization type false", childData.personData.OrganizationType);
+      }
+    }
     handleNext();
   };
+
+  // useEffect(() => {
+  //   console.log('useEffect called');
+  // }, [cityData])
+
+  // const handleNextPage = () => {
+  //   if (cityData.personData) {
+  //     const type = cityData.personData.OrganizationType;
+  //     if (type === "Smart City / SPV" || type === "Municipal Corporation") {
+  //       setShowNextPage(true);
+  //       console.log("Organization type true", cityData.personData.OrganizationType);
+  //     } else {
+  //       setShowNextPage(false);
+  //       console.log("Organization type false", cityData.personData.OrganizationType);
+  //     }
+  //   }
+  // };
 
   const submitData = () => {
     handleNext();
