@@ -51,7 +51,7 @@ const SignIn = () => {
     axios
       .post(url, cred)
       .then((res) => history.push("/dashboard"))
-      .catch((err) => console.log(err));
+      .catch((err) => alert('Invalid Credentials.',err));
 
     // // Firebase auth
     // auth

@@ -312,16 +312,18 @@ const useStyles = makeStyles((theme) => ({
   button: {
     width: "100%",
     padding: " 10px",
-    borderRadius: " 5px",
+    borderRadius: "25px",
     cursor: " pointer",
+    borderStyle: "groove",
   },
   buttonSelected: {
     width: " 100%",
     padding: " 10px",
-    borderRadius: " 5px",
+    borderRadius: "25px",
     backgroundColor: " #6c6d6f",
     color: " white",
     cursor: " pointer",
+    borderStyle: "groove",
   },
 }));
 
@@ -339,7 +341,7 @@ const SectorDetails = (props) => {
   };
 
   const handleNextPage = () => {
-    console.log('ShowNext',props.showNext);
+    // console.log('ShowNext',props.showNext);
     // console.log(sectors);
     if (props.showNext) {
       setShowNextPage(true);
@@ -415,7 +417,7 @@ const SectorDetails = (props) => {
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
-        City Data Availability
+      Data Availability
       </Typography>
       {!showNextPage ? (
         <Grid container spacing={3}>

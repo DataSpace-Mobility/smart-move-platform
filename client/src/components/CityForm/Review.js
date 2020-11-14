@@ -42,7 +42,7 @@ export default function Review(props) {
   }
   if (datasets) {
     datasetKeyList = Object.keys(datasets);
-    console.log('datasets:',datasetKeyList);
+    // console.log('datasets:',datasetKeyList);
   }
 
   const handleSubmit = () => {

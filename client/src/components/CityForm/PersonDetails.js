@@ -195,7 +195,7 @@ const PersonDetails = (props) => {
   return (
     <React.Fragment>
       <Typography variant="h5" gutterBottom>
-        City Details
+        Contact Details
       </Typography>
       <Grid container spacing={3}>
         <Grid item xs={12}>

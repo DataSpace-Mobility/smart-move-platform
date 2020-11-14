@@ -73,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const steps = ["City Details", "City Data Availability", "Review your entry"];
+const steps = ["Contact Details", "Data Availability", "Review your entry"];
 const initialCityData = {
   personData: null,
   datasets: null,
@@ -107,15 +107,15 @@ const CityForm = () => {
 
   const saveData = (childData) => {
     setCityData({ ...cityData, ...childData });
-    console.log(childData);
+    // console.log(childData);
     if (childData.personData) {
       const type = childData.personData.OrganizationType;
       if (type === "Smart City / SPV" || type === "Municipal Corporation") {
         setShowNextPage(true);
-        console.log("Organization type true", childData.personData.OrganizationType);
+        // console.log("Organization type true", childData.personData.OrganizationType);
       } else {
         setShowNextPage(false);
-        console.log("Organization type false", childData.personData.OrganizationType);
+        // console.log("Organization type false", childData.personData.OrganizationType);
       }
     }
     handleNext();
