@@ -203,25 +203,6 @@ const AdminDashboard = () => {
   const [user, setUser] = React.useState(null);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const [rows, setRows] = React.useState([]);
-  // const [newRows, setNewRows] = React.useState([]);
-
-  // if(rows.length){
-  //   console.log('rows:',rows);
-  //   const newRow = rows.map( (row) => {
-  //     return {
-  //       OrganizationType:row.OrganizationType,
-  //       OrganizationName:row.OrganizationName,
-  //       Poc:row.Poc,
-  //       Email:row.Email,
-  //       City:row.City,
-  //       Phone:row.Phone,
-  //       datasets:JSON.stringify(row.datasets[0])
-  //     }
-  //   });
-  //   // const newst = [...rows,...newRow]
-  //   console.log('new Row',newRow[0].datasets);
-
-  // }
 
   const newRows = rows.length
     ? rows.map((row) => {
