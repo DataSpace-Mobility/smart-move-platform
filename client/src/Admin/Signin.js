@@ -39,6 +39,7 @@ const SignIn = () => {
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMsg, setErrorMsg] = useState("")
   // const [form, setForm] = useState([]);
 
   const login = (event) => {
@@ -50,8 +51,16 @@ const SignIn = () => {
     };
     axios
       .post(url, cred)
-      .then((res) => history.push("/dashboard"))
-      .catch((err) => alert('Invalid Credentials.',err));
+      .then((res) => {
+        const {loginSuccess, message} = res.data;
+        console.log(res.data)
+        if (loginSuccess) {
+          history.push("/dashboard")
+        }
+        // alert(message)
+        setErrorMsg(message)
+      })
+      .catch((err) => setErrorMsg(err));
 
     // // Firebase auth
     // auth
@@ -107,6 +116,7 @@ const SignIn = () => {
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
           /> */}
+          <Typography style={{color:'red'}}>{errorMsg}</Typography>
           <Button
             type="submit"
             fullWidth

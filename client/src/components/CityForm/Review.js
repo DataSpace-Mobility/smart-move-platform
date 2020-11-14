@@ -5,10 +5,38 @@ import Grid from "@material-ui/core/Grid";
 import { Button, ButtonGroup } from "@material-ui/core";
 // import { db } from "../../firebase";
 import axios from "axios";
-import { Document, HeadingLevel, Packer, Paragraph, Table, TableCell, TableRow } from "docx";
+import {
+  Document,
+  HeadingLevel,
+  Packer,
+  Paragraph,
+  TabStopPosition,
+  TabStopType,
+  TextRun,
+} from "docx";
 import { saveAs } from "file-saver";
 
-
+function createHeader(FieldName, FieldValue) {
+  return new Paragraph({
+      tabStops: [
+          {
+              type: TabStopType.RIGHT,
+              position: TabStopPosition.MAX,
+          },
+      ],
+      children: [
+          new TextRun({
+              text: FieldName,
+              bold: true,
+              size:"28",
+          }),
+          new TextRun({
+              text: `\t${FieldValue}`,
+              size:"28",
+          }),
+      ],
+  });
+}
 
 const useStyles = makeStyles((theme) => ({
   listItem: {
@@ -66,71 +94,36 @@ export default function Review(props) {
     props.submit();
   };
 
-
+  // Create Docx
   const docCreator = () => {
     const doc = new Document();
-    
-    // personData[key]
-    const tablerows = personKeyList.map( ( key) => 
-    {
-      return new TableRow({
-        children: [
-          new TableCell({
-            children: [new Paragraph(key)],
-          }),
-          new TableCell({
-            children: new Paragraph(personData[key]),
-          }),
-        ],
-      })
-    }
-    
-    
-    );
-    console.log('tb',tablerows);
-    const table = new Table({
-      rows: [
-        new TableRow({
-          children: [
-            new TableCell({
-              children: [new Paragraph(personData)],
-            }),
-            new TableCell({
-              children: [],
-            }),
-          ],
-        }),
-        new TableRow({
-          children: [
-            new TableCell({
-              children: [],
-            }),
-            new TableCell({
-              children: [new Paragraph(datasets)],
-            }),
-          ],
-        }),
-      ],
-    });
-  
+
     doc.addSection({
-      children:[
+      children: [
         new Paragraph({
-          text:"Become a Data Partner",
-          heading:HeadingLevel.TITLE,
+          text: "Become a Data Partner",
+          heading: HeadingLevel.TITLE,
         }),
-        table
+        new Paragraph({
+          text: "City Details",
+          heading: HeadingLevel.HEADING_1,
+        }),
+        ...personKeyList.map( (key) => createHeader(key,personData[key])),
+        new Paragraph({
+          text: "List of DataSets",
+          heading: HeadingLevel.HEADING_1,
+        }),
+        ...datasetKeyList.map( (key) => createHeader(key,datasets[key])),
       ],
-      
     });
 
-   
-    Packer.toBlob(doc).then(blob => {
+    Packer.toBlob(doc).then((blob) => {
       // console.log(blob);
       saveAs(blob, "example.docx");
       // console.log("Document created successfully");
     });
   };
+
 
   return (
     <React.Fragment>

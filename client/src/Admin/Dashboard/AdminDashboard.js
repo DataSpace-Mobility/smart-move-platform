@@ -19,7 +19,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
 import CloudDownloadIcon from "@material-ui/icons/CloudDownload";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { CSVLink } from "react-csv";
 import smartlogo from "../logo-color.svg";
 
@@ -54,8 +54,18 @@ function stableSort(array, comparator) {
 }
 
 const headCells = [
-  { id: "OrganizationType", numeric: true, disablePadding: false, label: "OrganizationType" },
-  { id: "OrganizationName", numeric: true, disablePadding: false, label: "OrganizationName" },
+  {
+    id: "OrganizationType",
+    numeric: true,
+    disablePadding: false,
+    label: "OrganizationType",
+  },
+  {
+    id: "OrganizationName",
+    numeric: true,
+    disablePadding: false,
+    label: "OrganizationName",
+  },
   {
     id: "Poc",
     numeric: false,
@@ -193,6 +203,40 @@ const AdminDashboard = () => {
   const [user, setUser] = React.useState(null);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const [rows, setRows] = React.useState([]);
+  // const [newRows, setNewRows] = React.useState([]);
+
+  // if(rows.length){
+  //   console.log('rows:',rows);
+  //   const newRow = rows.map( (row) => {
+  //     return {
+  //       OrganizationType:row.OrganizationType,
+  //       OrganizationName:row.OrganizationName,
+  //       Poc:row.Poc,
+  //       Email:row.Email,
+  //       City:row.City,
+  //       Phone:row.Phone,
+  //       datasets:JSON.stringify(row.datasets[0])
+  //     }
+  //   });
+  //   // const newst = [...rows,...newRow]
+  //   console.log('new Row',newRow[0].datasets);
+
+  // }
+
+  const newRows = rows.length
+    ? rows.map((row) => {
+        return {
+          OrganizationType: row.OrganizationType,
+          OrganizationName: row.OrganizationName,
+          Poc: row.Poc,
+          Email: row.Email,
+          City: row.City,
+          Phone: row.Phone,
+          datasets: JSON.stringify(row.datasets[0]),
+        };
+      })
+    : [];
+
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
@@ -323,11 +367,14 @@ const AdminDashboard = () => {
           [classes.highlight]: numSelected > 0,
         })}
       >
-        <img
-          src={smartlogo}
-          alt="smartmovelogo"
-          style={{ maxWidth: "120px", maxHeight: "80px" }}
-        />
+        <Link to="/">
+          <img
+            src={smartlogo}
+            alt="smartmovelogo"
+            style={{ width:"100px",maxWidth: "120px", maxHeight: "80px" }}
+          />
+        </Link>
+
         <Typography
           className={classes.title}
           variant="h6"
@@ -358,7 +405,7 @@ const AdminDashboard = () => {
         )} */}
         <Tooltip title="Download">
           <IconButton aria-label="download">
-            <CSVLink data={rows} filename={"City-datasets.csv"}>
+            <CSVLink data={newRows} filename={"City-datasets.csv"}>
               <CloudDownloadIcon style={{ color: "#fff" }} />
             </CSVLink>
             {/* <CSVDownload data={rows} target="_blank" /> */}
@@ -433,7 +480,6 @@ const AdminDashboard = () => {
                   .map((row, index) => {
                     const isItemSelected = isSelected(row.Poc);
                     const labelId = `enhanced-table-checkbox-${index}`;
-
                     const datasetList = row.datasets[0];
                     // console.log('datasetsList',datasetList);
                     const sectorsList = Object.keys(datasetList);
@@ -450,7 +496,7 @@ const AdminDashboard = () => {
                         role="checkbox"
                         aria-checked={isItemSelected}
                         tabIndex={-1}
-                        key={row.Poc}
+                        key={row.id}
                         selected={isItemSelected}
                       >
                         <TableCell padding="checkbox">
@@ -459,8 +505,12 @@ const AdminDashboard = () => {
                             inputProps={{ "aria-labelledby": labelId }}
                           />
                         </TableCell>
-                        <TableCell align="right">{row.OrganizationType}</TableCell>
-                        <TableCell align="right">{row.OrganizationName}</TableCell>
+                        <TableCell align="right">
+                          {row.OrganizationType}
+                        </TableCell>
+                        <TableCell align="right">
+                          {row.OrganizationName}
+                        </TableCell>
                         <TableCell
                           component="th"
                           id={labelId}
@@ -473,7 +523,7 @@ const AdminDashboard = () => {
                         <TableCell align="right">{row.City}</TableCell>
                         <TableCell align="right">{row.Phone}</TableCell>
                         <TableCell align="right">
-                          {JSON.stringify(subsectors)}
+                          {JSON.stringify(subsectors[0])}
                         </TableCell>
                       </TableRow>
                     );
