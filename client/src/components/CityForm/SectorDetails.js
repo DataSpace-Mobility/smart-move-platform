@@ -360,8 +360,6 @@ const SectorDetails = (props) => {
     setTextValue({ ...textValue, [event.target.name]: event.target.value });
   };
   const handleButton = (event) => {
-    // Set Sector
-    // console.log(event.target.value);
     let sectorValue = event.target.value;
     // setSector(sectorValue);
     let newSectors = [...sectors];
@@ -379,9 +377,6 @@ const SectorDetails = (props) => {
   };
 
   const handleNext = () => {
-    // console.log("sector list : ", sectors);
-    // console.log('Selected checkbox list :',state);
-    // console.log('text field',textValue);
     const keys = Object.keys(state).filter((k) => state[k]);
     // console.log("selected checkbox", keys);
     let finalData = {};

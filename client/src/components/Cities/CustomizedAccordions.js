@@ -68,7 +68,7 @@ export default function CustomizedAccordions() {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography variant="p">
+          <Typography variant="subtitle1">
             From 15.11.2020 to 15.01.2021 the data partners are invited to share
             their urban mobility datasets on <Link to="/form">https://smartmove.niua.org/form </Link>
             Data Partners are Smart Cities, State Capitals, Cities (with more
@@ -89,7 +89,7 @@ export default function CustomizedAccordions() {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography variant="p">
+          <Typography variant="subtitle1">
             By participating in the SMART-MOVE challenge, cities will be able to
             collaborate with students and researchers in finding innovative
             solutions to overcome the challenges faced due to COVID-19 pandemic
@@ -115,7 +115,7 @@ export default function CustomizedAccordions() {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography variant="p">
+          <Typography variant="subtitle1">
             On 15.01.2021, a review committee of international and national
             urban mobility experts, bureaucrats, academicians, data scientists,
             industry professionals, city officials, policy makers, think tanks

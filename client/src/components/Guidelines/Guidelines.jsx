@@ -1,15 +1,4 @@
 import React from "react";
-// import Footer from "../Footer/Footer";
-// import Header from "../Header/Header";
-// import Hero from "../Home/hero.svg";
-// import PartnerLogos from "../Home/partner-logos.png";
-// import Timeline from "../Home/timeline.svg";
-// import MOHUA from "../Home/partners/mohua.svg";
-// import NIUA from "../Home/partners/niua.svg";
-// import SCM from "../Home/partners/scm.svg";
-// import GIZ from "../Home/partners/giz.svg";
-// import CitiesForum from "../Home/partners/cities_forum.png";
-// import DataSpace from "../Home/partners/dataspace.svg";
 import Mission from "../Home/Mission.png";
 import Distinct from "../Home/distinct.png";
 import Implementable from "../Home/implementation.png";
@@ -161,7 +150,7 @@ function Guideline() {
                   src={Financially}
                   alt="Financially"
                 />
-                <p iconheading>Financially Feasible</p>
+                <p>Financially Feasible</p>
               </div>
 
               <div className="col-md-3 iconheading">
@@ -170,7 +159,7 @@ function Guideline() {
                   src={Measurable}
                   alt="Measurable"
                 />
-                <p iconheading>Measurable and Verifiable Outcomes</p>
+                <p>Measurable and Verifiable Outcomes</p>
               </div>
               <div className="ideaparabox row ">
                 <div className="col-md-12 top">
@@ -193,8 +182,10 @@ function Guideline() {
         </section>
         <section className="col-md-12 learnmorebox">
           <p>
-            To learn more, download the challenge guidelines document{" "}
-            <a href="/Smartmove_DataChallengeGuidelines.pdf">here</a>.
+            <strong>
+              To learn more, download the challenge guidelines document{" "}
+              <a href="/Smartmove_DataChallengeGuidelines.pdf">here</a>.
+            </strong>
           </p>
         </section>
         <section className="looking">
@@ -211,14 +202,14 @@ function Guideline() {
                 <ul>
                   <li>
                     {" "}
-                    <p chalpara>
+                    <p>
                       How to generate insights and creating value from the
                       mobility data.
                     </p>
                   </li>
                   <li>
                     {" "}
-                    <p chalpara>
+                    <p>
                       How to learn more on commuter behaviours and preferences
                       with data gathered currently with various transit agencies
                       and private transport operators.
@@ -226,7 +217,7 @@ function Guideline() {
                   </li>
                   <li>
                     {" "}
-                    <p chalpara>
+                    <p>
                       How to influence decision making for a traveller to
                       consider travel at a different time and / or using
                       alternate options, so transportation demand including
@@ -251,7 +242,7 @@ function Guideline() {
                 <img className="datachal-image" src={DataIdea} alt="DataIdea" />
               </div>
               <div className="col-md-6 chalpara">
-                <p chalpara>
+                <p>
                   Log on to{" "}
                   <a href="https://dataspace.mobi">https://dataspace.mobi</a> to
                   search and find a variety of urban mobility-related datasets
@@ -263,7 +254,7 @@ function Guideline() {
                   request for additional datasets.
                 </p>
 
-                <p chalpara>
+                <p>
                   Keep in mind that your proposal will be judged based on the
                   feasibility of available data.
                 </p>

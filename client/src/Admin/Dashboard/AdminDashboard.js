@@ -14,7 +14,6 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import Checkbox from "@material-ui/core/Checkbox";
-import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
@@ -310,31 +309,6 @@ const AdminDashboard = () => {
       })
       .catch((err) => console.log(err));
 
-    // const unsubscribe = auth.onAuthStateChanged((authUser) => {
-    //   if (authUser) {
-    //     // // user has logged in
-    //     // console.log(authUser);
-    //     setUser(authUser);
-    //     // let formdata = [];
-
-    //     // Firebase
-    //     // db.collection("forms").onSnapshot((snapshot) => {
-    //     //   formdata.push(snapshot.docs.map((doc) => doc.data()));
-    //     //   setRows(formdata[0]);
-    //     // });
-    //     // console.log("data from db",formdata);
-    //   } else {
-    //     // user has logged out
-    //     setUser(null);
-    //     setRows([]);
-    //     history.push("/admin");
-    //   }
-    // });
-
-    // return () => {
-    //   // perform some cleanup actions
-    //   unsubscribe();
-    // };
   }, [user, history]);
 
   // console.log('rows',rows);
@@ -364,67 +338,31 @@ const AdminDashboard = () => {
         >
           Dashboard
         </Typography>
-
-        {/* {numSelected > 0 ? (
-          <Typography
-            className={classes.title}
-            color="inherit"
-            variant="subtitle1"
-            component="div"
-          >
-            {numSelected} selected
-          </Typography>
-        ) : (
-          <Typography
-            className={classes.title}
-            variant="h6"
-            id="tableTitle"
-            component="div"
-          >
-            Dashboard
-          </Typography>
-        )} */}
         <Tooltip title="Download">
-          <IconButton aria-label="download">
+          {/* <IconButton aria-label="download"> */}
             <CSVLink data={newRows} filename={"City-datasets.csv"}>
-              <CloudDownloadIcon style={{ color: "#fff" }} />
+              <CloudDownloadIcon style={{ color: "#fff", margin:"10px"}} />
             </CSVLink>
-            {/* <CSVDownload data={rows} target="_blank" /> */}
-          </IconButton>
+          {/* </IconButton> */}
         </Tooltip>
         {user ? (
           <Tooltip title="Login">
-            <IconButton aria-label="login">
+            {/* <IconButton aria-label="login"> */}
               {/* firebase () => auth.signOut() */}
-              <Button onClick={signOut} style={{ color: "#fff" }}>
+              <Button onClick={signOut} style={{ color: "#fff", margin:"10px" }}>
                 Logout
               </Button>
-            </IconButton>
+            {/* </IconButton> */}
           </Tooltip>
         ) : (
           <Tooltip title="Login">
-            <IconButton aria-label="login">
-              <Button onClick={handleLogin} style={{ color: "#fff" }}>
+            {/* <IconButton aria-label="login"> */}
+              <Button onClick={handleLogin} style={{ color: "#fff" ,margin:"10px"}}>
                 login
               </Button>
-            </IconButton>
+            {/* </IconButton> */}
           </Tooltip>
         )}
-        {/* {numSelected > 0 ? (
-          <Tooltip title="Delete">
-            <IconButton aria-label="delete">
-              <DeleteIcon />
-            </IconButton>
-          </Tooltip>
-        ) : (
-          <Tooltip title="Download">
-            <IconButton aria-label="download">
-              <CSVLink data={rows} filename={"City-datasets.csv"}>
-                <CloudDownloadIcon style={{ color: "#fff" }} />
-              </CSVLink>
-            </IconButton>
-          </Tooltip>
-        )} */}
       </Toolbar>
     );
   };
@@ -468,8 +406,6 @@ const AdminDashboard = () => {
                     let subsectors = sectorsList.map((sector) => {
                       return { [sector]: datasetList[sector].join(",") };
                     });
-                    // let subsector = ...sectors;
-                    // console.log(...subsectors);
                     return (
                       <TableRow
                         hover
@@ -510,7 +446,7 @@ const AdminDashboard = () => {
                     );
                   })}
                 {emptyRows > 0 && (
-                  <TableRow style={{ height: (dense ? 33 : 53) * emptyRows }}>
+                  <TableRow style={{ height: (dense ? 33 : 53) * emptyRows }} key={Math.random()}>
                     <TableCell colSpan={6} />
                   </TableRow>
                 )}
@@ -550,15 +486,15 @@ const AdminDashboard = () => {
               Please login
             </Typography>
             <Tooltip title="Login">
-              <IconButton aria-label="login" style={{ marginLeft: "auto" }}>
+              {/* <IconButton aria-label="login" style={{ marginLeft: "auto" }}> */}
                 <Button
                   size="large"
                   onClick={handleLogin}
-                  style={{ backgroundColor: "#fff" }}
+                  style={{ backgroundColor: "#fff" ,margin:"10px" ,marginLeft: "auto" }}
                 >
                   login
                 </Button>
-              </IconButton>
+              {/* </IconButton> */}
             </Tooltip>
           </Toolbar>
         </Paper>

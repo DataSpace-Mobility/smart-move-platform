@@ -93,10 +93,10 @@ function Home() {
             height="500px"
             title="Launch Video"
             src="https://www.youtube.com/embed/vwHQo5ywPCo"
-            frameborder="0"
+            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
+            allowFullScreen
+           />
         </div>
       </section>
 

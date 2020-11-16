@@ -28,6 +28,9 @@ import { useHistory } from "react-router-dom";
 // }
 
 const useStyles = makeStyles((theme) => ({
+  ".MuiStepIcon-root.MuiStepIcon-active": {
+    color: "red !important",
+  },
   appBar: {
     position: "relative",
   },
@@ -53,9 +56,6 @@ const useStyles = makeStyles((theme) => ({
   },
   stepper: {
     padding: theme.spacing(3, 0, 5),
-    "& > .MuiStepIcon-root.MuiStepIcon-active": {
-      color: "red",
-    },
   },
   buttons: {
     display: "flex",
