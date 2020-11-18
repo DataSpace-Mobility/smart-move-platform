@@ -158,6 +158,7 @@ const PersonDetails = (props) => {
   const handleInput = (event, values) => {
     let fieldValue = event.target.value;
     let fieldName = event.target.name;
+    // console.log(fieldName,":",fieldValue);
     if (!fieldValue && values) {
       fieldValue = values.value;
       fieldName = values.name;
@@ -235,6 +236,9 @@ const PersonDetails = (props) => {
                 {...params}
                 label="City Name"
                 fullWidth
+                name="City"
+                value={input.City}
+                onChange={handleInput}
                 required
                 InputProps={{ ...params.InputProps, type: "search" }}
               />
@@ -292,7 +296,7 @@ const PersonDetails = (props) => {
         >
           <Button
             variant="contained"
-            style={{ backgroundColor: "#69BFC3" }}
+            style={{ backgroundColor: "#DC4351" }}
             color="primary"
             onClick={handleNext}
           >

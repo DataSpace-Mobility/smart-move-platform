@@ -5,15 +5,19 @@
     overflow: hidden;
 }
 
-.Cities {
+.Faqs {
 
     overflow: hidden;
-
+    
     .top{
         margin-top: 80px;
     }
-    .bottom{
-        margin-bottom: 40px;
+    .top2{
+        margin-top: 40px;
+        @media screen and (max-width: 768px) {
+            margin-top: 80px;
+        }
+
     }
     .mission-image{
 
@@ -40,12 +44,7 @@
         }
     }
     .distinct-image{
-        width: 70%;
-        @media screen and (max-width: 768px) {
-            width: 90%;
-            margin: auto ;
-            margin-bottom: 20px;
-        }
+        width: 60%;
     }     
     .iconheading{
         font-weight: 700;
@@ -84,10 +83,10 @@
         margin-bottom: 40px;;
     }
     .learnmorebox{
-        margin-top: 10%;
+        margin-top: 2%;
     }
     p {
-        font-size: 1.5em;
+        font-size: 1.2em;
         line-height: 1.8em;
         
     }
@@ -95,6 +94,9 @@
         p {
             font-size: 1.2em;
             line-height: 1.8em;}
+        h5  {
+            margin-top:30px;
+        }
       }
 
     .heading {
@@ -126,7 +128,7 @@
           }
     }
     .heading-red-box{
-        margin: auto;
+        margin-right: auto;
         @media screen and (max-width: 768px) {
             
             margin: auto;
@@ -138,7 +140,7 @@
         h1 {
             color: $secondary-color;
             width: 100%;
-            text-align: center;
+            text-align: left;
             margin-right: auto;
             @media screen and (max-width: 768px) {
                 text-align: center;
@@ -232,11 +234,11 @@
         h1 {
             color: $black-color;
             width: 100%;
-            text-align: center;
+            text-align: right;
             
         }
-        margin: auto;
-        text-align: center;
+        margin-left: auto;
+        text-align: right;
         
     }
     .heading-center {
@@ -456,20 +458,6 @@
       }
       .caption {
         font-size: 1.5em;
-      }
-      .butgol{
-          background-color: $primary-color;
-          max-width: 350px;
-          width: 40%;
-          padding: 20px 0px;
-          border-radius: 50px;
-          border: none;
-          outline: 0;
-          color: white;
-          @media screen and (max-width: 768px) {
-            width: 100%;
-            
-          }
       }
     
 }

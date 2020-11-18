@@ -1,5 +1,9 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import {
+  createMuiTheme,
+  makeStyles,
+  MuiThemeProvider,
+} from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 // import AppBar from "@material-ui/core/AppBar";
 // import Toolbar from "@material-ui/core/Toolbar";
@@ -13,19 +17,6 @@ import PersonDetails from "./PersonDetails";
 import SectorDetails from "./SectorDetails";
 import Review from "./Review";
 import { useHistory } from "react-router-dom";
-
-// function Copyright() {
-//   return (
-//     <Typography variant="body2" color="textSecondary" align="center">
-//       {"Copyright © "}
-//       <Link color="inherit" href="https://material-ui.com/">
-//         Majestea Marketing
-//       </Link>{" "}
-//       {new Date().getFullYear()}
-//       {"."}
-//     </Typography>
-//   );
-// }
 
 const useStyles = makeStyles((theme) => ({
   ".MuiStepIcon-root.MuiStepIcon-active": {
@@ -67,8 +58,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#69BFC3",
     color: "black",
   },
-  yellowColor: {
-    color: "#F4C75B",
+  redColor: {
+    color: "#DC4351",
     fontWeight: "500",
   },
 }));
@@ -121,23 +112,6 @@ const CityForm = () => {
     handleNext();
   };
 
-  // useEffect(() => {
-  //   console.log('useEffect called');
-  // }, [cityData])
-
-  // const handleNextPage = () => {
-  //   if (cityData.personData) {
-  //     const type = cityData.personData.OrganizationType;
-  //     if (type === "Smart City / SPV" || type === "Municipal Corporation") {
-  //       setShowNextPage(true);
-  //       console.log("Organization type true", cityData.personData.OrganizationType);
-  //     } else {
-  //       setShowNextPage(false);
-  //       console.log("Organization type false", cityData.personData.OrganizationType);
-  //     }
-  //   }
-  // };
-
   const submitData = () => {
     handleNext();
   };
@@ -168,17 +142,18 @@ const CityForm = () => {
             component="h1"
             variant="h4"
             align="center"
-            className={classes.yellowColor}
+            className={classes.redColor}
           >
             Become a Data Partner
           </Typography>
           <Stepper activeStep={activeStep} className={classes.stepper}>
             {steps.map((label) => (
-              <Step key={label} className={classes.yellowColor}>
-                <StepLabel className={classes.yellowColor}>{label}</StepLabel>
+              <Step key={label}>
+                <StepLabel>{label}</StepLabel>
               </Step>
             ))}
           </Stepper>
+
           <React.Fragment>
             {activeStep === steps.length ? (
               <React.Fragment>

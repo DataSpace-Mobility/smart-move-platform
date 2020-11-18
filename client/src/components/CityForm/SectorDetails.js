@@ -123,109 +123,109 @@ const initialTextState = {
   Others: "",
 };
 
-// const subSectorDescList = {
-//   "Air Quality":
-//     "Location of sensors, types of pollutants monitored, historical and real-time data on air quality",
-//   Meteorology:
-//     "Annual and Monthly variations in average Rainfall, average Temperature",
-//   "Existing city level landuse map": "Existing landuse assigned to city plots",
-//   "Proposed city level landuse map":
-//     "Proposed landuse assigned to city plots as per approved city masterplan",
-//   "City boundaries and divisons":
-//     "Geospatial data of municipal corporation boundary, ward boundaries, ABD area boundary, villages and towns within the urban agglomeration",
-//   "Public WiFi services":
-//     "Location, extent of coverage, speeds, service provider, fare structure, payment mechanisms",
-//   "Civil Aviation Infrastructure and Traffic Patterns":
-//     "Routes, operations schedules;\nHistorical and real-time data of GPS locations, passenger counts, fare structure, payment mechanisms;\nTotal fleet size, Fleet size in operation, Size/ Types of vehicles in operation; \nType of vehicles by fuel type, age;\nReal-time maintenance and breakdown alerts\nElectronic ticketing including: transaction date and time, mode of transport, depot, trip and route associated, vehicle, fare, mode of payment, ticket type, smart card information, etc.",
-//   "EV Charging infrastructure":
-//     "Location of fuel stations, number and specifications of guns, historical and real-time fare structure, operator details",
-//   "EV service centers":
-//     "Locations, types of vehicles permitted, booking details, operator details",
-//   "E-rickshaw operations":
-//     "Total number of vehicles, routes, operating hours, fare structure, payment mechanism\n\nparking locations, location of charging infrastructure",
-//   "Auto-rickshaws vehicle counts":
-//     "Number of registered vehicles, location of registration",
-//   "Auto-rickshaw operations":
-//     "Routes followed, auto-rickshaw stands, approximate passenger volumes, operating hours/ schedules, fare structure, payment mechanisms",
-//   "Infrastructure and Traffic Patterns":
-//     "Routes, operations schedules;\nHistorical and real-time data of bus GPS locations, passenger counts, fare structure, payment mechanisms;\nTotal fleet size, Fleet size in operation, Size/ Types of vehicles in operation; \nType of vehicles by fuel type, age;\nReal-time maintenance and breakdown alerts\nElectronic ticketing including: transaction date and time, mode of transport, depot, trip and route associated, vehicle, fare, mode of payment, ticket type, smart card information, etc.",
-//   "Metro operations":
-//     "Real-time arrivals and departures, passenger alighting and boarding counts, fare structure, fare collection, historical and real-time maintenance and breakdown alerts",
-//   "Metro stations":
-//     "Location and number of lines, platforms, number of levels\nLocation of ticket counters, help kiosks, security gates (to swipe travel cards/ tickets)\nLocation, height, width, slope of entry and exit points, location of staircases, lifts, elevators, other accessibility information for disabled persons\nPassenger facilities available - restrooms, lockers, etc.",
-//   "Public Transport Finance":
-//     "Cost per km cost as per contract, operational costs, crew costs,  subsidies received for operations, revenue from pass sale, total non-fare revenue",
-//   Footpaths: "Location, width, paving of existing and proposed footpaths",
-//   "Cycle tracks":
-//     "Location, width, paving of existing and proposed cycle tracks",
-//   "Public Bike Sharing":
-//     "Location of docking stations, number of bikes in operation;\nAnonymized origins and destinations of riders with timestamps",
-//   "Private vehicles parking infrastructure":
-//     "Location, types of vehicles permitted, number of parking spots per vehicle type, historical and real-time occupancy, details of parking facilities (roof overhead, disability access, etc.), fare structure, payment mechanisms, operational hours, operator details",
-//   "Illegal parking tickets": "Location of illegal parking tickets and fines",
-//   "Real-time Illegal Parking":
-//     "Location and identity of illegally parked vehicles (can be collected either by drone survey or manually)",
-//   "Auto-rickshaws parking infrastructure":
-//     "Location, number of parking spots, details of parking facilities (roof overhead, disability access, etc.), operational hours",
-//   "E-rickshaws parking infrastructure":
-//     "Location, number of parking spots, details of parking facilities (roof overhead, disability access, etc.), operational hours",
-//   "Public parking for other Intermediate/ informal modes of transport (minivans, minibuses, shared autorickshaws,etc.)":
-//     "Location, number of parking spots, details of parking facilities (roof overhead, disability access, etc.), operational hours",
-//   "Parking at railway stations":
-//     "Location and number of lines, platforms\nLocation, height, width, slope of entry and exit points, location of staircases, lifts, elevators, other accessibility information for disabled persons\nPassenger facilities available - restrooms, lockers, etc.",
-//   "Parking at metro stations":
-//     "Location, types of vehicles permitted, number of parking spots per vehicle type, historical and real-time occupancy, details of parking facilities (roof overhead, disability access, etc.), fare structure, payment mechanisms, operational hours, operator details",
-//   "Bus operations":
-//     "Bus routes, operations schedules;\nHistorical and real-time data of bus GPS locations, passenger counts, fare structure, payment mechanisms;\nTotal fleet size, Fleet size in operation, Size/ Types of buses in operation; \nType of buses by fuel type, age;\nReal-time maintenance and breakdown alerts\nElectronic ticketing including: transaction date and time, mode of transport, depot, trip and route associated, vehicle, fare, mode of payment, ticket type, smart card information, etc.",
-//   "Bus stations, stops, terminals and depots":
-//     "Location, overall capacity, number of platforms, number of bus bays, size/ type of buses permitted",
-//   "Public Transport Finance__1":
-//     "Cost per km cost as per contract, operational costs, crew costs,  subsidies received for operations, revenue from pass sale, total non-fare revenue",
-//   "Railway stations":
-//     "Location and number of lines, platforms\nLocation, height, width, slope of entry and exit points, accessibility for disabled persons\nPassenger facilities available - restrooms, lockers, etc.",
-//   "Road network base map":
-//     "Location of all existing city roads and road junctions with details of right of way, number of lanes, carriageway width, surface type, maximum speed, direction of traffic flow (one-way/ two-way);\nLocation of features - underpass, flyover, foot-overbridge, etc.",
-//   "Street lights":
-//     "Location, height of pole, lighting technology,number of lamps, wattage, power source, status of operation",
-//   Potholes: "Locations, timestamp of detection",
-//   "Proposed Transport projects":
-//     "Locations, type of infrastructure and details of proposals as per submitted DPRs, Master Plan, Comprehensive Development Plan, Comprehensive Mobility Plan (highways, flyovers, metro rail, etc.)",
-//   "Road and Infrastructure Finance":
-//     "Cost per km cost as per contract, operational costs, crew costs,  subsidies received , revenue from tolls",
-//   "Road traffic accidents":
-//     "Location, black-spots, timestamp, vehicles involved, cause of accident, fatalities and injuries by vehicle mode (historic data)",
-//   "Infrastructure and Traffic Patterns__1":
-//     "Routes, operations schedules;\nHistorical and real-time data of bus GPS locations, passenger counts, fare structure, payment mechanisms;\nTotal fleet size, Fleet size in operation, Size/ Types of vehicles in operation; \nType of vehicles by fuel type, age;\nReal-time maintenance and breakdown alerts\nElectronic ticketing including: transaction date and time, mode of transport, depot, trip and route associated, vehicle, fare, mode of payment, ticket type, smart card information, etc.",
-//   "Household income and expenditure":
-//     "Average Household Income, Average Household Expenditure, per capita income, per capita expenditure on various sectors - health, education, transport, food items, telecome, petroleum products, etc.",
-//   Housing: "Location of slums, resident population in each slum",
-//   "Education infrastructure":
-//     "Location of primary schools, secondary schools, higher secondary schools, colleges, research institutions, etc.",
-//   Employment:
-//     "Employment and Unemployment, Employment in organized sector, Ward-wise distribution of total workers, main workers, marginal workers, etc.",
-//   Population: "Ward-wise population distribution",
-//   "Public Distribution Schemes":
-//     "Ward-wise distribution of beneficiaries of Public Distribution Schemes",
-//   Literacy: "Ward-wise literacy rate and level of education",
-//   "Traffic signals":
-//     "Locations, real-time and historical signal phasing, length",
-//   "Traffic Speed":
-//     "Vehicle speeds as detected by on-street CCTV cameras or any other source",
-//   "Traffic density": "Vehicle density as detected by on-street CCTV cameras",
-//   "Traffic alerts":
-//     "Animal, dark spots, vehicle on-road alerts as detected by on-street CCTV cameras or any other source",
-//   "Traffic condition":
-//     "Data collected for Comprehensive Mobility Plan or any other survey- Classified Volume count (outer cordon, screen line and midblock), Turning Movement Count, Occupancy, Speed & Delay, pedestrian counts",
-//   "Travel behavior":
-//     "Anonymized data collected from Household surveys, Origin-Destination surveys, Stated preferences and willingness to shift, tourist survey, establishment survey, petrol pump survey; General user perception study",
-//   "Fuel Stations - Petrol, Diesel, CNG, etc.":
-//     "Location of fuel stations, types of fuel, number of guns, historical and real-time fare structure, operator details",
-//   "Anonymized registered vehicles":
-//     "type of vehicle registered, count of vehicles by type, fuel type, date of registration, location of registration",
-//   "Freight Terminals":
-//     "Location, parking capacity by vehicle type, types of goods transported, operating hours",
-//   Others: "Please check this if you are not sure about your dataset type",
-// };
+const subSectorDescList = {
+  "Air Quality":
+    "Location of sensors, types of pollutants monitored, historical and real-time data on air quality",
+  Meteorology:
+    "Annual and Monthly variations in average Rainfall, average Temperature",
+  "Existing city level landuse map": "Existing landuse assigned to city plots",
+  "Proposed city level landuse map":
+    "Proposed landuse assigned to city plots as per approved city masterplan",
+  "City boundaries and divisons":
+    "Geospatial data of municipal corporation boundary, ward boundaries, ABD area boundary, villages and towns within the urban agglomeration",
+  "Public WiFi services":
+    "Location, extent of coverage, speeds, service provider, fare structure, payment mechanisms",
+  "Civil Aviation Infrastructure and Traffic Patterns":
+    "Routes, operations schedules;\nHistorical and real-time data of GPS locations, passenger counts, fare structure, payment mechanisms;\nTotal fleet size, Fleet size in operation, Size/ Types of vehicles in operation; \nType of vehicles by fuel type, age;\nReal-time maintenance and breakdown alerts\nElectronic ticketing including: transaction date and time, mode of transport, depot, trip and route associated, vehicle, fare, mode of payment, ticket type, smart card information, etc.",
+  "EV Charging infrastructure":
+    "Location of fuel stations, number and specifications of guns, historical and real-time fare structure, operator details",
+  "EV service centers":
+    "Locations, types of vehicles permitted, booking details, operator details",
+  "E-rickshaw operations":
+    "Total number of vehicles, routes, operating hours, fare structure, payment mechanism\n\nparking locations, location of charging infrastructure",
+  "Auto-rickshaws vehicle counts":
+    "Number of registered vehicles, location of registration",
+  "Auto-rickshaw operations":
+    "Routes followed, auto-rickshaw stands, approximate passenger volumes, operating hours/ schedules, fare structure, payment mechanisms",
+  "Infrastructure and Traffic Patterns":
+    "Routes, operations schedules;\nHistorical and real-time data of bus GPS locations, passenger counts, fare structure, payment mechanisms;\nTotal fleet size, Fleet size in operation, Size/ Types of vehicles in operation; \nType of vehicles by fuel type, age;\nReal-time maintenance and breakdown alerts\nElectronic ticketing including: transaction date and time, mode of transport, depot, trip and route associated, vehicle, fare, mode of payment, ticket type, smart card information, etc.",
+  "Metro operations":
+    "Real-time arrivals and departures, passenger alighting and boarding counts, fare structure, fare collection, historical and real-time maintenance and breakdown alerts",
+  "Metro stations":
+    "Location and number of lines, platforms, number of levels\nLocation of ticket counters, help kiosks, security gates (to swipe travel cards/ tickets)\nLocation, height, width, slope of entry and exit points, location of staircases, lifts, elevators, other accessibility information for disabled persons\nPassenger facilities available - restrooms, lockers, etc.",
+  "Public Transport Finance":
+    "Cost per km cost as per contract, operational costs, crew costs,  subsidies received for operations, revenue from pass sale, total non-fare revenue",
+  Footpaths: "Location, width, paving of existing and proposed footpaths",
+  "Cycle tracks":
+    "Location, width, paving of existing and proposed cycle tracks",
+  "Public Bike Sharing":
+    "Location of docking stations, number of bikes in operation;\nAnonymized origins and destinations of riders with timestamps",
+  "Private vehicles parking infrastructure":
+    "Location, types of vehicles permitted, number of parking spots per vehicle type, historical and real-time occupancy, details of parking facilities (roof overhead, disability access, etc.), fare structure, payment mechanisms, operational hours, operator details",
+  "Illegal parking tickets": "Location of illegal parking tickets and fines",
+  "Real-time Illegal Parking":
+    "Location and identity of illegally parked vehicles (can be collected either by drone survey or manually)",
+  "Auto-rickshaws parking infrastructure":
+    "Location, number of parking spots, details of parking facilities (roof overhead, disability access, etc.), operational hours",
+  "E-rickshaws parking infrastructure":
+    "Location, number of parking spots, details of parking facilities (roof overhead, disability access, etc.), operational hours",
+  "Public parking for other Intermediate/ informal modes of transport (minivans, minibuses, shared autorickshaws,etc.)":
+    "Location, number of parking spots, details of parking facilities (roof overhead, disability access, etc.), operational hours",
+  "Parking at railway stations":
+    "Location and number of lines, platforms\nLocation, height, width, slope of entry and exit points, location of staircases, lifts, elevators, other accessibility information for disabled persons\nPassenger facilities available - restrooms, lockers, etc.",
+  "Parking at metro stations":
+    "Location, types of vehicles permitted, number of parking spots per vehicle type, historical and real-time occupancy, details of parking facilities (roof overhead, disability access, etc.), fare structure, payment mechanisms, operational hours, operator details",
+  "Bus operations":
+    "Bus routes, operations schedules;\nHistorical and real-time data of bus GPS locations, passenger counts, fare structure, payment mechanisms;\nTotal fleet size, Fleet size in operation, Size/ Types of buses in operation; \nType of buses by fuel type, age;\nReal-time maintenance and breakdown alerts\nElectronic ticketing including: transaction date and time, mode of transport, depot, trip and route associated, vehicle, fare, mode of payment, ticket type, smart card information, etc.",
+  "Bus stations, stops, terminals and depots":
+    "Location, overall capacity, number of platforms, number of bus bays, size/ type of buses permitted",
+  "Public Transport Finance__1":
+    "Cost per km cost as per contract, operational costs, crew costs,  subsidies received for operations, revenue from pass sale, total non-fare revenue",
+  "Railway stations":
+    "Location and number of lines, platforms\nLocation, height, width, slope of entry and exit points, accessibility for disabled persons\nPassenger facilities available - restrooms, lockers, etc.",
+  "Road network base map":
+    "Location of all existing city roads and road junctions with details of right of way, number of lanes, carriageway width, surface type, maximum speed, direction of traffic flow (one-way/ two-way);\nLocation of features - underpass, flyover, foot-overbridge, etc.",
+  "Street lights":
+    "Location, height of pole, lighting technology,number of lamps, wattage, power source, status of operation",
+  Potholes: "Locations, timestamp of detection",
+  "Proposed Transport projects":
+    "Locations, type of infrastructure and details of proposals as per submitted DPRs, Master Plan, Comprehensive Development Plan, Comprehensive Mobility Plan (highways, flyovers, metro rail, etc.)",
+  "Road and Infrastructure Finance":
+    "Cost per km cost as per contract, operational costs, crew costs,  subsidies received , revenue from tolls",
+  "Road traffic accidents":
+    "Location, black-spots, timestamp, vehicles involved, cause of accident, fatalities and injuries by vehicle mode (historic data)",
+  "Infrastructure and Traffic Patterns__1":
+    "Routes, operations schedules;\nHistorical and real-time data of bus GPS locations, passenger counts, fare structure, payment mechanisms;\nTotal fleet size, Fleet size in operation, Size/ Types of vehicles in operation; \nType of vehicles by fuel type, age;\nReal-time maintenance and breakdown alerts\nElectronic ticketing including: transaction date and time, mode of transport, depot, trip and route associated, vehicle, fare, mode of payment, ticket type, smart card information, etc.",
+  "Household income and expenditure":
+    "Average Household Income, Average Household Expenditure, per capita income, per capita expenditure on various sectors - health, education, transport, food items, telecome, petroleum products, etc.",
+  Housing: "Location of slums, resident population in each slum",
+  "Education infrastructure":
+    "Location of primary schools, secondary schools, higher secondary schools, colleges, research institutions, etc.",
+  Employment:
+    "Employment and Unemployment, Employment in organized sector, Ward-wise distribution of total workers, main workers, marginal workers, etc.",
+  Population: "Ward-wise population distribution",
+  "Public Distribution Schemes":
+    "Ward-wise distribution of beneficiaries of Public Distribution Schemes",
+  Literacy: "Ward-wise literacy rate and level of education",
+  "Traffic signals":
+    "Locations, real-time and historical signal phasing, length",
+  "Traffic Speed":
+    "Vehicle speeds as detected by on-street CCTV cameras or any other source",
+  "Traffic density": "Vehicle density as detected by on-street CCTV cameras",
+  "Traffic alerts":
+    "Animal, dark spots, vehicle on-road alerts as detected by on-street CCTV cameras or any other source",
+  "Traffic condition":
+    "Data collected for Comprehensive Mobility Plan or any other survey- Classified Volume count (outer cordon, screen line and midblock), Turning Movement Count, Occupancy, Speed & Delay, pedestrian counts",
+  "Travel behavior":
+    "Anonymized data collected from Household surveys, Origin-Destination surveys, Stated preferences and willingness to shift, tourist survey, establishment survey, petrol pump survey; General user perception study",
+  "Fuel Stations - Petrol, Diesel, CNG, etc.":
+    "Location of fuel stations, types of fuel, number of guns, historical and real-time fare structure, operator details",
+  "Anonymized registered vehicles":
+    "type of vehicle registered, count of vehicles by type, fuel type, date of registration, location of registration",
+  "Freight Terminals":
+    "Location, parking capacity by vehicle type, types of goods transported, operating hours",
+  Others: "Please check this if you are not sure about your dataset type",
+};
 
 const initialState = {
   "Air Quality": false,
@@ -320,7 +320,7 @@ const useStyles = makeStyles((theme) => ({
     width: " 100%",
     padding: " 10px",
     borderRadius: "25px",
-    backgroundColor: " #6c6d6f",
+    backgroundColor: " #DC4351",
     color: " white",
     cursor: " pointer",
     borderStyle: "groove",
@@ -346,13 +346,12 @@ const SectorDetails = (props) => {
     if (props.showNext) {
       setShowNextPage(true);
       // console.log('Next');
-    }else{
+    } else {
       // setShowNextPage(true);
       let finalData = {};
-      
-      sectors.map( sector => (finalData = { ...finalData, [sector]: [''] }))
-      props.next({ datasets: finalData });
 
+      sectors.map((sector) => (finalData = { ...finalData, [sector]: [""] }));
+      props.next({ datasets: finalData });
     }
   };
 
@@ -411,8 +410,8 @@ const SectorDetails = (props) => {
 
   return (
     <React.Fragment>
-      <Typography variant="h6" gutterBottom>
-      Data Availability
+      <Typography variant="h5" gutterBottom style={{ fontWeight: "600" }}>
+        Data Availability
       </Typography>
       {!showNextPage ? (
         <Grid container spacing={3}>
@@ -440,7 +439,7 @@ const SectorDetails = (props) => {
                 variant="contained"
                 color="primary"
                 onClick={handleNextPage}
-                style={{ backgroundColor: "#69BFC3" }}
+                style={{ backgroundColor: "#DC4351" }}
               >
                 Next
               </Button>
@@ -458,12 +457,16 @@ const SectorDetails = (props) => {
                 ? sectors.map((sector) => (
                     <Grid item container xs={12} style={{ textAlign: "left" }}>
                       <Grid item xs={12}>
-                        <Typography variant="h5" gutterBottom>
+                        <Typography
+                          variant="h5"
+                          gutterBottom
+                          style={{ color: "#DC4351" }}
+                        >
                           <strong>{sector}</strong>
                         </Typography>
                       </Grid>
                       {subSectorList[sector].map((subSector, id) => (
-                        <Grid item xs={12} md={6}>
+                        <Grid item xs={12}>
                           <FormControlLabel
                             control={
                               <Checkbox
@@ -476,6 +479,9 @@ const SectorDetails = (props) => {
                             }
                             label={subSector}
                           />
+                          <Typography variant="subtitle2" style={{marginTop:"-15px",marginLeft:"30px"}}>
+                            {subSectorDescList[subSector]}
+                          </Typography>
                         </Grid>
                       ))}
                       <Grid item xs={12} style={{ marginBottom: "30px" }}>
@@ -502,7 +508,7 @@ const SectorDetails = (props) => {
                 variant="contained"
                 color="primary"
                 onClick={handleNext}
-                style={{ backgroundColor: "#69BFC3" }}
+                style={{ backgroundColor: "#DC4351" }}
               >
                 Next
               </Button>

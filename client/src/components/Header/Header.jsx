@@ -27,7 +27,7 @@ function Header() {
                             <li><a href="/#/cities">CITIES</a></li>
                             {/* <li><a href="/">WINNERS</a></li> */}
                             <li><a href="/#/partners">PARTNERS</a></li>
-                            {/* <li><a href="/">FAQ</a></li> */}
+                            <li><a href="/#/faqs">FAQ</a></li>
                         </ul>
                     </div>
                 </div>

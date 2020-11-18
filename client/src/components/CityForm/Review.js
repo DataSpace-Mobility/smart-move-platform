@@ -177,7 +177,7 @@ export default function Review(props) {
             <Button
               variant="contained"
               color="primary"
-              style={{ backgroundColor: "#69BFC3" }}
+              style={{ backgroundColor: "#DC4351" }}
               onClick={handleSubmit}
             >
               Submit

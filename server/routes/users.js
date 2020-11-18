@@ -17,18 +17,6 @@ router.get("/auth", auth, (req, res) => {
     });
 });
 
-// Add admin email and pass
-router.post("/register", (req, res) => {
-
-    const user = new User(req.body);
-
-    user.save((err, doc) => {
-        if (err) return res.json({ success: false, err });
-        return res.status(200).json({
-            success: true
-        });
-    });
-});
 
 router.post("/login", (req, res) => {
     User.findOne({ email: req.body.email }, (err, user) => {

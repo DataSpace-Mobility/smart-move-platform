@@ -1,4 +1,5 @@
 import React from "react";
+
 import Benefit1 from "../Home/Benefit1.svg";
 import Benefit2 from "../Home/Benefit2.svg";
 import Benefit3 from "../Home/Benefit3.svg";
@@ -10,6 +11,7 @@ import BenefitMob4 from "../Home/Benefit1Mob4.svg";
 
 import "./Cities.scss";
 import CustomizedAccordions from "./CustomizedAccordions";
+import CustomizedFaqAccordions from "./CustomizedFaqAccordions";
 import { useHistory } from "react-router-dom";
 
 function Cities() {
@@ -22,6 +24,33 @@ function Cities() {
   return (
     <>
       <section className="Cities top">
+      <section className="looking top">
+          <div className="container ">
+            <div className="heading heading-black getsetgoheadingbox heading-center">
+              <h1>JOIN US A DATA PARTNER</h1>
+            </div>
+            <div className="row top">
+              <div className="col-md-12">
+                <p>
+                  Be a City Partner and get benefited from the Challenge
+                  Proposals. You can share data from a wide range of Sectors and
+                  Sub sectors. Please click the link below to begin with the
+                  Sharing Wizard.
+                </p>
+              </div>
+
+              <div className="col-md-12">
+                <button className="butgol" onClick={handleData}>
+                  Continue to Data Sharing Wizard
+                </button>
+              </div>
+              <div className="col-md-12 learnmorebox">
+                
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="looking">
           <div className="container">
             <div className="heading heading-yellow heading-center top">
@@ -123,36 +152,21 @@ function Cities() {
 
           <div className="row">
             <CustomizedAccordions />
+           
+          </div>
+        </section>
+        <section className="container top bottom">
+          <div className="heading heading-yellow heading-center">
+            <h1>FAQs</h1>
+          </div>
+
+          <div className="row">
+            <CustomizedFaqAccordions />
+           
           </div>
         </section>
 
-        <section className="looking top">
-          <div className="container top">
-            <div className="heading heading-black getsetgoheadingbox heading-center">
-              <h1>JOIN US A DATA PARTNER</h1>
-            </div>
-            <div className="row top">
-              <div className="col-md-12">
-                <p>
-                  Be a City Partner and get benefited from the Challenge
-                  Proposals. You can share data from a wide range of Sectors and
-                  Sub sectors. Please click the link below to begin with the
-                  Sharing Wizard.
-                </p>
-              </div>
-
-              <div className="col-md-12">
-                <button className="butgol" onClick={handleData}>
-                  Continue to Data Sharing Wizard
-                </button>
-              </div>
-              <div className="col-md-12 learnmorebox">
-                {/* <p>To learn more, download the challenge guidelines document <a href="/Smartmove_DataChallengeGuidelines.pdf">here</a>.
-</p> */}
-              </div>
-            </div>
-          </div>
-        </section>
+        
       </section>
     </>
   );
