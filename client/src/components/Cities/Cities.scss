@@ -1,0 +1,475 @@
+@import '../../Variables.scss';
+
+.top{
+    margin-top: 60px;
+    overflow: hidden;
+}
+
+.Cities {
+
+    overflow: hidden;
+
+    .top{
+        margin-top: 80px;
+    }
+    .bottom{
+        margin-bottom: 40px;
+    }
+    .mission-image{
+
+        width: 80%;
+
+    } 
+    .missionbox{
+
+    }
+    .lookup-image{
+        margin-right: auto;
+        width: 100%;
+        margin-top: -30%;
+        z-index: -1;
+        @media screen and (max-width: 768px) {
+            margin-top:0;
+        }
+    }
+    .missiontext{
+        margin-top:10%;
+        @media screen and (max-width: 768px) {
+            padding: 0px 10px;
+            text-align: center;
+        }
+    }
+    .distinct-image{
+        width: 70%;
+        @media screen and (max-width: 768px) {
+            width: 90%;
+            margin: auto ;
+            margin-bottom: 20px;
+        }
+    }     
+    .iconheading{
+        font-weight: 700;
+    }
+    .ideaparabox{
+        margin-top: 30px;
+        width: 90%;
+        text-align: center;
+        margin: auto;
+    }
+    .datachal-image{
+
+        width: 80%;
+        @media screen and (max-width: 740px) {
+            width: 100%;
+                     }
+
+
+    }
+    .chalpara{
+
+        
+        font-size: 0.9em;
+        @media screen and (max-width: 740px) {
+            margin-top:40px;
+                     }
+
+        
+    }
+    .getsetgo-image{
+        width: 100%;
+        margin-top: 40px;
+
+    }
+    .getsetgoheadingbox{
+        margin-bottom: 40px;;
+    }
+    .learnmorebox{
+        margin-top: 10%;
+    }
+    p {
+        font-size: 1.5em;
+        line-height: 1.8em;
+        
+    }
+    @media screen and (max-width: 740px) {
+        p {
+            font-size: 1.2em;
+            line-height: 1.8em;}
+      }
+
+    .heading {
+        border-bottom: 7px solid $secondary-color;
+        width: 50%;
+        padding-bottom: 10px;
+        margin: 40px 0px;
+        @media screen and (max-width: 740px) {
+            width: 90%;
+            border-bottom: 2px solid $secondary-color;
+                     }
+        h1 {
+            font-size: 3em;
+            text-align: left;
+            width: 40px;
+            color: $secondary-color;
+            font-weight: 700;
+            @media screen and (max-width: 768px) {
+                font-size: 2.5em;
+                font-weight: 500;
+                border-bottom: 0px solid $secondary-color;
+            }
+        }
+        @media screen and (max-width: 768px) {
+            font-size: 1em;
+            font-weight: 700;
+            border-bottom: 0px solid $secondary-color;
+            
+          }
+    }
+    .heading-red-box{
+        margin: auto;
+        @media screen and (max-width: 768px) {
+            
+            margin: auto;
+            }
+        
+      }  
+    .heading-red {
+        border-bottom: 7px solid $secondary-color;
+        h1 {
+            color: $secondary-color;
+            width: 100%;
+            text-align: center;
+            margin-right: auto;
+            @media screen and (max-width: 768px) {
+                text-align: center;
+                margin: auto;
+                margin-bottom: 40px;
+            }
+            
+        }
+        @media screen and (max-width: 768px) {
+            border-bottom: 0px solid $secondary-color;
+            font-weight: 500;
+            margin: auto;
+            text-align: center;
+          }
+            
+
+    }
+    .heading-yellow {
+        border-bottom: 7px solid $tertiary-color;
+        h1 {
+            color: $tertiary-color;
+            width: 100%;
+            @media screen and (max-width: 768px) {
+               }
+            
+        }
+        margin: 0px auto 0px auto;
+        @media screen and (max-width: 768px) {
+            border-bottom: 0px solid $tertiary-color;
+            
+          }
+
+    
+
+          
+        
+    }
+
+    .lookup{
+
+        margin-left: auto;
+        width: 100%;
+    }
+    
+    .heading-blue {
+        border-bottom: 7px solid $blue-color;
+        h1 {
+            color: $blue-color;
+            width: 100%;
+        }
+        @media screen and (max-width: 768px) {
+            border-bottom: 0px solid $blue-color;
+            width: 100%;
+            
+          }
+    }
+    .heading-yellow-left {
+        border-bottom: 7px solid $tertiary-color;
+        h1 {
+            color: $tertiary-color;
+            width: 100%;
+            @media screen and (max-width: 768px) {
+                text-align:center;}
+        }
+        @media screen and (max-width: 768px) {
+            border-bottom: 0px solid $tertiary-color;
+            text-align:center;
+
+            
+          }
+    }
+    .heading-black {
+        
+        border-bottom: 7px solid $black-color;
+        @media screen and (max-width: 768px) {
+            border-bottom: 0px solid $tertiary-color;
+            text-align:center;}
+        h1 {
+            color: $black-color;
+            width: 100%;
+        }
+        margin: 0px auto;
+        
+    }
+    .heading-black-lookup {
+        
+        border-bottom: 7px solid $black-color;
+        @media screen and (max-width: 768px) {
+            border-bottom: 0px solid $tertiary-color;
+            text-align:center;}
+        h1 {
+            color: $black-color;
+            width: 100%;
+            text-align: center;
+            
+        }
+        margin: auto;
+        text-align: center;
+        
+    }
+    .heading-center {
+       h1 {
+            text-align: center;
+            
+       }
+    }
+    .whatpara{
+            line-height: 1.5em;
+
+
+    }
+    .unlock {
+        margin-top: 160px;
+        .unlock-item {
+            margin: 80px 0px;
+            .equity-box {
+                padding-bottom: 60px;
+            }
+        }
+        p.themes {
+            color: $secondary-color;
+            font-weight: 800;
+            margin: 0px;
+        }
+        .align-left {
+            text-align: left;
+            @media screen and (max-width: 768px) {
+                
+                text-align: center;
+                
+              }
+        }
+        .align-right {
+            text-align: right;
+            @media screen and (max-width: 768px) {
+                text-align: center;
+                
+                
+              }
+            
+        }
+        
+        .heading-box {
+            text-align: right;
+            padding: 15px;
+            padding-right: 25px;
+            padding-top: 25px;
+            @media screen and (max-width: 768px) {
+                margin: auto;
+                
+              }
+            img {
+                width: 40%;
+                margin-bottom: 50px;
+            }
+            h1 {
+                font-size: 2em;
+                font-weight: 700;
+                margin: 0;
+                margin-bottom: 10px;
+            }
+            h1.big {
+                font-size: 5em;
+                font-weight: 700;
+                margin: 0;
+            }
+        }
+        .heading-box-yellow {
+            background-color: $tertiary-color;
+            h1 {
+                color: $secondary-color;
+            }
+        }
+        .heading-box-red {
+            background-color: $secondary-color;
+            h1 {
+                color: $white-color;
+            }
+        }
+        .heading-box-blue {
+            background-color: $blue-color;
+            h1 {
+                color: $white-color;
+            }
+        }
+    }
+    .rightbox{
+        margin-left: auto;
+        @media screen and (max-width: 768px) {
+            
+            margin-left:0;
+            
+          }
+        
+    }
+    .looking {
+        .align-left {
+            text-align: left;
+            @media screen and (max-width: 768px) {
+                margin: auto;
+                
+              }
+        }
+
+        .align-right {
+            text-align: right;
+            @media screen and (max-width: 768px) {
+                text-align: center;
+                
+              }
+        }
+        margin-bottom: 80px;
+        margin-top: 50px;
+    }
+    .timeline {
+        margin-top: 70px;
+        padding: 50px 0px;
+        background-color: $tertiary-color;
+    }
+
+    
+    .partners {
+        margin: 40px 0px;
+        padding: 40px 0px;
+        .item-container {
+            margin-top: 50px;
+            .row {
+                margin-top: 30px;
+            }
+            img {
+                width: 190px;
+                height: 190px;
+            }
+            p {
+                margin-top: 10px;
+                font-size: 1.3em;
+            }
+            a {
+                color: $black-color;
+                font-weight: 600;
+            }
+            .scm-logo {
+                width: 120px;
+            }
+            .giz-logo {
+                width: 110%;
+            }
+            .dataspace-logo {
+                width: 70%;
+            }
+        }
+    }
+
+    .step {
+        position: relative;
+        min-height: 1em;
+        color: gray;
+      }
+      .step + .step {
+        margin-top: 1em
+      }
+      .step > div:first-child {
+        position: static;
+        height: 0;
+      }
+      .step > div:not(:first-child) {
+        margin-left: 1.5em;
+        padding-left: 1em;
+      }
+      .step.step-active {
+        color: #4285f4
+      }
+      .step.step-active .circle {
+        background-color: #4285f4;
+      }
+      
+      /* Circle */
+      .circle {
+        background: gray;
+        position: relative;
+        width: 1.5em;
+        height: 1.5em;
+        line-height: 1.5em;
+        border-radius: 100%;
+        color: #fff;
+        text-align: center;
+        box-shadow: 0 0 0 3px #fff;
+      }
+      
+      /* Vertical Line */
+      .circle:after {
+        content: ' ';
+        position: absolute;
+        display: block;
+        top: 1px;
+        right: 50%;
+        bottom: 1px;
+        left: 50%;
+        height: 200%;
+        width: 2px;
+        transform: scale(1, 1.5);
+        transform-origin: 50% -100%;
+        background-color: rgba(0, 0, 0, 0.25);
+        z-index: -1;
+      }
+      .step:last-child .circle:after {
+        display: none
+      }
+      
+      /* Stepper Titles */
+      .title {
+        line-height: 2em;
+        font-weight: 500;
+        font-size: 1.2em;
+      }
+      .caption {
+        font-size: 1.5em;
+      }
+      .butgol{
+          background-color: $primary-color;
+          max-width: 350px;
+          width: 40%;
+          padding: 20px 0px;
+          border-radius: 50px;
+          border: none;
+          outline: 0;
+          color: white;
+          @media screen and (max-width: 768px) {
+            width: 100%;
+            
+          }
+      }
+    
+}
