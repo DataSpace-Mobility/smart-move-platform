@@ -370,6 +370,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     padding: "10px",
     borderRadius: "5px",
+    backgroundColor: "white",
     cursor: " pointer",
     borderStyle: "groove",
   },
