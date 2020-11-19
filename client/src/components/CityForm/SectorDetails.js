@@ -4,28 +4,85 @@ import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
-import { Button, ButtonGroup, makeStyles } from "@material-ui/core";
+import {
+  Button,
+  ButtonGroup,
+  createMuiTheme,
+  makeStyles,
+  ThemeProvider,
+} from "@material-ui/core";
+import CityLanduse from "./button Icons/Black/city_landuse.svg";
+import CivialAviation from "./button Icons/Black/civial_aviation.svg";
+import Demographics from "./button Icons/Black/demographics.svg";
+import ElectricMobility from "./button Icons/Black/electric_mobility.svg";
+import Environment from "./button Icons/Black/environment.svg";
+import Transport from "./button Icons/Black/informal_transport.svg";
+import inlandWater from "./button Icons/Black/inland_water.svg";
+import Metro from "./button Icons/Black/metro.svg";
+import NonMotor from "./button Icons/Black/non_motor.svg";
+import Others from "./button Icons/Black/others.svg";
+import Parking from "./button Icons/Black/parking.svg";
+import PublicBuses from "./button Icons/Black/public_buses.svg";
+import Railway from "./button Icons/Black/railways.svg";
+import Road from "./button Icons/Black/road.svg";
+import RoadSafety from "./button Icons/Black/road_safety.svg";
+import ShippingPort from "./button Icons/Black/shipping_ports.svg";
+import Traffic from "./button Icons/Black/traffic.svg";
+import Urban from "./button Icons/Black/urban_freight.svg";
+// White Icons
+import CityLanduseWhite from "./button Icons/White/city_landuse_white.svg";
+import CivialAviationWhite from "./button Icons/White/civial_aviation_white.svg";
+import DemographicsWhite from "./button Icons/White/demographics_white.svg";
+import ElectricMobilityWhite from "./button Icons/White/electric_mobility_white.svg";
+import EnvironmentWhite from "./button Icons/White/environment_white.svg";
+import TransportWhite from "./button Icons/White/informal_transport_white.svg";
+import inlandWaterWhite from "./button Icons/White/inland_water_white.svg";
+import MetroWhite from "./button Icons/White/metro_white.svg";
+import NonMotorWhite from "./button Icons/White/non_motor_white.svg";
+import OthersWhite from "./button Icons/White/others_white.svg";
+import ParkingWhite from "./button Icons/White/parking_white.svg";
+import PublicBusesWhite from "./button Icons/White/public_buses_white.svg";
+import RailwayWhite from "./button Icons/White/railways_white.svg";
+import RoadWhite from "./button Icons/White/road_white.svg";
+import RoadSafetyWhite from "./button Icons/White/road_safety_white.svg";
+import ShippingPortWhite from "./button Icons/White/shipping_ports_white.svg";
+import TrafficWhite from "./button Icons/White/traffic_white.svg";
+import UrbanWhite from "./button Icons/White/urban_freight_white.svg";
 
-const sectorList = [
-  "Environment",
-  "City Landuse",
-  "Civil Aviation",
-  "Electric Mobility",
-  "Informal Transport",
-  "Inland Water Services",
-  "Metro Rail",
-  "Non-motorized transport",
-  "Parking",
-  "Public Buses",
-  "Railways",
-  "Road Infrastructure",
-  "Road Safety",
-  "Shipping and Ports",
-  "Demographics",
-  "Traffic",
-  "Urban Freight",
-  "Others",
-];
+
+// Theme for checkbox
+const innerTheme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#1C1C1C",
+    },
+  },
+  typography: {
+    body1: {
+      fontWeight: "600",
+    },
+  },
+});
+// const sectorList = [
+//   "Environment",
+//   "City Landuse",
+//   "Civil Aviation",
+//   "Electric Mobility",
+//   "Informal Transport",
+//   "Inland Water Services",
+//   "Metro Rail",
+//   "Non-motorized transport",
+//   "Parking",
+//   "Public Buses",
+//   "Railways",
+//   "Road Infrastructure",
+//   "Road Safety",
+//   "Shipping and Ports",
+//   "Demographics",
+//   "Traffic",
+//   "Urban Freight",
+//   "Others",
+// ];
 const subSectorList = {
   Environment: ["Air Quality", "Meteorology"],
   "City Landuse": [
@@ -283,7 +340,6 @@ const initialState = {
   "Anonymized registered vehicles": false,
   "Freight Terminals": false,
 };
-
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "90%",
@@ -291,6 +347,7 @@ const useStyles = makeStyles((theme) => ({
     height: "100%",
     color: "#3e3e3f",
   },
+
   root1: {
     margin: "2vh",
     flexGrow: 1,
@@ -311,19 +368,19 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     width: "100%",
-    padding: " 10px",
-    borderRadius: "25px",
+    padding: "10px",
+    borderRadius: "5px",
     cursor: " pointer",
     borderStyle: "groove",
   },
   buttonSelected: {
-    width: " 100%",
-    padding: " 10px",
-    borderRadius: "25px",
+    width: "100%",
+    padding: "10px",
+    borderRadius: "5px",
     backgroundColor: " #DC4351",
     color: " white",
     cursor: " pointer",
-    borderStyle: "groove",
+    borderStyle: "none",
   },
 }));
 
@@ -342,7 +399,7 @@ const SectorDetails = (props) => {
 
   const handleNextPage = () => {
     // console.log('ShowNext',props.showNext);
-    // console.log(sectors);
+    console.log(sectors);
     if (props.showNext) {
       setShowNextPage(true);
       // console.log('Next');
@@ -394,18 +451,7 @@ const SectorDetails = (props) => {
         // finalData.push({ [key]: ourdata });
       }
     }
-    // Below adjustment for existing flow for display data on next page
-    // const cityData= {...finalData};
-    // console.log('final data', finalData);
-    // console.log('ctdayat',cityData);
     props.next({ datasets: finalData });
-    // console.log("city Data:", { ...finalData });
-    // setCityData({ ...finalData });
-    // if (!Object.keys(cityData).length) {
-    //   alert("Please select atleast one dataset");
-    // } else {
-    //   props.next({ datasets: cityData });
-    // }
   };
 
   return (
@@ -415,23 +461,390 @@ const SectorDetails = (props) => {
       </Typography>
       {!showNextPage ? (
         <Grid container spacing={3}>
-          {sectorList.map((sec, id) => (
-            <Grid key={id} item xs={12} md={4}>
-              <div>
-                <button
-                  onClick={handleButton}
-                  className={
-                    sectors.includes(sec)
-                      ? classes.buttonSelected
-                      : classes.button
-                  }
-                  value={sec}
-                >
-                  {sec}
-                </button>
-              </div>
-            </Grid>
-          ))}
+          <Grid item xs={12} md={4}>
+            <button
+              onClick={handleButton}
+              className={
+                sectors.includes("Environment")
+                  ? classes.buttonSelected
+                  : classes.button
+              }
+              value="Environment"
+            >
+              <img
+                src={sectors.includes("Environment")
+                ? EnvironmentWhite
+                : Environment}
+                alt="Environment"
+                style={{ width: "50px", height: "50px", fill: "white" }}
+              />
+              <br></br>
+              Environment
+            </button>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <button
+              onClick={handleButton}
+              className={
+                sectors.includes("City Landuse")
+                  ? classes.buttonSelected
+                  : classes.button
+              }
+              value="City Landuse"
+            >
+              <img
+                src={sectors.includes("City Landuse")
+                ? CityLanduseWhite
+                : CityLanduse}
+                alt="City Landuse"
+                style={{ width: "50px", height: "50px", fill: "white" }}
+              />
+              <br></br>
+              City Landuse
+            </button>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <button
+              onClick={handleButton}
+              className={
+                sectors.includes("Civil Aviation")
+                  ? classes.buttonSelected
+                  : classes.button
+              }
+              value="Civil Aviation"
+            >
+              <img
+                src={sectors.includes("Civil Aviation")
+                ? CivialAviationWhite
+                : CivialAviation}
+                alt="Civil Aviation"
+                style={{ width: "50px", height: "50px", fill: "white" }}
+              />
+              <br></br>
+              Civil Aviation
+            </button>
+          </Grid>
+          {/* Second row */}
+          <Grid item xs={12} md={4}>
+            <button
+              onClick={handleButton}
+              className={
+                sectors.includes("Electric Mobility")
+                  ? classes.buttonSelected
+                  : classes.button
+              }
+              value="Electric Mobility"
+            >
+              <img
+                src={sectors.includes("Electric Mobility")
+                ? ElectricMobilityWhite
+                : ElectricMobility}
+                alt="Electric Mobility"
+                style={{ width: "50px", height: "50px", fill: "white" }}
+              />
+              <br></br>
+              Electric Mobility
+            </button>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <button
+              onClick={handleButton}
+              className={
+                sectors.includes("Informal Transport")
+                  ? classes.buttonSelected
+                  : classes.button
+              }
+              value="Informal Transport"
+            >
+              <img
+                src={sectors.includes("Informal Transport")
+                ? TransportWhite
+                : Transport}
+                alt="Informal Transport"
+                style={{ width: "50px", height: "50px", fill: "white" }}
+              />
+              <br></br>
+              Informal Transport
+            </button>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <button
+              onClick={handleButton}
+              className={
+                sectors.includes("Inland Water Services")
+                  ? classes.buttonSelected
+                  : classes.button
+              }
+              value="Inland Water Services"
+            >
+              <img
+                src={sectors.includes("Inland Water Services")
+                ? inlandWaterWhite
+                : inlandWater}
+                alt="Inland Water Services"
+                style={{ width: "50px", height: "50px", fill: "white" }}
+              />
+              <br></br>
+              Inland Water Services
+            </button>
+          </Grid>
+          {/* 3rd row */}
+          <Grid item xs={12} md={4}>
+            <button
+              onClick={handleButton}
+              className={
+                sectors.includes("Metro Rail")
+                  ? classes.buttonSelected
+                  : classes.button
+              }
+              value="Metro Rail"
+            >
+              <img
+                src={sectors.includes("Metro Rail")
+                ? MetroWhite
+                : Metro}
+                alt="Metro Rail"
+                style={{ width: "50px", height: "50px", fill: "white" }}
+              />
+              <br></br>
+              Metro Rail
+            </button>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <button
+              onClick={handleButton}
+              className={
+                sectors.includes("Non-motorized transport")
+                  ? classes.buttonSelected
+                  : classes.button
+              }
+              value="Non-motorized transport"
+            >
+              <img
+                src={sectors.includes("Non-motorized transport")
+                ? NonMotorWhite
+                : NonMotor}
+                alt="Non-motorized transport"
+                style={{ width: "50px", height: "50px", fill: "white" }}
+              />
+              <br></br>
+              Non-motorized transport
+            </button>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <button
+              onClick={handleButton}
+              className={
+                sectors.includes("Parking")
+                  ? classes.buttonSelected
+                  : classes.button
+              }
+              value="Parking"
+            >
+              <img
+                src={sectors.includes("Parking")
+                ? ParkingWhite
+                : Parking}
+                alt="Parking"
+                style={{ width: "50px", height: "50px", fill: "white" }}
+              />
+              <br></br>
+              Parking
+            </button>
+          </Grid>
+          {/* 4 row */}
+          <Grid item xs={12} md={4}>
+            <button
+              onClick={handleButton}
+              className={
+                sectors.includes("Public Buses")
+                  ? classes.buttonSelected
+                  : classes.button
+              }
+              value="Public Buses"
+            >
+              <img
+                src={sectors.includes("Public Buses")
+                ? PublicBusesWhite
+                : PublicBuses}
+                alt="Public Buses"
+                style={{ width: "50px", height: "50px", fill: "white" }}
+              />
+              <br></br>
+              Public Buses
+            </button>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <button
+              onClick={handleButton}
+              className={
+                sectors.includes("Railways")
+                  ? classes.buttonSelected
+                  : classes.button
+              }
+              value="Railways"
+            >
+              <img
+                src={sectors.includes("Railways")
+                ? RailwayWhite
+                : Railway}
+                alt="Railways"
+                style={{ width: "50px", height: "50px", fill: "white" }}
+              />
+              <br></br>
+              Railways
+            </button>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <button
+              onClick={handleButton}
+              className={
+                sectors.includes("Road Infrastructure")
+                  ? classes.buttonSelected
+                  : classes.button
+              }
+              value="Road Infrastructure"
+            >
+              <img
+                src={sectors.includes("Road Infrastructure")
+                ? RoadWhite
+                : Road}
+                alt="Road Infrastructure"
+                style={{ width: "50px", height: "50px", fill: "white" }}
+              />
+              <br></br>
+              Road Infrastructure
+            </button>
+          </Grid>
+          {/* 5th row */}
+          <Grid item xs={12} md={4}>
+            <button
+              onClick={handleButton}
+              className={
+                sectors.includes("Road Safety")
+                  ? classes.buttonSelected
+                  : classes.button
+              }
+              value="Road Safety"
+            >
+              <img
+                src={sectors.includes("Road Safety")
+                ? RoadSafetyWhite
+                : RoadSafety}
+                alt="Road Safety"
+                style={{ width: "50px", height: "50px", fill: "white" }}
+              />
+              <br></br>
+              Road Safety
+            </button>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <button
+              onClick={handleButton}
+              className={
+                sectors.includes("Shipping and Ports")
+                  ? classes.buttonSelected
+                  : classes.button
+              }
+              value="Shipping and Ports"
+            >
+              <img
+                src={sectors.includes("Shipping and Ports")
+                ? ShippingPortWhite
+                : ShippingPort}
+                alt="Shipping and Ports "
+                style={{ width: "50px", height: "50px", fill: "white" }}
+              />
+              <br></br>
+              Shipping and Ports
+            </button>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <button
+              onClick={handleButton}
+              className={
+                sectors.includes("Demographics")
+                  ? classes.buttonSelected
+                  : classes.button
+              }
+              value="Demographics"
+            >
+              <img
+                src={sectors.includes("Demographics")
+                ? DemographicsWhite
+                : Demographics}
+                alt="Demographics"
+                style={{ width: "50px", height: "50px", fill: "white" }}
+              />
+              <br></br>
+              Demographics
+            </button>
+          </Grid>
+          {/* 6th row */}
+          <Grid item xs={12} md={4}>
+            <button
+              onClick={handleButton}
+              className={
+                sectors.includes("Traffic")
+                  ? classes.buttonSelected
+                  : classes.button
+              }
+              value="Traffic"
+            >
+              <img
+                src={sectors.includes("Traffic")
+                ? TrafficWhite
+                : Traffic}
+                alt="Traffic"
+                style={{ width: "50px", height: "50px", fill: "white" }}
+              />
+              <br></br>
+              Traffic
+            </button>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <button
+              onClick={handleButton}
+              className={
+                sectors.includes("Urban Freight")
+                  ? classes.buttonSelected
+                  : classes.button
+              }
+              value="Urban Freight"
+            >
+              <img
+                src={sectors.includes("Urban Freight")
+                ? UrbanWhite
+                : Urban}
+                alt="Urban"
+                style={{ width: "50px", height: "50px", fill: "white" }}
+              />
+              <br></br>
+              Urban Freight
+            </button>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <button
+              onClick={handleButton}
+              className={
+                sectors.includes("Others")
+                  ? classes.buttonSelected
+                  : classes.button
+              }
+              value="Others"
+            >
+              <img
+                src={sectors.includes("Others")
+                ? OthersWhite
+                : Others}
+                alt="Others"
+                style={{ width: "50px", height: "50px", fill: "white" }}
+              />
+              <br></br>
+              Others
+            </button>
+          </Grid>
+
           <Grid item xs={12} className={classes.buttons}>
             <ButtonGroup>
               <Button onClick={props.back}>Back</Button>
@@ -448,9 +861,6 @@ const SectorDetails = (props) => {
         </Grid>
       ) : (
         <Grid item container direction="column" xs={12}>
-          {/* <Typography variant="h5" gutterBottom className={classes.title}>
-            City Details
-          </Typography> */}
           <Grid container>
             <React.Fragment>
               {sectors.length
@@ -467,24 +877,33 @@ const SectorDetails = (props) => {
                       </Grid>
                       {subSectorList[sector].map((subSector, id) => (
                         <Grid item xs={12}>
-                          <FormControlLabel
-                            control={
-                              <Checkbox
-                                checked={state.sector}
-                                onChange={handleCheck}
-                                name={subSector}
-                                color="primary"
-                                id={sector}
-                              />
-                            }
-                            label={subSector}
-                          />
-                          <Typography variant="subtitle2" style={{marginTop:"-15px",marginLeft:"30px"}}>
+                          <ThemeProvider theme={innerTheme}>
+                            <FormControlLabel
+                              control={
+                                <Checkbox
+                                  checked={state.sector}
+                                  onChange={handleCheck}
+                                  name={subSector}
+                                  color="primary"
+                                  id={sector}
+                                />
+                              }
+                              label={subSector}
+                            />
+                          </ThemeProvider>
+                          <Typography
+                            variant="subtitle1"
+                            style={{ marginTop: "-15px", marginLeft: "30px" }}
+                          >
                             {subSectorDescList[subSector]}
                           </Typography>
                         </Grid>
                       ))}
-                      <Grid item xs={12} style={{ marginBottom: "30px" }}>
+                      <Grid
+                        item
+                        xs={12}
+                        style={{ marginBottom: "30px", marginTop: "10px" }}
+                      >
                         <TextField
                           required
                           id="other"

@@ -18,10 +18,25 @@ import SectorDetails from "./SectorDetails";
 import Review from "./Review";
 import { useHistory } from "react-router-dom";
 
-const useStyles = makeStyles((theme) => ({
-  ".MuiStepIcon-root.MuiStepIcon-active": {
-    color: "red !important",
+const theme = createMuiTheme({
+  overrides: {
+    MuiStepIcon: {
+      root: {
+        color:"#5C5C5C",
+        "&$completed": {
+          color: "#1C1C1C",
+        },
+        "&$active": {
+          color: "#1C1C1C",
+        },
+      },
+      active: {},
+      completed: {},
+    },
   },
+});
+
+const useStyles = makeStyles((theme) => ({
   appBar: {
     position: "relative",
   },
@@ -44,9 +59,6 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: theme.spacing(6),
       padding: theme.spacing(3),
     },
-  },
-  stepper: {
-    padding: theme.spacing(3, 0, 5),
   },
   buttons: {
     display: "flex",
@@ -146,14 +158,15 @@ const CityForm = () => {
           >
             Become a Data Partner
           </Typography>
-          <Stepper activeStep={activeStep} className={classes.stepper}>
-            {steps.map((label) => (
-              <Step key={label}>
-                <StepLabel>{label}</StepLabel>
-              </Step>
-            ))}
-          </Stepper>
-
+          <MuiThemeProvider theme={theme}>
+            <Stepper activeStep={activeStep} >
+              {steps.map((label) => (
+                <Step key={label}>
+                  <StepLabel>{label}</StepLabel>
+                </Step>
+              ))}
+            </Stepper>
+          </MuiThemeProvider>
           <React.Fragment>
             {activeStep === steps.length ? (
               <React.Fragment>
@@ -185,21 +198,6 @@ const CityForm = () => {
             ) : (
               <React.Fragment>
                 {getStepContent(activeStep)}
-                {/* <div className={classes.buttons}>
-                  {activeStep !== 0 && (
-                    <Button onClick={handleBack} className={classes.button}>
-                      Back
-                    </Button>
-                  )}
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={handleNext}
-                    className={classes.button}
-                  >
-                    {activeStep === steps.length - 1 ? "Submit" : "Next"}
-                  </Button>
-                </div> */}
               </React.Fragment>
             )}
           </React.Fragment>

@@ -157,7 +157,7 @@ export default function Review(props) {
           <Grid container>
             {datasetKeyList.map((key) => (
               <React.Fragment key={key}>
-                <Grid item xs={6}>
+                <Grid item xs={6} >
                   <Typography gutterBottom>
                     <strong>{key}</strong>
                   </Typography>
