@@ -136,7 +136,7 @@ const subSectorList = {
     "Road and Infrastructure Finance",
   ],
   "Road Safety": ["Road traffic accidents"],
-  "Shipping and Ports": ["Infrastructure and Traffic Patterns"],
+  "Shipping and Ports": ["Infrastructure and Traffic Pattern"],
   Demographics: [
     "Household income and expenditure",
     "Housing",
@@ -417,6 +417,10 @@ const SectorDetails = (props) => {
   };
   const handleButton = (event) => {
     let sectorValue = event.target.value;
+    if (!sectorValue) {
+      // image is clicked
+      sectorValue = event.target.alt;
+    }
     // setSector(sectorValue);
     let newSectors = [...sectors];
     let index = newSectors.indexOf(sectorValue);
