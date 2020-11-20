@@ -19,8 +19,14 @@ import Theme3 from "./Theme3.svg";
 import button1 from "./Button1.png";
 import button2 from "./Button2.png";
 import { Link } from "react-router-dom";
+import Workshopimage from "./Workshop.jpg";
 
 function Home() {
+  const workshopBtnHandler = () => {
+    window.open(
+      "https://mohua-india.webex.com/mohua-india/onstage/g.php?MTID=e9403c97a4c730f7f020af62ce822ea54"
+    );
+  };
   return (
     <section className="Home">
       <section className="hero">
@@ -96,7 +102,7 @@ function Home() {
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
-           />
+          />
         </div>
       </section>
 
@@ -115,18 +121,48 @@ function Home() {
             </div>
             <div className="col-md-6 data-partner">
               <Link to="/cities">
-              <img
-                className="data-partner-text"
-                src={button2}
-                alt="data partner"
-              />
+                <img
+                  className="data-partner-text"
+                  src={button2}
+                  alt="data partner"
+                />
               </Link>
-              
+
               {/* <button className="data-partner-text">
                 BECOME A DATA PARTNER
               </button> */}
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="reward top">
+        <div className="container">
+          <div className="heading heading-yellow heading-center">
+            <h2>
+              LAUNCH WORKSHOP ON SMARTMOVE - 24TH NOV 2020, 3 PM - 4:30 PM (IST)
+            </h2>
+          </div>
+          <br />
+          <br />
+
+          <img className="wimage" src={Workshopimage} alt="Workshop" />
+          <br />
+          <br />
+
+          <button className="butgo2" onClick={workshopBtnHandler}>
+            Register for the Launch Session
+          </button>
+        </div>
+      </section>
+
+      <section className="timeline">
+        <div className="container">
+          <div className="heading heading-black heading-center">
+            <h1>JOURNEY</h1>
+          </div>
+          <img className="mobilehide top" src={Timeline} alt="" />
+          <img className="webhide top" src={TimelineMob} alt="" />
         </div>
       </section>
 

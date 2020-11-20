@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.e6cf7885.chunk.css",
-    "main.js": "/static/js/main.bcade4b6.chunk.js",
-    "main.js.map": "/static/js/main.bcade4b6.chunk.js.map",
+    "main.css": "/static/css/main.f30c3cd6.chunk.css",
+    "main.js": "/static/js/main.065b31e5.chunk.js",
+    "main.js.map": "/static/js/main.065b31e5.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.46b0c638.js",
     "runtime-main.js.map": "/static/js/runtime-main.46b0c638.js.map",
-    "static/js/2.946560ba.chunk.js": "/static/js/2.946560ba.chunk.js",
-    "static/js/2.946560ba.chunk.js.map": "/static/js/2.946560ba.chunk.js.map",
+    "static/js/2.4d3452a8.chunk.js": "/static/js/2.4d3452a8.chunk.js",
+    "static/js/2.4d3452a8.chunk.js.map": "/static/js/2.4d3452a8.chunk.js.map",
     "static/js/3.b2600290.chunk.js": "/static/js/3.b2600290.chunk.js",
     "static/js/3.b2600290.chunk.js.map": "/static/js/3.b2600290.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.e6cf7885.chunk.css.map": "/static/css/main.e6cf7885.chunk.css.map",
-    "static/js/2.946560ba.chunk.js.LICENSE.txt": "/static/js/2.946560ba.chunk.js.LICENSE.txt",
+    "static/css/main.f30c3cd6.chunk.css.map": "/static/css/main.f30c3cd6.chunk.css.map",
+    "static/js/2.4d3452a8.chunk.js.LICENSE.txt": "/static/js/2.4d3452a8.chunk.js.LICENSE.txt",
     "static/media/Benefit1.2ef48f13.svg": "/static/media/Benefit1.2ef48f13.svg",
     "static/media/Benefit1Mob1.db9a8d95.svg": "/static/media/Benefit1Mob1.db9a8d95.svg",
     "static/media/Benefit1Mob2.9391f35c.svg": "/static/media/Benefit1Mob2.9391f35c.svg",
@@ -30,6 +30,7 @@
     "static/media/Theme2.73f3e3fc.svg": "/static/media/Theme2.73f3e3fc.svg",
     "static/media/Theme3.4e8a7e87.svg": "/static/media/Theme3.4e8a7e87.svg",
     "static/media/TimeBound.65c2c721.png": "/static/media/TimeBound.65c2c721.png",
+    "static/media/Workshop.df276f71.jpg": "/static/media/Workshop.df276f71.jpg",
     "static/media/cities_forum.2ea1077b.png": "/static/media/cities_forum.2ea1077b.png",
     "static/media/city_landuse.3f0f2c20.svg": "/static/media/city_landuse.3f0f2c20.svg",
     "static/media/city_landuse_white.41b1af5e.svg": "/static/media/city_landuse_white.41b1af5e.svg",
@@ -95,8 +96,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.46b0c638.js",
-    "static/js/2.946560ba.chunk.js",
-    "static/css/main.e6cf7885.chunk.css",
-    "static/js/main.bcade4b6.chunk.js"
+    "static/js/2.4d3452a8.chunk.js",
+    "static/css/main.f30c3cd6.chunk.css",
+    "static/js/main.065b31e5.chunk.js"
   ]
 }

@@ -5,6 +5,10 @@
 .Home {
     overflow: hidden;
 
+    .wimage{
+        width: 100%;
+    }
+
     .hero {
         margin: 50px 0px;
         .hero-text {
@@ -127,6 +131,30 @@
                 font-weight: 700;
                 
               }
+        }
+        h2 {
+            font-size: 1.5em;
+            
+            font-weight: 700;
+            @media screen and (max-width: 740px) {
+                font-size: 2em;
+                font-weight: 700;
+                
+              }
+        }
+    }
+    .butgo2{
+        background-color: $black-color;
+        max-width: 350px;
+        width: 40%;
+        padding: 20px 0px;
+        border-radius: 50px;
+        border: none;
+        outline: 0;
+        color: white;
+        @media screen and (max-width: 768px) {
+          width: 100%;
+          
         }
     }
     .heading-yellow {
