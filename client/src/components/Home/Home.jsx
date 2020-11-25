@@ -156,7 +156,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="timeline">
+      {/* <section className="timeline">
         <div className="container">
           <div className="heading heading-black heading-center">
             <h1>JOURNEY</h1>
@@ -164,7 +164,7 @@ function Home() {
           <img className="mobilehide top" src={Timeline} alt="" />
           <img className="webhide top" src={TimelineMob} alt="" />
         </div>
-      </section>
+      </section> */}
 
       <section className="unlock container">
         <div className="heading ">
