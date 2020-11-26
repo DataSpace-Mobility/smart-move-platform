@@ -84,12 +84,6 @@ export default function Review(props) {
       .post(url, dataToSubmit)
       .then((res) => res.data)
       .catch((err) => console.log(err));
-    // console.log('data submitted');
-    // firebase
-    // db.collection("forms").add({
-    //   ...personData,
-    //   datasets
-    // });
     // next page
     props.submit();
   };

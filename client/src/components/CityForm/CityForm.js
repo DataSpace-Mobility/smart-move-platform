@@ -17,6 +17,7 @@ import PersonDetails from "./PersonDetails";
 import SectorDetails from "./SectorDetails";
 import Review from "./Review";
 import { useHistory } from "react-router-dom";
+import axios from "axios";
 
 const theme = createMuiTheme({
   overrides: {
@@ -135,8 +136,17 @@ const CityForm = () => {
     setActiveStep(activeStep - 1);
   };
   const handleUpload = () => {
-    alert("Thank You, Data has been uploaded");
-    history.push("/");
+    // alert("Thank You, Data has been uploaded");
+    console.log(cityData.personData);
+    const {Email, Poc}= cityData.personData;
+    console.log(Email,Poc);
+    const url = "/api/users/registerEmail";
+    axios.post(url, {Poc, Email}).then( res =>{
+      console.log(res);
+    }).catch(err => {
+      console.log(err);
+    })
+    // history.push("/");
   };
   return (
     <React.Fragment>

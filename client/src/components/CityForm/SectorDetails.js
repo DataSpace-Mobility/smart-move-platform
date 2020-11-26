@@ -48,6 +48,7 @@ import RoadSafetyWhite from "./button Icons/White/road_safety_white.svg";
 import ShippingPortWhite from "./button Icons/White/shipping_ports_white.svg";
 import TrafficWhite from "./button Icons/White/traffic_white.svg";
 import UrbanWhite from "./button Icons/White/urban_freight_white.svg";
+import Axios from "axios";
 
 
 // Theme for checkbox
@@ -398,6 +399,17 @@ const SectorDetails = (props) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
 
+  const submitDatasets= (finalData) =>{
+    const url = "/api/cities/datasets";
+    let dataToSubmit = {
+      datasets: finalData, 
+    };
+
+    Axios
+      .post(url, dataToSubmit)
+      .then((res) => console.log(res.data))
+      .catch((err) => console.log(err));
+  }
   const handleNextPage = () => {
     // console.log('ShowNext',props.showNext);
     console.log(sectors);
@@ -409,6 +421,7 @@ const SectorDetails = (props) => {
       let finalData = {};
 
       sectors.map((sector) => (finalData = { ...finalData, [sector]: [""] }));
+      submitDatasets(finalData);
       props.next({ datasets: finalData });
     }
   };
@@ -456,6 +469,7 @@ const SectorDetails = (props) => {
         // finalData.push({ [key]: ourdata });
       }
     }
+    submitDatasets(finalData);
     props.next({ datasets: finalData });
   };
 
