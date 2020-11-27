@@ -400,8 +400,9 @@ const SectorDetails = (props) => {
   };
 
   const submitDatasets= (finalData) =>{
-    const url = "/api/cities/datasets";
+    const url = "/api/cities/cityData";
     let dataToSubmit = {
+      id:props.userId,
       datasets: finalData, 
     };
 
@@ -412,7 +413,7 @@ const SectorDetails = (props) => {
   }
   const handleNextPage = () => {
     // console.log('ShowNext',props.showNext);
-    console.log(sectors);
+    // console.log(sectors);
     if (props.showNext) {
       setShowNextPage(true);
       // console.log('Next');
@@ -480,7 +481,7 @@ const SectorDetails = (props) => {
       </Typography>
       {!showNextPage ? (
         <Grid container spacing={3}>
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={4} key={"Environment"}>
             <button
               onClick={handleButton}
               className={
@@ -501,7 +502,7 @@ const SectorDetails = (props) => {
               Environment
             </button>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={4} key={"City"}>
             <button
               onClick={handleButton}
               className={
@@ -522,7 +523,7 @@ const SectorDetails = (props) => {
               City Landuse
             </button>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={4} key={"Civil"}>
             <button
               onClick={handleButton}
               className={
@@ -544,7 +545,7 @@ const SectorDetails = (props) => {
             </button>
           </Grid>
           {/* Second row */}
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={4} key={"Electric"}>
             <button
               onClick={handleButton}
               className={
@@ -565,7 +566,7 @@ const SectorDetails = (props) => {
               Electric Mobility
             </button>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={4} key={"Informal"}>
             <button
               onClick={handleButton}
               className={
@@ -586,7 +587,7 @@ const SectorDetails = (props) => {
               Informal Transport
             </button>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={4} key={"Water"}>
             <button
               onClick={handleButton}
               className={
@@ -608,7 +609,7 @@ const SectorDetails = (props) => {
             </button>
           </Grid>
           {/* 3rd row */}
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={4} key={"Metro"}>
             <button
               onClick={handleButton}
               className={
@@ -629,7 +630,7 @@ const SectorDetails = (props) => {
               Metro Rail
             </button>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={4} key={"motorized"}>
             <button
               onClick={handleButton}
               className={
@@ -650,7 +651,7 @@ const SectorDetails = (props) => {
               Non-motorized transport
             </button>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={4} key={"Parking"}>
             <button
               onClick={handleButton}
               className={
@@ -672,7 +673,7 @@ const SectorDetails = (props) => {
             </button>
           </Grid>
           {/* 4 row */}
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={4} key={"Buses"}>
             <button
               onClick={handleButton}
               className={
@@ -693,7 +694,7 @@ const SectorDetails = (props) => {
               Public Buses
             </button>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={4} key={"Railways"}>
             <button
               onClick={handleButton}
               className={
@@ -714,7 +715,7 @@ const SectorDetails = (props) => {
               Railways
             </button>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={4} key={"Infrastructure"}>
             <button
               onClick={handleButton}
               className={
@@ -736,7 +737,7 @@ const SectorDetails = (props) => {
             </button>
           </Grid>
           {/* 5th row */}
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={4} key={"Safety"}>
             <button
               onClick={handleButton}
               className={
@@ -757,7 +758,7 @@ const SectorDetails = (props) => {
               Road Safety
             </button>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={4} key={"Shipping"}>
             <button
               onClick={handleButton}
               className={
@@ -778,7 +779,7 @@ const SectorDetails = (props) => {
               Shipping and Ports
             </button>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={4} key={"Demographics"}>
             <button
               onClick={handleButton}
               className={
@@ -800,7 +801,7 @@ const SectorDetails = (props) => {
             </button>
           </Grid>
           {/* 6th row */}
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={4} key={"Traffic"}>
             <button
               onClick={handleButton}
               className={
@@ -821,7 +822,7 @@ const SectorDetails = (props) => {
               Traffic
             </button>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={4} key={"Urban"}>
             <button
               onClick={handleButton}
               className={
@@ -842,7 +843,7 @@ const SectorDetails = (props) => {
               Urban Freight
             </button>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={4} key={"Others"}>
             <button
               onClick={handleButton}
               className={

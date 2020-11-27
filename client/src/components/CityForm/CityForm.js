@@ -23,7 +23,7 @@ const theme = createMuiTheme({
   overrides: {
     MuiStepIcon: {
       root: {
-        color:"#5C5C5C",
+        color: "#5C5C5C",
         "&$completed": {
           color: "#1C1C1C",
         },
@@ -79,6 +79,7 @@ const useStyles = makeStyles((theme) => ({
 
 const steps = ["Contact Details", "Data Availability", "Review your entry"];
 const initialCityData = {
+  id: null,
   personData: null,
   datasets: null,
 };
@@ -87,7 +88,9 @@ const CityForm = () => {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const [cityData, setCityData] = React.useState(initialCityData);
+  const [userId, setUserId] = React.useState(null);
   const [showNextPage, setShowNextPage] = React.useState(false);
+  const [doc , setDoc ] = React.useState("");
   const history = useHistory();
 
   function getStepContent(step) {
@@ -97,6 +100,7 @@ const CityForm = () => {
       case 1:
         return (
           <SectorDetails
+            userId={userId}
             showNext={showNextPage}
             next={saveData}
             back={handleBack}
@@ -109,8 +113,11 @@ const CityForm = () => {
     }
   }
 
-  const saveData = (childData) => {
+  const saveData = (childData, id) => {
     setCityData({ ...cityData, ...childData });
+    if (id) {
+      setUserId(id);
+    }
     // console.log(childData);
     if (childData.personData) {
       const type = childData.personData.OrganizationType;
@@ -125,7 +132,8 @@ const CityForm = () => {
     handleNext();
   };
 
-  const submitData = () => {
+  const submitData = (docString) => {
+    setDoc(docString);
     handleNext();
   };
   const handleNext = () => {
@@ -136,16 +144,21 @@ const CityForm = () => {
     setActiveStep(activeStep - 1);
   };
   const handleUpload = () => {
-    // alert("Thank You, Data has been uploaded");
-    console.log(cityData.personData);
-    const {Email, Poc}= cityData.personData;
-    console.log(Email,Poc);
+    alert("Thank You, You will receive mail shortly for the instructions");
+    // console.log(cityData.personData);
+    const { Email, Poc } = cityData.personData;
+    // console.log(Email, Poc);
+    // const Poc="Rishabh Sisodiya";
+    // const Email="rishabh.sisodiya4@gmail.com"
     const url = "/api/users/registerEmail";
-    axios.post(url, {Poc, Email}).then( res =>{
-      console.log(res);
-    }).catch(err => {
-      console.log(err);
-    })
+    axios
+      .post(url, { Poc, Email,doc })
+      .then((res) => {
+        console.log(res.message);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     // history.push("/");
   };
   return (
@@ -169,7 +182,7 @@ const CityForm = () => {
             Become a Data Partner
           </Typography>
           <MuiThemeProvider theme={theme}>
-            <Stepper activeStep={activeStep} >
+            <Stepper activeStep={activeStep}>
               {steps.map((label) => (
                 <Step key={label}>
                   <StepLabel>{label}</StepLabel>
@@ -206,9 +219,7 @@ const CityForm = () => {
                 </div>
               </React.Fragment>
             ) : (
-              <React.Fragment>
-                {getStepContent(activeStep)}
-              </React.Fragment>
+              <React.Fragment>{getStepContent(activeStep)}</React.Fragment>
             )}
           </React.Fragment>
         </Paper>

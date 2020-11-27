@@ -32,7 +32,7 @@ function Cities() {
             <div className="row top">
               <div className="col-md-12">
                 <p>
-                  Be a City Partner and get benefited from the Challenge
+                  Be a Data Partner and get benefited from the Challenge
                   Proposals. You can share data from a wide range of Sectors and
                   Sub sectors. Please click the link below to begin with the
                   Sharing Wizard.

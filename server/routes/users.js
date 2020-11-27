@@ -58,59 +58,81 @@ router.get("/logout", auth, (req, res) => {
 });
 
 router.post("/registerEmail", (req, res) => {
-  // User.findOne(
-  //     {
-  //       _id: id,
-  //       verified: false,
-  //     },
-  //     function (err, user) {
-  //       if (err || !user) {
-  //         return callback(err);
-  //       }
-  //       var token = user.generateEmailVerificationToken();
-  //       Mailer.sendVerificationEmail(user.email, token);
-  //       return callback(err, user);
-  //     }
-  //   );
-  // Mailer.sendPasswordResetEmail(email, token, callback);
-  var password = generator.generate({
+  var pass = generator.generate({
     length: 10,
     numbers: true,
   });
-//   console.log(password);
+  //   console.log(pass);
   let email = req.body.Email;
   let user = req.body.Poc;
-  //  Call api
-  const tokenUrl = "https://storage.dataspace.mobi/a/frontend/session";
-  const login = process.env.login;
-  const apassword = process.env.password;
-  const type = process.env.type;
-  const authInfo = { login, password, type };
-//   axios
-//     .post(tokenUrl, { AuthInfo: authInfo }, cookieConfig)
-//     .then((res) => {
-//       console.log(res.body);
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-  const url = "https://storage.dataspace.mobi/a/user/upperwal";
-  // const config = {
-  //     headers: { Authorization: `Bearer ${token}` }
-  // };
-  // axios.post(url,{Login:email, Password:password}, config ).then(
-  //     (res)=>{
-  //         console.log(res);
-  //     }
-  // ).catch(
-  //     (err) =>{
-  //         console.log(err);
-  //     }
-  // );
-// Send email to User
-  EmailController.sendVerificationEmail(user,email, password);
-  console.log(callback);
-  res.status(200).send({success:true});
+  let docObject = req.body.doc;
+  // console.log('docObject: ',docObject);
+  // let buffer= Buffer.from(JSON.stringify(docObject));
+  // console.log(buffer);
+  // console.log(new Buffer('hello world!','utf-8'))
+  //  Call api for register user
+  // const tokenUrl = "https://storage.dataspace.mobi/a/frontend/session";
+  // const url = "https://storage.dataspace.mobi/a/user/upperwal";
+  // const login = process.env.login;
+  // const password = process.env.password;
+  // const type = process.env.type;
+  // const authInfo = { login, password, type };
+  // axios
+  //   .post(tokenUrl, {
+  //     AuthInfo: authInfo,
+  //   })
+  //   .then((response) => {
+  //     const token = response.data.JWT;
+  //     // console.log("token:", response.data.JWT);
+  //     const config = {
+  //       headers: { Authorization: `Bearer ${token}` },
+  //     };
+  //     const reqbody={
+  //       GroupPath: "",
+  //       Attributes: {
+  //         profile: "standard",
+  //       },
+  //       Login: email,
+  //       Password: pass,
+  //     };
+  //     axios
+  //       .put(
+  //         url,
+  //         reqbody,
+  //         config
+  //       )
+  //       .then((response) => {
+  //         console.log(response.data);
+  //         return res.status(201).send({message:"User Created"});
+
+  //       })
+  //       .catch((err) => {
+  //         console.log('user creation error:',err.response.data);
+  //         const error= err.response.datal
+  //         return res.status(500).send({message:error});
+  //       });
+  //   })
+  //   .catch((err) => {
+  //     console.log('token error:',err);
+  //     return res.status(500).send({message:err.response.data});
+  //   });
+
+  // Send email to User
+  EmailController.sendVerificationEmail(
+    user,
+    email,
+    pass,
+    docObject,
+    function (err, info) {
+      if (err) {
+        console.log(err);
+        return res.status(500).send({ message: err });
+      }
+      if (info) {
+        return res.status(200).send({ message: "Email Sent" });
+      }
+    }
+  );
 });
 
 module.exports = router;

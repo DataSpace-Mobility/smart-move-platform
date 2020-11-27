@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import { Button, ButtonGroup } from "@material-ui/core";
-// import { db } from "../../firebase";
-import axios from "axios";
+
 import {
   Document,
   HeadingLevel,
@@ -18,23 +17,23 @@ import { saveAs } from "file-saver";
 
 function createHeader(FieldName, FieldValue) {
   return new Paragraph({
-      tabStops: [
-          {
-              type: TabStopType.RIGHT,
-              position: TabStopPosition.MAX,
-          },
-      ],
-      children: [
-          new TextRun({
-              text: FieldName,
-              bold: true,
-              size:"28",
-          }),
-          new TextRun({
-              text: `\t${FieldValue}`,
-              size:"28",
-          }),
-      ],
+    tabStops: [
+      {
+        type: TabStopType.RIGHT,
+        position: TabStopPosition.MAX,
+      },
+    ],
+    children: [
+      new TextRun({
+        text: FieldName,
+        bold: true,
+        size: "28",
+      }),
+      new TextRun({
+        text: `\t${FieldValue}`,
+        size: "28",
+      }),
+    ],
   });
 }
 
@@ -60,6 +59,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Review(props) {
   const classes = useStyles();
+  const [docString, setDocString] = useState('');
   const { personData, datasets } = props.data;
   let personKeyList = [];
   let datasetKeyList = [];
@@ -74,18 +74,8 @@ export default function Review(props) {
   }
 
   const handleSubmit = () => {
-    const url = "/api/cities/data";
-    let dataToSubmit = {
-      ...personData,
-      datasets,
-    };
-
-    axios
-      .post(url, dataToSubmit)
-      .then((res) => res.data)
-      .catch((err) => console.log(err));
-    // next page
-    props.submit();
+    // console.log(docString);
+    props.submit(docString);
   };
 
   // Create Docx
@@ -102,29 +92,42 @@ export default function Review(props) {
           text: "City Details",
           heading: HeadingLevel.HEADING_1,
         }),
-        ...personKeyList.map( (key) => createHeader(key,personData[key])),
+        ...personKeyList.map((key) => createHeader(key, personData[key])),
         new Paragraph({
           text: "List of DataSets",
           heading: HeadingLevel.HEADING_1,
         }),
-        ...datasetKeyList.map( (key) => createHeader(key,datasets[key])),
+        ...datasetKeyList.map((key) => createHeader(key, datasets[key])),
       ],
     });
+    Packer.toBase64String(doc).then( (docstring) => {
+      setDocString(docstring);
+    })
+    Packer.toBlob(doc).then( (blob) => {
+    // Packer.toBase64String(doc).then( (docstring) => {
+      // const Poc = "Rishabh Sisodiya";
+      // const Email = "rishabh.sisodiya4@gmail.com";
+      // const url = "/api/users/registerEmail";
+      // Axios.post(url, { Poc, Email, docstring })
+      //   .then((res) => {
+      //     console.log(res.message);
+      //   })
+      //   .catch((err) => {
+      //     console.log(err);
+      //   });
 
-    Packer.toBlob(doc).then((blob) => {
       // console.log(blob);
+      // console.log(docstring);
+
       saveAs(blob, "example.docx");
-      // console.log("Document created successfully");
+      // setDocString(docstring);
+      console.log("Document created successfully");
     });
   };
-
-
+// console.log(docString);
   return (
     <React.Fragment>
       <Grid container spacing={2} style={{ textAlign: "left" }}>
-        <Grid item xs={12}>
-          <Button onClick={docCreator}>Download Form</Button>
-        </Grid>
         <Grid item container direction="column" xs={12}>
           <Typography variant="h5" gutterBottom className={classes.title}>
             City Details
@@ -151,7 +154,7 @@ export default function Review(props) {
           <Grid container>
             {datasetKeyList.map((key) => (
               <React.Fragment key={key}>
-                <Grid item xs={6} >
+                <Grid item xs={6}>
                   <Typography gutterBottom>
                     <strong>{key}</strong>
                   </Typography>
@@ -164,6 +167,14 @@ export default function Review(props) {
               </React.Fragment>
             ))}
           </Grid>
+        </Grid>
+        <Grid item xs={12}>
+          <Button
+            onClick={docCreator}
+            style={{ backgroundColor: "#DC4351", color: "white" }}
+          >
+            Download Form
+          </Button>
         </Grid>
         <Grid item xs={12} className={classes.buttons}>
           <ButtonGroup>

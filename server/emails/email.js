@@ -1,10 +1,10 @@
-var path = require('path');
-var nodemailer = require('nodemailer');
-var smtpTransport = require('nodemailer-smtp-transport');
+var path = require("path");
+var nodemailer = require("nodemailer");
+var smtpTransport = require("nodemailer-smtp-transport");
 
-var templatesDir = path.join(__dirname, '../templates');
-var Email = require('email-templates');
-const dotenv = require('dotenv');
+var templatesDir = path.join(__dirname, "../templates");
+var Email = require("email-templates");
+const dotenv = require("dotenv");
 dotenv.config();
 var ROOT_URL = process.env.ROOT_URL;
 
@@ -19,14 +19,14 @@ var EMAIL_PASS = process.env.EMAIL_PASS;
 var EMAIL_PORT = process.env.EMAIL_PORT;
 var EMAIL_CONTACT = process.env.EMAIL_CONTACT;
 var EMAIL_HEADER_IMAGE = process.env.EMAIL_HEADER_IMAGE;
-var FAQ_URL=process.env.FAQ_URL;
-var PYDIO_URL=process.env.PYDIO_URL;
+var FAQ_URL = process.env.FAQ_URL;
+var PYDIO_URL = process.env.PYDIO_URL;
 // console.log('EMAIL:',EMAIL_HOST);
 // if(EMAIL_HEADER_IMAGE.indexOf("https") == -1){
 //   EMAIL_HEADER_IMAGE = ROOT_URL + EMAIL_HEADER_IMAGE;
 // }
 
-var NODE_ENV = "dev";
+var NODE_ENV = process.env.NODE_ENV;
 
 var options = {
   host: EMAIL_HOST,
@@ -34,8 +34,8 @@ var options = {
   secure: false,
   auth: {
     user: EMAIL_USER,
-    pass: EMAIL_PASS
-  }
+    pass: EMAIL_PASS,
+  },
 };
 
 var transporter = nodemailer.createTransport(smtpTransport(options));
@@ -44,7 +44,7 @@ var controller = {};
 
 controller.transporter = transporter;
 
- function sendOne(templateName, options, data, callback) {
+function sendOne(templateName, options, data, callback) {
   if (NODE_ENV === "dev") {
     console.log(templateName);
     console.log(JSON.stringify(data, "", 2));
@@ -52,10 +52,11 @@ controller.transporter = transporter;
 
   const email = new Email({
     message: {
-      from: EMAIL_CONTACT
+      from: EMAIL_CONTACT,
     },
     send: true,
-    transport: transporter
+    transport: transporter,
+    preview: false,
   });
 
   // pass text in templates
@@ -64,64 +65,64 @@ controller.transporter = transporter;
   data.hackathonName = HACKATHON_NAME;
   data.twitterHandle = TWITTER_HANDLE;
   data.facebookHandle = FACEBOOK_HANDLE;
-  data.pydioUrl=PYDIO_URL;
-  data.faqUrl=FAQ_URL;
-  email.send({
-    locals: data,
-    message: {
-      subject: options.subject,
-      to: options.to
-    },
-    template: path.join(__dirname, "..", "emails", templateName),
-  }).then(res => {
-    if (callback) {
-      callback(undefined, "Email Sent");
-      console.log('sent');
-    }
-  }).catch(err => {
-    if (callback) {
-      callback(err, undefined);
-      console.log(err);
-    }
-  });
+  data.pydioUrl = PYDIO_URL;
+  data.faqUrl = FAQ_URL;
+  // Concept note templete.docx
+  email
+    .send({
+      locals: data,
+      message: {
+        subject: options.subject,
+        to: options.to,
+        attachments: options.attachments,
+      },
+      template: path.join(__dirname, "..", "emails", templateName),
+    })
+    .then((res) => {
+      if (callback) {
+        callback(undefined, res.response);
+      }
+    })
+    .catch((err) => {
+      if (callback) {
+        callback(err, undefined);
+      }
+    });
 }
 
-/**
- * Send a verified email to a user, with a paswword to enter.
- * @param  {[type]}   email    [description]
- * @param  {[type]}   token    [description]
- * @param  {Function} callback [description]
- * @return {[type]}            [description]
- */
-controller.sendVerificationEmail = function(user, email, password) {
-
+controller.sendVerificationEmail = function (
+  user,
+  email,
+  password,
+  docObject,
+  callback
+) {
+  // console.log("string", docObject);
   var options = {
     to: email,
-    subject: "Welcome to Smart Move Mobility Challenge "
+    subject: "Welcome to Smart Move Mobility Challenge ",
+    attachments: [
+      {
+        // utf-8 string as an attachment
+        filename: "example.docx",
+        content: docObject,
+        encoding: 'base64',
+      },
+    ],
   };
   var locals = {
-    user:user,
-    username:email,
+    user: user,
+    username: email,
     password: password,
   };
-  /**
-   * Eamil-verify takes a few template values:
-   * {
-   *   verifyUrl: the url that the user must visit to verify their account
-   * }
-   */
-  sendOne('email-verify', options, locals, function(err, info){
-    if (err){
-      console.log('error:',err);
+  sendOne("email-verify", options, locals, function (err, info) {
+    if (err) {
+      return callback(err, undefined);
     }
-    if (info){
-      console.log('info:',info.message);
-    }
-    if (callback){
-      console(err, info);
+    if (info) {
+      return callback(undefined, info);
     }
   });
-
 };
 
 module.exports = controller;

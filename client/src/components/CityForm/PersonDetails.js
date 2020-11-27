@@ -156,6 +156,20 @@ const PersonDetails = (props) => {
     return re.test(num);
   }
 
+  const submitData = async () => {
+    const url = "/api/cities/cityData";
+    let dataToSubmit = {
+      ...input,
+    };
+    let userId = null;
+    await Axios.post(url, dataToSubmit)
+      .then((res) => {
+        userId = res.data.id;
+        // console.log(res.data);
+      })
+      .catch((err) => console.log(err));
+    return userId;
+  };
   const handleInput = (event, values) => {
     let fieldValue = event.target.value;
     let fieldName = event.target.name;
@@ -188,15 +202,12 @@ const PersonDetails = (props) => {
       error.push("Point of Contact ");
     }
     if (!error.length) {
-      const url = "/api/cities/personData";
-      let dataToSubmit = {
-        ...input,
-      };
-      // let userId;
-      Axios.post(url, dataToSubmit)
-        .then((res) => console.log(res.data))
-        .catch((err) => console.log(err));
-      props.next({ personData: input });
+      submitData()
+        .then((res) =>{
+          props.next({ personData: input },res);
+        })
+        .catch((err) => alert(err));
+      
       setInput(initialState);
     }
     setErrorText(error);
