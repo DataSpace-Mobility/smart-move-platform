@@ -152,12 +152,22 @@ const CityForm = () => {
     axios
       .post(url, { Poc, Email, doc })
       .then((res) => {
-        console.log(res.message);
+        // console.log(res.status);
+        // console.log(res.data.message);
+        const msg= res.data.message;
+        if (msg==="User Created") {
+          window.open('https://storage.dataspace.mobi')
+        }else{
+          // setErrorMsg(JSON.stringify(msg));
+          throw new Error(JSON.stringify(msg));
+        }
+        
       })
       .catch((err) => {
+        // setErrorMsg(err)
         console.log(err);
       });
-      window.open('https://storage.dataspace.mobi')
+      
     // history.push("/");
   };
   return (

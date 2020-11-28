@@ -50,7 +50,7 @@ router.get("/logout", auth, (req, res) => {
     { token: "", tokenExp: "" },
     (err, doc) => {
       if (err) return res.json({ success: false, err });
-      return res.status(200).send({
+      return res.status(200).json({
         success: true,
       });
     }
@@ -83,7 +83,7 @@ router.post("/registerEmail", (req, res) => {
       const config = {
         headers: { Authorization: `Bearer ${token}` },
       };
-      const reqbody={
+      const reqbody = {
         GroupPath: "",
         Attributes: {
           profile: "standard",
@@ -92,43 +92,38 @@ router.post("/registerEmail", (req, res) => {
         Password: pass,
       };
       axios
-        .put(
-          url,
-          reqbody,
-          config
-        )
+        .put(url, reqbody, config)
         .then((response) => {
-          console.log(response.data);
-          return res.status(201).send({message:"User Created"});
+          // console.log(response.data);
 
+          // Send email to User
+          EmailController.sendVerificationEmail(
+            user,
+            email,
+            pass,
+            docObject,
+            function (err, info) {
+              if (err) {
+                console.log(err);
+                return res.json({ message: err });
+              }
+              if (info) {
+                return res.json({ message: "User Created" });
+              }
+            }
+          );
+          // return res.json({ message: "User Created" });
         })
         .catch((err) => {
-          console.log('user creation error:',err.response.data);
-          const error= err.response.datal
-          return res.status(500).send({message:error});
+          console.log("user creation error:", err.response.data);
+          const error = err.response.data;
+          return res.json({ message: error });
         });
     })
     .catch((err) => {
-      console.log('token error:',err);
-      return res.status(500).send({message:err.response.data});
+      console.log("token error:", err);
+      return res.json({ message: err.response.data });
     });
-
-  // Send email to User
-  EmailController.sendVerificationEmail(
-    user,
-    email,
-    pass,
-    docObject,
-    function (err, info) {
-      if (err) {
-        console.log(err);
-        return res.status(500).send({ message: err });
-      }
-      if (info) {
-        return res.status(200).send({ message: "Email Sent" });
-      }
-    }
-  );
 });
 
 module.exports = router;
