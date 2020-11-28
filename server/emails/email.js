@@ -11,7 +11,6 @@ var ROOT_URL = process.env.ROOT_URL;
 var HACKATHON_NAME = process.env.HACKATHON_NAME;
 var EMAIL_ADDRESS = process.env.EMAIL_ADDRESS;
 var TWITTER_HANDLE = process.env.TWITTER_HANDLE;
-var FACEBOOK_HANDLE = process.env.FACEBOOK_HANDLE;
 
 var EMAIL_HOST = process.env.EMAIL_HOST;
 var EMAIL_USER = process.env.EMAIL_USER;
@@ -62,10 +61,7 @@ function sendOne(templateName, options, data, callback) {
   data.emailAddress = EMAIL_ADDRESS;
   data.hackathonName = HACKATHON_NAME;
   data.twitterHandle = TWITTER_HANDLE;
-  data.facebookHandle = FACEBOOK_HANDLE;
-  data.pydioUrl = PYDIO_URL;
-  data.faqUrl = FAQ_URL;
-  // Concept note templete.docx
+
   email
     .send({
       locals: data,
@@ -102,7 +98,7 @@ controller.sendVerificationEmail = function (
     attachments: [
       {
         // utf-8 string as an attachment
-        filename: "example.docx",
+        filename: "DataPartnerForm.docx",
         content: docObject,
         encoding: 'base64',
       },
