@@ -98,7 +98,7 @@ controller.sendVerificationEmail = function (
     attachments: [
       {
         // utf-8 string as an attachment
-        filename: "DataPartnerForm.docx",
+        filename: "smart-move-data-list.docx",
         content: docObject,
         encoding: 'base64',
       },
