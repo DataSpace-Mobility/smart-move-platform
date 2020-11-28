@@ -19,12 +19,10 @@ var EMAIL_PASS = process.env.EMAIL_PASS;
 var EMAIL_PORT = process.env.EMAIL_PORT;
 var EMAIL_CONTACT = process.env.EMAIL_CONTACT;
 var EMAIL_HEADER_IMAGE = process.env.EMAIL_HEADER_IMAGE;
-var FAQ_URL = process.env.FAQ_URL;
-var PYDIO_URL = process.env.PYDIO_URL;
 // console.log('EMAIL:',EMAIL_HOST);
-// if(EMAIL_HEADER_IMAGE.indexOf("https") == -1){
-//   EMAIL_HEADER_IMAGE = ROOT_URL + EMAIL_HEADER_IMAGE;
-// }
+if(EMAIL_HEADER_IMAGE.indexOf("https") == -1){
+  EMAIL_HEADER_IMAGE = ROOT_URL + EMAIL_HEADER_IMAGE;
+}
 
 var NODE_ENV = process.env.NODE_ENV;
 

@@ -69,9 +69,9 @@ router.post("/registerEmail", (req, res) => {
   //  Call api for register user
   const tokenUrl = "https://storage.dataspace.mobi/a/frontend/session";
   const url = "https://storage.dataspace.mobi/a/user/upperwal";
-  const login = process.env.login;
-  const password = process.env.password;
-  const type = process.env.type;
+  const login = process.env.LOGIN;
+  const password = process.env.PASSWORD;
+  const type = process.env.TYPE;
   const authInfo = { login, password, type };
   axios
     .post(tokenUrl, {
