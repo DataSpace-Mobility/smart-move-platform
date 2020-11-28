@@ -5,8 +5,6 @@ import {
   MuiThemeProvider,
 } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-// import AppBar from "@material-ui/core/AppBar";
-// import Toolbar from "@material-ui/core/Toolbar";
 import Paper from "@material-ui/core/Paper";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
@@ -16,7 +14,6 @@ import Typography from "@material-ui/core/Typography";
 import PersonDetails from "./PersonDetails";
 import SectorDetails from "./SectorDetails";
 import Review from "./Review";
-import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 const theme = createMuiTheme({
@@ -70,6 +67,9 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(1),
     backgroundColor: "#69BFC3",
     color: "black",
+    "&:hover":{
+      backgroundColor: "#4AB9BE",
+    }
   },
   redColor: {
     color: "#DC4351",
@@ -90,8 +90,7 @@ const CityForm = () => {
   const [cityData, setCityData] = React.useState(initialCityData);
   const [userId, setUserId] = React.useState(null);
   const [showNextPage, setShowNextPage] = React.useState(false);
-  const [doc , setDoc ] = React.useState("");
-  const history = useHistory();
+  const [doc, setDoc] = React.useState("");
 
   function getStepContent(step) {
     switch (step) {
@@ -144,7 +143,6 @@ const CityForm = () => {
     setActiveStep(activeStep - 1);
   };
   const handleUpload = () => {
-    alert("Thank You, You will receive mail shortly for the instructions");
     // console.log(cityData.personData);
     const { Email, Poc } = cityData.personData;
     // console.log(Email, Poc);
@@ -152,25 +150,19 @@ const CityForm = () => {
     // const Email="rishabh.sisodiya4@gmail.com"
     const url = "/api/users/registerEmail";
     axios
-      .post(url, { Poc, Email,doc })
+      .post(url, { Poc, Email, doc })
       .then((res) => {
         console.log(res.message);
       })
       .catch((err) => {
         console.log(err);
       });
+      window.open('https://storage.dataspace.mobi')
     // history.push("/");
   };
   return (
     <React.Fragment>
       <CssBaseline />
-      {/* <AppBar position="absolute" color="default" className={classes.appBar}>
-        <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap>
-            Smart MOVE : Innovative Urban Mobility Data Challenge
-          </Typography>
-        </Toolbar>
-      </AppBar> */}
       <main className={classes.layout}>
         <Paper className={classes.paper}>
           <Typography
@@ -197,8 +189,9 @@ const CityForm = () => {
                   Thank You for becoming a city partner
                 </Typography>
                 <Typography variant="subtitle1">
-                  We have received your entry. Please share your data with us
-                  through our secure data sharing platform linked below.
+                  Please click the button below to
+                  complete your entry. You will be redirected to secure data
+                  storage portal, where you can share your data.
                 </Typography>
                 <Typography variant="subtitle1">
                   For instructions on how to upload data and your login
@@ -223,7 +216,6 @@ const CityForm = () => {
             )}
           </React.Fragment>
         </Paper>
-        {/* <Copyright /> */}
       </main>
     </React.Fragment>
   );

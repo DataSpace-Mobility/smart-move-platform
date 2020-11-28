@@ -408,7 +408,11 @@ const SectorDetails = (props) => {
 
     Axios
       .post(url, dataToSubmit)
-      .then((res) => console.log(res.data))
+      .then((res) => {
+        // console.log(res.data)
+      let Id = res.data.id;
+    }
+      )
       .catch((err) => console.log(err));
   }
   const handleNextPage = () => {

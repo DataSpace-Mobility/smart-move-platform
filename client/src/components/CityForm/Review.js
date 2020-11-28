@@ -104,22 +104,7 @@ export default function Review(props) {
       setDocString(docstring);
     })
     Packer.toBlob(doc).then( (blob) => {
-    // Packer.toBase64String(doc).then( (docstring) => {
-      // const Poc = "Rishabh Sisodiya";
-      // const Email = "rishabh.sisodiya4@gmail.com";
-      // const url = "/api/users/registerEmail";
-      // Axios.post(url, { Poc, Email, docstring })
-      //   .then((res) => {
-      //     console.log(res.message);
-      //   })
-      //   .catch((err) => {
-      //     console.log(err);
-      //   });
-
-      // console.log(blob);
-      // console.log(docstring);
-
-      saveAs(blob, "example.docx");
+      saveAs(blob, "smart-move-data-list.docx");
       // setDocString(docstring);
       console.log("Document created successfully");
     });
