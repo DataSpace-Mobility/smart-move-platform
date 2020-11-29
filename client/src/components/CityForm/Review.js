@@ -5,33 +5,72 @@ import Grid from "@material-ui/core/Grid";
 import { Button, ButtonGroup } from "@material-ui/core";
 
 import {
+  BorderStyle,
   Document,
   HeadingLevel,
   Packer,
   Paragraph,
-  TabStopPosition,
-  TabStopType,
+  Table,
+  TableCell,
+  TableRow,
   TextRun,
+  WidthType,
 } from "docx";
 import { saveAs } from "file-saver";
 
-function createHeader(FieldName, FieldValue) {
-  return new Paragraph({
-    tabStops: [
-      {
-        type: TabStopType.RIGHT,
-        position: TabStopPosition.MAX,
+function createTable(FieldName, FieldValue) {
+  return new Table({
+    width: {
+      size: 100,
+      type: WidthType.PERCENTAGE,
+    },
+    borders: {
+      top: {
+        style: BorderStyle.NONE,
       },
-    ],
-    children: [
-      new TextRun({
-        text: FieldName,
-        bold: true,
-        size: "28",
-      }),
-      new TextRun({
-        text: `\t${FieldValue}`,
-        size: "28",
+      bottom: {
+        style: BorderStyle.NONE,
+      },
+      right: {
+        style: BorderStyle.NONE,
+      },
+      left: {
+        style: BorderStyle.NONE,
+      },
+      insideHorizontal: {
+        style: BorderStyle.NONE,
+      },
+      insideVertical: {
+        style: BorderStyle.NONE,
+      },
+    },
+    rows: [
+      new TableRow({
+        children: [
+          new TableCell({
+            children: [
+              new Paragraph({
+                children: [
+                  new TextRun({
+                    text: FieldName,
+                    bold: true,
+                    size: "26",
+                  }),
+                ],
+              }),
+            ],
+          }),
+          new TableCell({
+            children: [new Paragraph({
+              children: [
+                new TextRun({
+                  text: `${FieldValue}`,
+                  size: "26",
+                }),
+              ],
+            })],
+          }),
+        ],
       }),
     ],
   });
@@ -59,7 +98,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Review(props) {
   const classes = useStyles();
-  const [docString, setDocString] = useState('');
+  const [docString, setDocString] = useState("");
   const { personData, datasets } = props.data;
   let personKeyList = [];
   let datasetKeyList = [];
@@ -81,7 +120,6 @@ export default function Review(props) {
   // Create Docx
   const docCreator = () => {
     const doc = new Document();
-
     doc.addSection({
       children: [
         new Paragraph({
@@ -92,24 +130,24 @@ export default function Review(props) {
           text: "City Details",
           heading: HeadingLevel.HEADING_1,
         }),
-        ...personKeyList.map((key) => createHeader(key, personData[key])),
+        ...personKeyList.map((key) => createTable(key, personData[key])),
         new Paragraph({
           text: "List of DataSets",
           heading: HeadingLevel.HEADING_1,
         }),
-        ...datasetKeyList.map((key) => createHeader(key, datasets[key])),
+        ...datasetKeyList.map((key) => createTable(key, datasets[key])),
       ],
     });
-    Packer.toBase64String(doc).then( (docstring) => {
+    Packer.toBase64String(doc).then((docstring) => {
       setDocString(docstring);
-    })
-    Packer.toBlob(doc).then( (blob) => {
+    });
+    Packer.toBlob(doc).then((blob) => {
       saveAs(blob, "smart-move-data-list.docx");
       // setDocString(docstring);
       console.log("Document created successfully");
     });
   };
-// console.log(docString);
+  // console.log(docString);
   return (
     <React.Fragment>
       <Grid container spacing={2} style={{ textAlign: "left" }}>
