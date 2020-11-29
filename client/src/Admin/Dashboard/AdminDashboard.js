@@ -148,7 +148,7 @@ const useToolbarStyles = makeStyles((theme) => ({
     theme.palette.type === "light"
       ? {
           color: theme.palette.secondary.main,
-          backgroundColor: lighten(theme.palette.secondary.light, 0.85),
+          backgroundColor: lighten(theme.palette.secondary.light, 1),
         }
       : {
           color: theme.palette.text.primary,
@@ -191,7 +191,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const AdminDashboard = () => {
-  // console.log('Admin Dashboard');
   const history = useHistory();
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
@@ -202,8 +201,8 @@ const AdminDashboard = () => {
   const [user, setUser] = React.useState(null);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const [rows, setRows] = React.useState([]);
-
-  const newRows = rows.length
+  const [errorMsg, setErrorMsg] = React.useState("")
+  const newRows = rows?.length
     ? rows.map((row) => {
         return {
           OrganizationType: row.OrganizationType,
@@ -248,7 +247,6 @@ const AdminDashboard = () => {
         selected.slice(selectedIndex + 1)
       );
     }
-
     setSelected(newSelected);
   };
 
@@ -279,12 +277,11 @@ const AdminDashboard = () => {
     axios
       .get(url)
       .then((res) => {
-        // console.log("logout", res);
         setUser(null);
         setRows([]);
         history.push("/admin");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => setErrorMsg(err));
   };
 
   useEffect(() => {
@@ -293,25 +290,30 @@ const AdminDashboard = () => {
       .get(url)
       .then((res) => {
         const { isAuth } = res.data;
-        // console.log("isAuth", isAuth);
         if (isAuth) {
           setUser(isAuth);
           const url = "/api/cities/getdata";
           axios
             .get(url)
             .then((res) => setRows(res.data))
-            .catch((err) => console.log(err));
+            .catch((err) => {
+              setRows([]);
+              setErrorMsg(err)
+            });
         } else {
           setUser(null);
           setRows([]);
           history.push("/admin");
         }
       })
-      .catch((err) => console.log(err));
-
+      .catch((err) => {
+        setErrorMsg("Authentication Error");
+        setUser(null);
+        setRows([]);
+        history.push("/admin");
+      });
   }, [user, history]);
 
-  // console.log('rows',rows);
   const EnhancedTableToolbar = (props) => {
     const classes = useToolbarStyles();
     const { numSelected } = props;
@@ -326,7 +328,7 @@ const AdminDashboard = () => {
           <img
             src={smartlogo}
             alt="smartmovelogo"
-            style={{ width:"100px",maxWidth: "120px", maxHeight: "80px" }}
+            style={{ width: "100px", maxWidth: "120px", maxHeight: "80px" }}
           />
         </Link>
 
@@ -339,28 +341,24 @@ const AdminDashboard = () => {
           Dashboard
         </Typography>
         <Tooltip title="Download">
-          {/* <IconButton aria-label="download"> */}
-            <CSVLink data={newRows} filename={"City-datasets.csv"}>
-              <CloudDownloadIcon style={{ color: "#fff", margin:"10px"}} />
-            </CSVLink>
-          {/* </IconButton> */}
+          <CSVLink data={newRows} filename={"City-datasets.csv"}>
+            <CloudDownloadIcon style={{ color: "#fff", margin: "10px" }} />
+          </CSVLink>
         </Tooltip>
         {user ? (
           <Tooltip title="Login">
-            {/* <IconButton aria-label="login"> */}
-              {/* firebase () => auth.signOut() */}
-              <Button onClick={signOut} style={{ color: "#fff", margin:"10px" }}>
-                Logout
-              </Button>
-            {/* </IconButton> */}
+            <Button onClick={signOut} style={{ color: "#fff", margin: "10px" }}>
+              Logout
+            </Button>
           </Tooltip>
         ) : (
           <Tooltip title="Login">
-            {/* <IconButton aria-label="login"> */}
-              <Button onClick={handleLogin} style={{ color: "#fff" ,margin:"10px"}}>
-                login
-              </Button>
-            {/* </IconButton> */}
+            <Button
+              onClick={handleLogin}
+              style={{ color: "#fff", margin: "10px" }}
+            >
+              login
+            </Button>
           </Tooltip>
         )}
       </Toolbar>
@@ -370,12 +368,9 @@ const AdminDashboard = () => {
   EnhancedTableToolbar.propTypes = {
     numSelected: PropTypes.number.isRequired,
   };
-
   return (
     <div className={classes.root}>
-      {user ? (
         <Paper className={classes.paper}>
-          {/* <DashboardHeader /> */}
           <EnhancedTableToolbar numSelected={selected.length} />
           <TableContainer>
             <Table
@@ -400,9 +395,10 @@ const AdminDashboard = () => {
                     const isItemSelected = isSelected(row.Poc);
                     const labelId = `enhanced-table-checkbox-${index}`;
                     const datasetList = row.datasets[0];
-                    // console.log('datasetsList',datasetList);
-                    const sectorsList = Object.keys(datasetList);
-                    // console.log('sectorlist',sectorsList);
+                    const sectorsList = datasetList
+                      ? Object.keys(datasetList)
+                      : [];
+                    
                     let subsectors = sectorsList.map((sector) => {
                       return { [sector]: datasetList[sector].join(",") };
                     });
@@ -446,7 +442,10 @@ const AdminDashboard = () => {
                     );
                   })}
                 {emptyRows > 0 && (
-                  <TableRow style={{ height: (dense ? 33 : 53) * emptyRows }} key={Math.random()}>
+                  <TableRow
+                    style={{ height: (dense ? 33 : 53) * emptyRows }}
+                    key={Math.random()}
+                  >
                     <TableCell colSpan={6} />
                   </TableRow>
                 )}
@@ -466,39 +465,8 @@ const AdminDashboard = () => {
             control={<Switch checked={dense} onChange={handleChangeDense} />}
             label="Dense padding"
           />
+          <Typography style={{color:'red'}}>{errorMsg}</Typography>
         </Paper>
-      ) : (
-        <Paper>
-          <Toolbar
-            style={{
-              paddingLeft: "10px",
-              paddingRight: "10px",
-              backgroundColor: "#69BFC3",
-            }}
-          >
-            <Typography
-              className={classes.title}
-              variant="h5"
-              id="tableTitle"
-              component="h1"
-              style={{ color: "#fff" }}
-            >
-              Please login
-            </Typography>
-            <Tooltip title="Login">
-              {/* <IconButton aria-label="login" style={{ marginLeft: "auto" }}> */}
-                <Button
-                  size="large"
-                  onClick={handleLogin}
-                  style={{ backgroundColor: "#fff" ,margin:"10px" ,marginLeft: "auto" }}
-                >
-                  login
-                </Button>
-              {/* </IconButton> */}
-            </Tooltip>
-          </Toolbar>
-        </Paper>
-      )}
     </div>
   );
 };

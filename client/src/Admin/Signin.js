@@ -53,7 +53,7 @@ const SignIn = () => {
       .post(url, cred)
       .then((res) => {
         const {loginSuccess, message} = res.data;
-        console.log(res.data)
+        // console.log(res.data)
         if (loginSuccess) {
           history.push("/dashboard")
         }
@@ -61,27 +61,16 @@ const SignIn = () => {
         setErrorMsg(message)
       })
       .catch((err) => setErrorMsg(err));
-
-    // // Firebase auth
-    // auth
-    //   .signInWithEmailAndPassword(email, password)
-    //   .then((auth) => {
-    //     // history.push("/dashboard");
-    //   })
-    //   .catch((event) => alert(event.message));
   };
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        {/* <Avatar className={classes.avatar}> */}
-        {/* <LockOutlinedIcon /> */}
         <img
           src={smartlogo}
           alt="smartmovelogo"
           style={{ maxWidth: "100px" }}
         />
-        {/* </Avatar> */}
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
@@ -112,10 +101,6 @@ const SignIn = () => {
             autoComplete="current-password"
             onChange={(event) => setPassword(event.target.value)}
           />
-          {/* <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          /> */}
           <Typography style={{color:'red'}}>{errorMsg}</Typography>
           <Button
             type="submit"
