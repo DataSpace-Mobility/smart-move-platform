@@ -50,7 +50,6 @@ import TrafficWhite from "./button Icons/White/traffic_white.svg";
 import UrbanWhite from "./button Icons/White/urban_freight_white.svg";
 import Axios from "axios";
 
-
 // Theme for checkbox
 const innerTheme = createMuiTheme({
   palette: {
@@ -387,53 +386,53 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SectorDetails = (props) => {
-  // const [cityData, setCityData] = useState({});
-  // const [sector, setSector] = useState("");
   const [sectors, setSectors] = useState([]);
   const [state, setState] = useState(initialState);
   const [textValue, setTextValue] = useState(initialTextState);
   const [showNextPage, setShowNextPage] = useState(false);
+  const [errorText, setErrorText] = useState("");
   const classes = useStyles();
 
   const handleCheck = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
 
-  const submitDatasets= (finalData) =>{
+  const submitDatasets = (finalData) => {
     const url = "/api/cities/cityData";
     let dataToSubmit = {
-      id:props.userId,
-      datasets: finalData, 
+      id: props.userId,
+      datasets: finalData,
     };
 
-    Axios
-      .post(url, dataToSubmit)
+    Axios.post(url, dataToSubmit)
       .then((res) => {
         // console.log(res.data)
-      let Id = res.data.id;
-    }
-      )
-      .catch((err) => console.log(err));
-  }
+        let Id = res.data.id;
+      })
+      .catch((err) => setErrorText(err));
+  };
+  //handle Image buttons
   const handleNextPage = () => {
-    // console.log('ShowNext',props.showNext);
-    // console.log(sectors);
-    if (props.showNext) {
-      setShowNextPage(true);
-      // console.log('Next');
+    if (!sectors.length) {
+      setErrorText("Please select atleast one DataSets (image)");
     } else {
-      // setShowNextPage(true);
-      let finalData = {};
+      setErrorText("");
+      if (props.showNext) {
+        setShowNextPage(true);
+      } else {
+        let finalData = {};
 
-      sectors.map((sector) => (finalData = { ...finalData, [sector]: [""] }));
-      submitDatasets(finalData);
-      props.next({ datasets: finalData });
+        sectors.map((sector) => (finalData = { ...finalData, [sector]: [""] }));
+        submitDatasets(finalData);
+        props.next({ datasets: finalData });
+      }
     }
   };
 
   const handleTextField = (event) => {
     setTextValue({ ...textValue, [event.target.name]: event.target.value });
   };
+  // Handle image button
   const handleButton = (event) => {
     let sectorValue = event.target.value;
     if (!sectorValue) {
@@ -451,31 +450,37 @@ const SectorDetails = (props) => {
       // console.log(newSectors);
       setSectors(newSectors);
     }
-
-    // handleClickOpen();
   };
 
   const handleNext = () => {
     const keys = Object.keys(state).filter((k) => state[k]);
+
+    // eror handling
+    const textfieldEmpty = Object.values(textValue).filter(
+      (value) => value !== ""
+    );
     // console.log("selected checkbox", keys);
-    let finalData = {};
+    if (!keys.length && !textfieldEmpty.length) {
+      setErrorText(
+        "Please check atleast one checkbox or enter in given text field"
+      );
+    } else {
+      setErrorText("");
+      let finalData = {};
 
-    for (let [key, values] of Object.entries(subSectorList)) {
-      let ourdata = values.filter((value) => keys.includes(value));
-
-      // console.log(key, ":", values);
-      if (ourdata.length > 0) {
-        // console.log(key, ":", ourdata);
-        // Check textfield data
-        if (textValue[key]) {
-          ourdata.push(textValue[key]);
+      for (let [key, values] of Object.entries(subSectorList)) {
+        let ourdata = values.filter((value) => keys.includes(value));
+        if (ourdata.length > 0) {
+          // Check textfield data
+          if (textValue[key]) {
+            ourdata.push(textValue[key]);
+          }
+          finalData = { ...finalData, [key]: ourdata };
         }
-        finalData = { ...finalData, [key]: ourdata };
-        // finalData.push({ [key]: ourdata });
       }
+      submitDatasets(finalData);
+      props.next({ datasets: finalData });
     }
-    submitDatasets(finalData);
-    props.next({ datasets: finalData });
   };
 
   return (
@@ -485,7 +490,7 @@ const SectorDetails = (props) => {
       </Typography>
       {!showNextPage ? (
         <Grid container spacing={3}>
-          <Grid item xs={12} md={4} key={"Environment"}>
+          <Grid item xs={12} md={4} sm={4} key={"Environment"}>
             <button
               onClick={handleButton}
               className={
@@ -496,9 +501,11 @@ const SectorDetails = (props) => {
               value="Environment"
             >
               <img
-                src={sectors.includes("Environment")
-                ? EnvironmentWhite
-                : Environment}
+                src={
+                  sectors.includes("Environment")
+                    ? EnvironmentWhite
+                    : Environment
+                }
                 alt="Environment"
                 style={{ width: "50px", height: "50px", fill: "white" }}
               />
@@ -506,7 +513,7 @@ const SectorDetails = (props) => {
               Environment
             </button>
           </Grid>
-          <Grid item xs={12} md={4} key={"City"}>
+          <Grid item xs={12} md={4} sm={4} key={"City"}>
             <button
               onClick={handleButton}
               className={
@@ -517,9 +524,11 @@ const SectorDetails = (props) => {
               value="City Landuse"
             >
               <img
-                src={sectors.includes("City Landuse")
-                ? CityLanduseWhite
-                : CityLanduse}
+                src={
+                  sectors.includes("City Landuse")
+                    ? CityLanduseWhite
+                    : CityLanduse
+                }
                 alt="City Landuse"
                 style={{ width: "50px", height: "50px", fill: "white" }}
               />
@@ -527,7 +536,7 @@ const SectorDetails = (props) => {
               City Landuse
             </button>
           </Grid>
-          <Grid item xs={12} md={4} key={"Civil"}>
+          <Grid item xs={12} md={4} sm={4} key={"Civil"}>
             <button
               onClick={handleButton}
               className={
@@ -538,9 +547,11 @@ const SectorDetails = (props) => {
               value="Civil Aviation"
             >
               <img
-                src={sectors.includes("Civil Aviation")
-                ? CivialAviationWhite
-                : CivialAviation}
+                src={
+                  sectors.includes("Civil Aviation")
+                    ? CivialAviationWhite
+                    : CivialAviation
+                }
                 alt="Civil Aviation"
                 style={{ width: "50px", height: "50px", fill: "white" }}
               />
@@ -549,7 +560,7 @@ const SectorDetails = (props) => {
             </button>
           </Grid>
           {/* Second row */}
-          <Grid item xs={12} md={4} key={"Electric"}>
+          <Grid item xs={12} md={4} sm={4} key={"Electric"}>
             <button
               onClick={handleButton}
               className={
@@ -560,9 +571,11 @@ const SectorDetails = (props) => {
               value="Electric Mobility"
             >
               <img
-                src={sectors.includes("Electric Mobility")
-                ? ElectricMobilityWhite
-                : ElectricMobility}
+                src={
+                  sectors.includes("Electric Mobility")
+                    ? ElectricMobilityWhite
+                    : ElectricMobility
+                }
                 alt="Electric Mobility"
                 style={{ width: "50px", height: "50px", fill: "white" }}
               />
@@ -570,7 +583,7 @@ const SectorDetails = (props) => {
               Electric Mobility
             </button>
           </Grid>
-          <Grid item xs={12} md={4} key={"Informal"}>
+          <Grid item xs={12} md={4} sm={4} key={"Informal"}>
             <button
               onClick={handleButton}
               className={
@@ -581,9 +594,11 @@ const SectorDetails = (props) => {
               value="Informal Transport"
             >
               <img
-                src={sectors.includes("Informal Transport")
-                ? TransportWhite
-                : Transport}
+                src={
+                  sectors.includes("Informal Transport")
+                    ? TransportWhite
+                    : Transport
+                }
                 alt="Informal Transport"
                 style={{ width: "50px", height: "50px", fill: "white" }}
               />
@@ -591,7 +606,7 @@ const SectorDetails = (props) => {
               Informal Transport
             </button>
           </Grid>
-          <Grid item xs={12} md={4} key={"Water"}>
+          <Grid item xs={12} md={4} sm={4} key={"Water"}>
             <button
               onClick={handleButton}
               className={
@@ -602,9 +617,11 @@ const SectorDetails = (props) => {
               value="Inland Water Services"
             >
               <img
-                src={sectors.includes("Inland Water Services")
-                ? inlandWaterWhite
-                : inlandWater}
+                src={
+                  sectors.includes("Inland Water Services")
+                    ? inlandWaterWhite
+                    : inlandWater
+                }
                 alt="Inland Water Services"
                 style={{ width: "50px", height: "50px", fill: "white" }}
               />
@@ -613,7 +630,7 @@ const SectorDetails = (props) => {
             </button>
           </Grid>
           {/* 3rd row */}
-          <Grid item xs={12} md={4} key={"Metro"}>
+          <Grid item xs={12} md={4} sm={4} key={"Metro"}>
             <button
               onClick={handleButton}
               className={
@@ -624,9 +641,7 @@ const SectorDetails = (props) => {
               value="Metro Rail"
             >
               <img
-                src={sectors.includes("Metro Rail")
-                ? MetroWhite
-                : Metro}
+                src={sectors.includes("Metro Rail") ? MetroWhite : Metro}
                 alt="Metro Rail"
                 style={{ width: "50px", height: "50px", fill: "white" }}
               />
@@ -634,7 +649,7 @@ const SectorDetails = (props) => {
               Metro Rail
             </button>
           </Grid>
-          <Grid item xs={12} md={4} key={"motorized"}>
+          <Grid item xs={12} md={4} sm={4} key={"motorized"}>
             <button
               onClick={handleButton}
               className={
@@ -645,9 +660,11 @@ const SectorDetails = (props) => {
               value="Non-motorized transport"
             >
               <img
-                src={sectors.includes("Non-motorized transport")
-                ? NonMotorWhite
-                : NonMotor}
+                src={
+                  sectors.includes("Non-motorized transport")
+                    ? NonMotorWhite
+                    : NonMotor
+                }
                 alt="Non-motorized transport"
                 style={{ width: "50px", height: "50px", fill: "white" }}
               />
@@ -655,7 +672,7 @@ const SectorDetails = (props) => {
               Non-motorized transport
             </button>
           </Grid>
-          <Grid item xs={12} md={4} key={"Parking"}>
+          <Grid item xs={12} md={4} sm={4} key={"Parking"}>
             <button
               onClick={handleButton}
               className={
@@ -666,9 +683,7 @@ const SectorDetails = (props) => {
               value="Parking"
             >
               <img
-                src={sectors.includes("Parking")
-                ? ParkingWhite
-                : Parking}
+                src={sectors.includes("Parking") ? ParkingWhite : Parking}
                 alt="Parking"
                 style={{ width: "50px", height: "50px", fill: "white" }}
               />
@@ -677,7 +692,7 @@ const SectorDetails = (props) => {
             </button>
           </Grid>
           {/* 4 row */}
-          <Grid item xs={12} md={4} key={"Buses"}>
+          <Grid item xs={12} md={4} sm={4} key={"Buses"}>
             <button
               onClick={handleButton}
               className={
@@ -688,9 +703,11 @@ const SectorDetails = (props) => {
               value="Public Buses"
             >
               <img
-                src={sectors.includes("Public Buses")
-                ? PublicBusesWhite
-                : PublicBuses}
+                src={
+                  sectors.includes("Public Buses")
+                    ? PublicBusesWhite
+                    : PublicBuses
+                }
                 alt="Public Buses"
                 style={{ width: "50px", height: "50px", fill: "white" }}
               />
@@ -698,7 +715,7 @@ const SectorDetails = (props) => {
               Public Buses
             </button>
           </Grid>
-          <Grid item xs={12} md={4} key={"Railways"}>
+          <Grid item xs={12} md={4} sm={4} key={"Railways"}>
             <button
               onClick={handleButton}
               className={
@@ -709,9 +726,7 @@ const SectorDetails = (props) => {
               value="Railways"
             >
               <img
-                src={sectors.includes("Railways")
-                ? RailwayWhite
-                : Railway}
+                src={sectors.includes("Railways") ? RailwayWhite : Railway}
                 alt="Railways"
                 style={{ width: "50px", height: "50px", fill: "white" }}
               />
@@ -719,7 +734,7 @@ const SectorDetails = (props) => {
               Railways
             </button>
           </Grid>
-          <Grid item xs={12} md={4} key={"Infrastructure"}>
+          <Grid item xs={12} md={4} sm={4} key={"Infrastructure"}>
             <button
               onClick={handleButton}
               className={
@@ -730,9 +745,7 @@ const SectorDetails = (props) => {
               value="Road Infrastructure"
             >
               <img
-                src={sectors.includes("Road Infrastructure")
-                ? RoadWhite
-                : Road}
+                src={sectors.includes("Road Infrastructure") ? RoadWhite : Road}
                 alt="Road Infrastructure"
                 style={{ width: "50px", height: "50px", fill: "white" }}
               />
@@ -741,7 +754,7 @@ const SectorDetails = (props) => {
             </button>
           </Grid>
           {/* 5th row */}
-          <Grid item xs={12} md={4} key={"Safety"}>
+          <Grid item xs={12} md={4} sm={4} key={"Safety"}>
             <button
               onClick={handleButton}
               className={
@@ -752,9 +765,9 @@ const SectorDetails = (props) => {
               value="Road Safety"
             >
               <img
-                src={sectors.includes("Road Safety")
-                ? RoadSafetyWhite
-                : RoadSafety}
+                src={
+                  sectors.includes("Road Safety") ? RoadSafetyWhite : RoadSafety
+                }
                 alt="Road Safety"
                 style={{ width: "50px", height: "50px", fill: "white" }}
               />
@@ -762,7 +775,7 @@ const SectorDetails = (props) => {
               Road Safety
             </button>
           </Grid>
-          <Grid item xs={12} md={4} key={"Shipping"}>
+          <Grid item xs={12} md={4} sm={4} key={"Shipping"}>
             <button
               onClick={handleButton}
               className={
@@ -773,9 +786,11 @@ const SectorDetails = (props) => {
               value="Shipping and Ports"
             >
               <img
-                src={sectors.includes("Shipping and Ports")
-                ? ShippingPortWhite
-                : ShippingPort}
+                src={
+                  sectors.includes("Shipping and Ports")
+                    ? ShippingPortWhite
+                    : ShippingPort
+                }
                 alt="Shipping and Ports "
                 style={{ width: "50px", height: "50px", fill: "white" }}
               />
@@ -783,7 +798,7 @@ const SectorDetails = (props) => {
               Shipping and Ports
             </button>
           </Grid>
-          <Grid item xs={12} md={4} key={"Demographics"}>
+          <Grid item xs={12} md={4} sm={4} key={"Demographics"}>
             <button
               onClick={handleButton}
               className={
@@ -794,9 +809,11 @@ const SectorDetails = (props) => {
               value="Demographics"
             >
               <img
-                src={sectors.includes("Demographics")
-                ? DemographicsWhite
-                : Demographics}
+                src={
+                  sectors.includes("Demographics")
+                    ? DemographicsWhite
+                    : Demographics
+                }
                 alt="Demographics"
                 style={{ width: "50px", height: "50px", fill: "white" }}
               />
@@ -805,7 +822,7 @@ const SectorDetails = (props) => {
             </button>
           </Grid>
           {/* 6th row */}
-          <Grid item xs={12} md={4} key={"Traffic"}>
+          <Grid item xs={12} md={4} sm={4} key={"Traffic"}>
             <button
               onClick={handleButton}
               className={
@@ -816,9 +833,7 @@ const SectorDetails = (props) => {
               value="Traffic"
             >
               <img
-                src={sectors.includes("Traffic")
-                ? TrafficWhite
-                : Traffic}
+                src={sectors.includes("Traffic") ? TrafficWhite : Traffic}
                 alt="Traffic"
                 style={{ width: "50px", height: "50px", fill: "white" }}
               />
@@ -826,7 +841,7 @@ const SectorDetails = (props) => {
               Traffic
             </button>
           </Grid>
-          <Grid item xs={12} md={4} key={"Urban"}>
+          <Grid item xs={12} md={4} sm={4} key={"Urban"}>
             <button
               onClick={handleButton}
               className={
@@ -837,9 +852,7 @@ const SectorDetails = (props) => {
               value="Urban Freight"
             >
               <img
-                src={sectors.includes("Urban Freight")
-                ? UrbanWhite
-                : Urban}
+                src={sectors.includes("Urban Freight") ? UrbanWhite : Urban}
                 alt="Urban"
                 style={{ width: "50px", height: "50px", fill: "white" }}
               />
@@ -847,7 +860,7 @@ const SectorDetails = (props) => {
               Urban Freight
             </button>
           </Grid>
-          <Grid item xs={12} md={4} key={"Others"}>
+          <Grid item xs={12} md={4} sm={4} key={"Others"}>
             <button
               onClick={handleButton}
               className={
@@ -858,9 +871,7 @@ const SectorDetails = (props) => {
               value="Others"
             >
               <img
-                src={sectors.includes("Others")
-                ? OthersWhite
-                : Others}
+                src={sectors.includes("Others") ? OthersWhite : Others}
                 alt="Others"
                 style={{ width: "50px", height: "50px", fill: "white" }}
               />
@@ -868,7 +879,9 @@ const SectorDetails = (props) => {
               Others
             </button>
           </Grid>
-
+          <Grid item xs={12}>
+            <p style={{ color: "red", textAlign: "left" }}>{errorText}</p>
+          </Grid>
           <Grid item xs={12} className={classes.buttons}>
             <ButtonGroup>
               <Button onClick={props.back}>Back</Button>
@@ -934,7 +947,7 @@ const SectorDetails = (props) => {
                           name={sector}
                           label="Please mention your datasets type here"
                           fullWidth
-                          autoComplete="Point of Contact"
+                          autoComplete="Others"
                           value={textValue[sector]}
                           onChange={handleTextField}
                         />
@@ -943,6 +956,9 @@ const SectorDetails = (props) => {
                   ))
                 : null}
             </React.Fragment>
+          </Grid>
+          <Grid item xs={12}>
+            <p style={{ color: "red", textAlign: "left" }}>{errorText}</p>
           </Grid>
           <Grid item xs={12} className={classes.buttons}>
             <ButtonGroup>

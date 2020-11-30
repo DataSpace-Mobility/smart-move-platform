@@ -140,11 +140,13 @@ export default function Review(props) {
     });
     Packer.toBase64String(doc).then((docstring) => {
       setDocString(docstring);
+      // window.open("data:application/msword;base64," + docstring);
+
     });
     Packer.toBlob(doc).then((blob) => {
       saveAs(blob, "smart-move-data-list.docx");
       // setDocString(docstring);
-      console.log("Document created successfully");
+      // console.log("Document created successfully");
     });
   };
   // console.log(docString);

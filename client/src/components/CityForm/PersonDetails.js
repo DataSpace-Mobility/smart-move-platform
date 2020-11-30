@@ -162,18 +162,18 @@ const PersonDetails = (props) => {
       ...input,
     };
     let userId = null;
-    await Axios.post(url, dataToSubmit)
-      .then((res) => {
-        userId = res.data.id;
-        // console.log(res.data);
-      })
-      .catch((err) => console.log(err));
-    return userId;
+    try {
+      const res= await Axios.post(url, dataToSubmit);
+      userId = res.data.id;
+      props.next({ personData: dataToSubmit },userId);
+    } catch (error) {
+      setErrorText([error, "Post Request"]);
+    }
   };
   const handleInput = (event, values) => {
     let fieldValue = event.target.value;
     let fieldName = event.target.name;
-    // console.log(fieldName,":",fieldValue);
+    // for autocomplete field
     if (!fieldValue && values) {
       fieldValue = values.value;
       fieldName = values.name;
@@ -202,12 +202,7 @@ const PersonDetails = (props) => {
       error.push("Point of Contact ");
     }
     if (!error.length) {
-      submitData()
-        .then((res) =>{
-          props.next({ personData: input },res);
-        })
-        .catch((err) => alert(err));
-      
+      submitData();
       setInput(initialState);
     }
     setErrorText(error);
