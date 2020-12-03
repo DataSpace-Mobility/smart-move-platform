@@ -53,9 +53,7 @@ function Home() {
             reality!
           </p>
           <p>
-            Collaborate with multidisciplinary teams of students/researchers and
-            co-create data-powered sustainable digital solutions to reimagine
-            the way we commute in our Indian cities.
+            Calling all innovators and disruptors to propose innovative solution to address urban mobility challenges faced by Indian Cities. Collaborate and co-create data-powered sustainable digital solutions to reimagine the way we commute in our Indian cities.
           </p>
           <p>
             Keep in mind the principles of
