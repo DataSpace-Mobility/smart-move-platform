@@ -134,8 +134,6 @@ function Home() {
         </div>
       </section>
 
-      
-
       <section className="unlock container">
         <div className="heading ">
           <h1>KEY THEME AREAS</h1>
