@@ -53,14 +53,7 @@ function Home() {
             reality!
           </p>
           <p>
-            Calling all innovators and disruptors to propose innovative solution
-            to address urban mobility challenges faced by Indian Cities.
-            Collaborate and co-create data-powered sustainable digital solutions
-            to reimagine the way we commute in our Indian cities.
-            {/* Collaborate
-            with multidisciplinary teams of students/researchers and co-create
-            data-powered sustainable digital solutions to reimagine the way we
-            commute in our Indian cities. */}
+            Calling all innovators and disruptors to propose innovative solution to address urban mobility challenges faced by Indian Cities. Collaborate and co-create data-powered sustainable digital solutions to reimagine the way we commute in our Indian cities.
           </p>
           <p>
             Keep in mind the principles of
@@ -141,7 +134,9 @@ function Home() {
         </div>
       </section>
 
-      <section className="reward top">
+      {/* <h3>Following the launch workshop and requests from interested participants, the  challenge is open for all. You can participate as individual, team with group of individual and as an organisation</h3> */}
+
+      {/* <section className="reward top">
         <div className="container">
           <div className="heading heading-yellow heading-center">
             <h2>
@@ -163,7 +158,7 @@ function Home() {
             Register for the Launch Session
           </button>
         </div>
-      </section>
+      </section> */}
 
       <section className="unlock container">
         <div className="heading ">
