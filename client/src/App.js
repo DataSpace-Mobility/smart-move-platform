@@ -15,6 +15,7 @@ import AdminDashboard from './Admin/Dashboard/AdminDashboard';
 import Cities from './components/Cities/Cities';
 import ScrollToTop from './components/ScrollToTop';
 import Faqs from './components/Faqs/Faqs';
+import WorkFaqs from './components/WorkshopFAQ/WorkFaqs';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
 			<Route path="/guidelines" component={Guideline} />
 			<Route path="/cities" component={Cities} />
 			<Route path="/faqs" component={Faqs} />
+			<Route path="/workshop" component={WorkFaqs} />
 			<Route path="/admin" component={SignIn} />
 			<Route path="/form" component={CityForm} />
 			<Route path="/dashboard" component={AdminDashboard} />
