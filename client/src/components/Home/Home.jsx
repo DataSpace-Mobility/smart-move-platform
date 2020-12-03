@@ -141,6 +141,10 @@ function Home() {
           <div className="heading heading-yellow heading-center">
             <h2>
               LAUNCH WORKSHOP ON SMARTMOVE - 24TH NOV 2020, 3 PM - 4:30 PM (IST)
+              and Requests from interested participants, the challenge is open
+              for all. You can participate as individual, team with group of
+              individual and as an organisation. 
+              {/* LAUNCH WORKSHOP ON SMARTMOVE - 24TH NOV 2020, 3 PM - 4:30 PM (IST) */}
             </h2>
           </div>
           <br />
@@ -153,16 +157,6 @@ function Home() {
           <button className="butgo2" onClick={workshopBtnHandler}>
             Register for the Launch Session
           </button>
-        </div>
-      </section> */}
-
-      {/* <section className="timeline">
-        <div className="container">
-          <div className="heading heading-black heading-center">
-            <h1>JOURNEY</h1>
-          </div>
-          <img className="mobilehide top" src={Timeline} alt="" />
-          <img className="webhide top" src={TimelineMob} alt="" />
         </div>
       </section> */}
 

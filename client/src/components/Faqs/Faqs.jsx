@@ -15,7 +15,7 @@ function Faqs() {
               <div className="col-md-10 align-left">
                 <h5>What is SMART MOVE?</h5>
                 <p>
-                  SMART MOVE is a global competition regarding proposing data
+                  Smart MOVE is global competition regarding proposing data
                   driven solutions to address mobility challenges faced by
                   Indian cities. The data challenge is outlined considering the
                   Government of India’s efforts to become Aatma Nirbhar
@@ -31,7 +31,7 @@ function Faqs() {
                 <h5>Who is organizing SMART MOVE?</h5>
                 <p>
                   GIZ is supporting the Ministry of Housing and Urban Affairs
-                  (MoHUA) in organizing SMART MOVE data challenge with National
+                  (MoHUA) in organizing Smart MOVE data challenge with National
                   Institute of Urban Affairs (NIUA) as the implementation
                   partner.
                 </p>
@@ -108,21 +108,10 @@ function Faqs() {
             <div className="row">
               <div className="col-md-1"></div>
               <div className="col-md-10 align-left top2">
-                <h5>Should my idea be related to the three main themes?</h5>
-                <p>
-                  Any innovative idea that will help improve the accessibility
-                  and mobility of people and goods by unlocking the potential of
-                  urban mobility datasets are welcomed, but it is mandatory that
-                  the participants identify the theme and sub theme that matches
-                  the most with their proposed solution.
-                </p>
-              </div>
-            </div>
 
-            <div className="row">
-              <div className="col-md-1"></div>
-              <div className="col-md-10 align-left top2">
-                <h5>Should my idea be related to the three main themes?</h5>
+                <h5>
+                  Should my idea have to be related to the three main themes?
+                </h5>
                 <p>
                   Any innovative idea that will help improving the accessibility
                   and mobility of people and goods by unlocking the potential of
@@ -153,9 +142,9 @@ function Faqs() {
               <div className="col-md-10 align-left top2">
                 <h5>What are the various stages of participation ?</h5>
                 <p>The challenge shall be undertaken over the three phases:</p>
-                <p>Phase1: Submission of concept</p>
-                <p>Phase 2: Matchmaking with the Cities</p>
-                <p>Phase 3: Submission for final solution</p>
+                <p style={{marginTop:"-15px"}}>Phase 1: Submission of concept</p>
+                <p style={{marginTop:"-15px"}}>Phase 2: Matchmaking with the Cities</p>
+                <p style={{marginTop:"-15px"}}>Phase 3: Submission for final solution</p>
               </div>
             </div>
 
@@ -197,10 +186,10 @@ function Faqs() {
                   partner cities of the challenge. Partner Cities are the one
                   who are supporting this challenge by providing the mobility
                   datasets. Each of the shortlisted proposals shall be matched
-                  with one or more interested cities. Participants will get a
-                  chance to pitch their solution to the interested cities. These
-                  cities shall also assist participants during the mentorship
-                  stage to tailor and develop their solution.
+                  with one or more interested cities. Participants get a chance
+                  to pitch their solution to the interested cities. These cities
+                  shall also assist participants during the mentorship stage to
+                  tailor and develop their solution.
                 </p>
               </div>
             </div>
@@ -217,24 +206,6 @@ function Faqs() {
                   Ministry and participating cities will assist the teams with
                   development of solutions using the mobility data for improving,
                   elaborating, and creating POC along with the business model.
-                </p>
-              </div>
-            </div>
-
-            <div className="row">
-              <div className="col-md-1"></div>
-              <div className="col-md-10 align-left top2">
-                <h5>What is the review process and evaluation criteria?</h5>
-                <p>
-                  The process and criteria for evaluation is defined in the
-                  challenge guidelines. Please refer to the Guidelines{" "}
-                  <a
-                    href="/Smartmove_DataChallengeGuidelines.pdf"
-                    target="_blank"
-                  >
-                    here
-                  </a>{" "}
-                  to learn in depth about the evaluation criteria.
                 </p>
               </div>
             </div>
@@ -282,12 +253,12 @@ function Faqs() {
                 </h5>
                 <p>
                   This is not an open ideas competition, implementability is key
-                  throughout the challenge process. The winning team shall be
-                  invited to present their solution to Smart Cities Mission and
-                  if the solution is unique and has potential for implementation
-                  in multiple cities then your team will have an opportunity
-                  (outside the SMART MOVE challenge) to develop a full
-                  commercial product.
+                  during the whole process. The winning team shall be invited to
+                  present their solution to Smart Cities Mission and if the
+                  solution is unique and has potential of implementation in
+                  multiple cities your team could get an opportunity (outside
+                  the Smart MOVE challenge) to develop a full commercial
+                  product.
                 </p>
               </div>
             </div>
@@ -300,7 +271,7 @@ function Faqs() {
                   All participants hold the rights to their ideas and data they
                   bring – they can choose to share their data for future use by
                   others through open sources on the data portal set for the
-                  challenge
+                  challenge.
                 </p>
               </div>
             </div>
