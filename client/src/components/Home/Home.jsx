@@ -134,7 +134,9 @@ function Home() {
         </div>
       </section>
 
-      <section className="reward top">
+      {/* <h3>Following the launch workshop and requests from interested participants, the  challenge is open for all. You can participate as individual, team with group of individual and as an organisation</h3> */}
+
+      {/* <section className="reward top">
         <div className="container">
           <div className="heading heading-yellow heading-center">
             <h2>
@@ -152,7 +154,7 @@ function Home() {
             Register for the Launch Session
           </button>
         </div>
-      </section>
+      </section> */}
 
       {/* <section className="timeline">
         <div className="container">
