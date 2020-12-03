@@ -134,32 +134,6 @@ function Home() {
         </div>
       </section>
 
-      {/* <h3>Following the launch workshop and requests from interested participants, the  challenge is open for all. You can participate as individual, team with group of individual and as an organisation</h3> */}
-
-      {/* <section className="reward top">
-        <div className="container">
-          <div className="heading heading-yellow heading-center">
-            <h2>
-              LAUNCH WORKSHOP ON SMARTMOVE - 24TH NOV 2020, 3 PM - 4:30 PM (IST)
-              and Requests from interested participants, the challenge is open
-              for all. You can participate as individual, team with group of
-              individual and as an organisation. 
-              {/* LAUNCH WORKSHOP ON SMARTMOVE - 24TH NOV 2020, 3 PM - 4:30 PM (IST) */}
-            </h2>
-          </div>
-          <br />
-          <br />
-
-          <img className="wimage" src={Workshopimage} alt="Workshop" />
-          <br />
-          <br />
-
-          <button className="butgo2" onClick={workshopBtnHandler}>
-            Register for the Launch Session
-          </button>
-        </div>
-      </section> */}
-
       <section className="unlock container">
         <div className="heading ">
           <h1>KEY THEME AREAS</h1>
