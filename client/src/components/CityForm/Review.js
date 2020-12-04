@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
@@ -17,6 +17,7 @@ import {
   WidthType,
 } from "docx";
 import { saveAs } from "file-saver";
+import Axios from "axios";
 
 function createTable(FieldName, FieldValue) {
   return new Table({
@@ -61,14 +62,16 @@ function createTable(FieldName, FieldValue) {
             ],
           }),
           new TableCell({
-            children: [new Paragraph({
-              children: [
-                new TextRun({
-                  text: `${FieldValue}`,
-                  size: "26",
-                }),
-              ],
-            })],
+            children: [
+              new Paragraph({
+                children: [
+                  new TextRun({
+                    text: `${FieldValue}`,
+                    size: "26",
+                  }),
+                ],
+              }),
+            ],
           }),
         ],
       }),
@@ -98,29 +101,16 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Review(props) {
   const classes = useStyles();
-  const [docString, setDocString] = useState("");
+  const [doc, setDoc] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
   const { personData, datasets } = props.data;
   let personKeyList = [];
   let datasetKeyList = [];
 
-  if (personData) {
-    personKeyList = Object.keys(personData);
-    // console.log(personKeyList);
-  }
-  if (datasets) {
-    datasetKeyList = Object.keys(datasets);
-    // console.log('datasets:',datasetKeyList);
-  }
-
-  const handleSubmit = () => {
-    // console.log(docString);
-    props.submit(docString);
-  };
-
   // Create Docx
   const docCreator = () => {
-    const doc = new Document();
-    doc.addSection({
+    const document = new Document();
+    document.addSection({
       children: [
         new Paragraph({
           text: "Become a Data Partner",
@@ -138,18 +128,62 @@ export default function Review(props) {
         ...datasetKeyList.map((key) => createTable(key, datasets[key])),
       ],
     });
-    Packer.toBase64String(doc).then((docstring) => {
-      setDocString(docstring);
-      // window.open("data:application/msword;base64," + docstring);
+    setDoc(document);
+  };
 
-    });
+  // Download the report
+  const downloadDocs = () => {
     Packer.toBlob(doc).then((blob) => {
       saveAs(blob, "smart-move-data-list.docx");
-      // setDocString(docstring);
       // console.log("Document created successfully");
     });
   };
-  // console.log(docString);
+
+  if (personData && datasets) {
+    personKeyList = Object.keys(personData);
+    datasetKeyList = Object.keys(datasets);
+    // console.log(personKeyList);
+  } else {
+    setErrorMsg("Received no data");
+  }
+
+  const handleSubmit = () => {
+    // console.log(docString);
+    Packer.toBase64String(doc).then((docstring) => {
+      registerUserMail(docstring);
+    });
+  };
+
+  const registerUserMail = (docString) => {
+    // console.log(cityData.personData);
+
+    const { Email, Poc } = personData;
+    const url = "/api/users/registerEmai";
+    Axios.post(url, { Poc, Email, doc: docString })
+      .then((res) => {
+        // console.log(res.status);
+        // console.log(res.data.message);
+        const msg = res.data.message;
+        if (msg === "User Created") {
+          props.submit();
+          // window.open('https://storage.dataspace.mobi')
+        } else {
+          setErrorMsg(JSON.stringify(msg));
+          // throw new Error(JSON.stringify(msg));
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        setErrorMsg(
+          "Error in Response Please try again or Reach out to us at smartmove@niua.org "
+        );
+      });
+  };
+
+  useEffect(() => {
+    docCreator();
+  }, [props.data]);
+
   return (
     <React.Fragment>
       <Grid container spacing={2} style={{ textAlign: "left" }}>
@@ -195,11 +229,14 @@ export default function Review(props) {
         </Grid>
         <Grid item xs={12}>
           <Button
-            onClick={docCreator}
+            onClick={downloadDocs}
             style={{ backgroundColor: "#DC4351", color: "white" }}
           >
             Download Form
           </Button>
+        </Grid>
+        <Grid item xs={12}>
+          <p style={{ color: "red", textAlign: "left" }}>{errorMsg}</p>
         </Grid>
         <Grid item xs={12} className={classes.buttons}>
           <ButtonGroup>

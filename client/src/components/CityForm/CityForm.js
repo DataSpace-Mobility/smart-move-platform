@@ -9,12 +9,10 @@ import Paper from "@material-ui/core/Paper";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import PersonDetails from "./PersonDetails";
 import SectorDetails from "./SectorDetails";
 import Review from "./Review";
-import axios from "axios";
 
 const theme = createMuiTheme({
   overrides: {
@@ -90,7 +88,6 @@ const CityForm = () => {
   const [cityData, setCityData] = React.useState(initialCityData);
   const [userId, setUserId] = React.useState(null);
   const [showNextPage, setShowNextPage] = React.useState(false);
-  const [doc, setDoc] = React.useState("");
 
   function getStepContent(step) {
     switch (step) {
@@ -106,7 +103,7 @@ const CityForm = () => {
           />
         );
       case 2:
-        return <Review data={cityData} submit={submitData} back={handleBack} />;
+        return <Review data={cityData} submit={handleNext} back={handleBack} />;
       default:
         throw new Error("Unknown step");
     }
@@ -131,10 +128,6 @@ const CityForm = () => {
     handleNext();
   };
 
-  const submitData = (docString) => {
-    setDoc(docString);
-    handleNext();
-  };
   const handleNext = () => {
     setActiveStep(activeStep + 1);
   };
@@ -142,34 +135,7 @@ const CityForm = () => {
   const handleBack = () => {
     setActiveStep(activeStep - 1);
   };
-  const handleUpload = () => {
-    // console.log(cityData.personData);
-    const { Email, Poc } = cityData.personData;
-    // console.log(Email, Poc);
-    // const Poc="Rishabh Sisodiya";
-    // const Email="rishabh.sisodiya4@gmail.com"
-    const url = "/api/users/registerEmail";
-    axios
-      .post(url, { Poc, Email, doc })
-      .then((res) => {
-        // console.log(res.status);
-        // console.log(res.data.message);
-        const msg= res.data.message;
-        if (msg==="User Created") {
-          window.open('https://storage.dataspace.mobi')
-        }else{
-          // setErrorMsg(JSON.stringify(msg));
-          throw new Error(JSON.stringify(msg));
-        }
-        
-      })
-      .catch((err) => {
-        // setErrorMsg(err)
-        console.log(err);
-      });
-      
-    // history.push("/");
-  };
+  
   return (
     <React.Fragment>
       <CssBaseline />
