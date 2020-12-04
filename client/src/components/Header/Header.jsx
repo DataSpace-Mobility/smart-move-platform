@@ -28,7 +28,6 @@ function Header() {
                             {/* <li><a href="/">WINNERS</a></li> */}
                             <li><a href="/#/partners">PARTNERS</a></li>
                             <li><a href="/#/faqs">FAQ</a></li>
-                            <li><a href="/#/workshop">Workshop Q&A</a></li>
 
                         </ul>
                     </div>
