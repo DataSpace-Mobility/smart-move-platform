@@ -316,7 +316,7 @@ function Faqs() {
               <div className="col-md-10 align-left top2">
                 <h5>What is the last date for NoC submission?</h5>
                 <p>
-                  Participants required to submit NOC must do it before the final submission of phase II (i.e. 31 March 2021)
+                  Participants required to submit NOC must do it before the final submission of phase 3 (i.e. 31 March 2021)
                 </p>
               </div>
             </div>

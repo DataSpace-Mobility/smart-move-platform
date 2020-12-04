@@ -86,7 +86,7 @@ export default function CustomizedFaqAccordions() {
         <AccordionDetails>
           <Typography variant="subtitle2">
             To become a Data Partner at the SMART MOVE Challenge you can easily
-            register at: <Link>https://smartmove.niua.org/#/cities </Link>
+            register at: <Link>https://smartmove.niua.org/#/form</Link>
           </Typography>
         </AccordionDetails>
       </Accordion>
