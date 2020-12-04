@@ -111,24 +111,24 @@ export default function CustomizedAccordions() {
         onChange={handleChange("panel3")}
       >
         <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
-          <Typography variant="h6">How will the data partners collaborate with students and researchers as part of the SMART-MOVE challenge?
+          <Typography variant="h6">How will the data partners collaborate with the participants as part of the SMART-MOVE challenge?
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography variant="p">
-            On 15.01.2021, a review committee of international and national
+            On 22.01.2021, a review committee of international and national
             urban mobility experts, bureaucrats, academicians, data scientists,
             industry professionals, city officials, policy makers, think tanks
             etc will announce the shortlisted concept notes submitted by the
             participating teams in the Stage I selection process. From
-            15.01.2021 to 15.02.2021 virtual workshops would be organised, the
+            22.01.2021 to 22.02.2021 virtual workshops would be organised, the
             shortlisted concept notes and cities will be matched to collaborate
             and work together with the organizers, mentoring committee to refine
             their solutions. Cities and mentors will give guidance to the
             participating team to adapt and scale their concepts to the specific
             local context as a solution to the urban challenges. The
             challenge-owning cities and mentors will be mentoring the
-            participating teams to submit their final solution by 31.03.2021.{" "}
+            participating teams to submit their final solution by 22.03.2021.{" "}
           </Typography>
         </AccordionDetails>
       </Accordion>
