@@ -198,16 +198,16 @@ const CityForm = () => {
                 <Typography variant="h5" gutterBottom>
                   Thank You for becoming a city partner
                 </Typography>
-                <Typography variant="subtitle1">
+                {/* <Typography variant="subtitle1">
                   Please click the button below to
                   complete your entry. You will be redirected to secure data
                   storage portal, where you can share your data.
-                </Typography>
+                </Typography> */}
                 <Typography variant="subtitle1">
-                  For instructions on how to upload data and your login
-                  password, please check your registered email.
+                  We will be sending you an email with the instructions on how to upload data along with your login
+                  credentials.
                 </Typography>
-                <div
+                {/* <div
                   className={classes.buttons}
                   style={{ justifyContent: "center" }}
                 >
@@ -219,7 +219,7 @@ const CityForm = () => {
                   >
                     Upload data on a secure platform
                   </Button>
-                </div>
+                </div> */}
               </React.Fragment>
             ) : (
               <React.Fragment>{getStepContent(activeStep)}</React.Fragment>
