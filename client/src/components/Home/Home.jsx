@@ -140,7 +140,7 @@ function Home() {
         </div>
 
         <p className="align-left">
-          Calling all students and researchers from India and around the world!
+          Calling all innovators and disruptors from India and around the world!
           Put on your thinking caps, ideate, innovate and share with us a brief
           concept note on any of the following themes.
         </p>
