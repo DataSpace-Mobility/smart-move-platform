@@ -19,16 +19,18 @@ import Theme3 from "./Theme3.svg";
 import button1 from "./Button1.png";
 import button2 from "./Button2.png";
 import { Link } from "react-router-dom";
-import Workshopimage from "./Workshop.jpg";
+import UpdateModel from "./UpdateModal/UpdateModal";
+// import Workshopimage from "./Workshop.jpg";
 
 function Home() {
-  const workshopBtnHandler = () => {
-    window.open(
-      "https://mohua-india.webex.com/mohua-india/onstage/g.php?MTID=e9403c97a4c730f7f020af62ce822ea54"
-    );
-  };
+  // const workshopBtnHandler = () => {
+  //   window.open(
+  //     "https://mohua-india.webex.com/mohua-india/onstage/g.php?MTID=e9403c97a4c730f7f020af62ce822ea54"
+  //   );
+  // };
   return (
     <section className="Home">
+      <UpdateModel />
       <section className="hero">
         <div className="container">
           <div className="row">
@@ -53,7 +55,10 @@ function Home() {
             reality!
           </p>
           <p>
-            Calling all innovators and disruptors to propose innovative solution to address urban mobility challenges faced by Indian Cities. Collaborate and co-create data-powered sustainable digital solutions to reimagine the way we commute in our Indian cities.
+            Calling all innovators and disruptors to propose innovative solution
+            to address urban mobility challenges faced by Indian Cities.
+            Collaborate and co-create data-powered sustainable digital solutions
+            to reimagine the way we commute in our Indian cities.
           </p>
           <p>
             Keep in mind the principles of
@@ -159,7 +164,7 @@ function Home() {
         {/* <div className="row unlock-item">
                     <div className="col-md-4">
                         <div className="heading-box heading-box-yellow">
-                            <h1 class="big">1</h1>
+                            <h1 className="big">1</h1>
                             <h1>RESTORING PUBLIC TRANSPORT RIDERSHIP</h1>
                         </div>
                     </div>

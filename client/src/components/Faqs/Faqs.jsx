@@ -43,7 +43,7 @@ function Faqs() {
               <div className="col-md-10 align-left top2">
                 <h5>When is the last date of registration?</h5>
                 <p>
-                  The last date of registration 3rd January 2021. Though we highly suggest registering in advance so that you have sufficient time to carefully fill the concept note proposal.
+                  The last date of registration 17th January 2021. Though we highly suggest registering in advance so that you have sufficient time to carefully fill the concept note proposal.
                 </p>
               </div>
             </div>
@@ -53,7 +53,7 @@ function Faqs() {
               <div className="col-md-10 align-left top2">
                 <h5>When is the last date of Concept Note submission?</h5>
                 <p>
-                  The last date of concept note submission is 3rd January 2021 
+                  The last date of concept note submission is 17th January 2021 
                 </p>
               </div>
             </div>
