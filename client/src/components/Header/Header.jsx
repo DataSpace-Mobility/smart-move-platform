@@ -16,7 +16,8 @@ function Header() {
                         <a href="https://www.instagram.com/smartmove_2020/" target="_blank" rel="noreferrer"><img src={Instagram} alt=""/></a>
                         <a href="https://www.linkedin.com/company/smartmove2020" target="_blank" rel="noreferrer"><img src={Linkedin} alt=""/></a>
                     </div>
-                    <div className="col-md-8"></div>
+                    <div className="col-md-6"></div>
+                    <div className="col-md-2 reg-link extra-padding"><a href="https://dataspace.mobi/dataset">VIEW DATASETS</a></div>
                     <div className="col-md-2 reg-link extra-padding"><a href="https://hack.dataspace.mobi">REGISTRATION</a></div>
                 </div>
                 <div className="row bottom-bar">
