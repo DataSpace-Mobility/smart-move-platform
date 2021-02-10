@@ -30,7 +30,8 @@ function Home() {
   // };
   return (
     <section className="Home">
-      <UpdateModel />
+      {/* Disable Update notification */}
+      {/* <UpdateModel /> */}
       <section className="hero">
         <div className="container">
           <div className="row">
