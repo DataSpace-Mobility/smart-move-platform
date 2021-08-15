@@ -11,14 +11,14 @@ function Header() {
         <section className="Header">
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-md-2 social-media extra-padding">
+                    <div className="col-md-3 social-media extra-padding">
                         <a href="https://twitter.com/SmartMove2020" target="_blank" rel="noreferrer"><img src={Twitter} alt=""/></a>
                         <a href="https://www.instagram.com/smartmove_2020/" target="_blank" rel="noreferrer"><img src={Instagram} alt=""/></a>
                         <a href="https://www.linkedin.com/company/smartmove2020" target="_blank" rel="noreferrer"><img src={Linkedin} alt=""/></a>
                     </div>
                     <div className="col-md-6"></div>
-                    <div className="col-md-2 reg-link extra-padding"><a href="https://dataspace.mobi/dataset">VIEW DATASETS</a></div>
-                    <div className="col-md-2 reg-link extra-padding"><a href="https://hack.dataspace.mobi">REGISTRATION</a></div>
+                    <div className="col-md-3 reg-link extra-padding"><a href="https://dataspace.mobi/dataset">VIEW DATASETS</a></div>
+                    {/* <div className="col-md-2 reg-link extra-padding"><a href="https://hack.dataspace.mobi">REGISTRATION</a></div> */}
                 </div>
                 <div className="row bottom-bar">
                     <div className="col-md-12">
@@ -29,7 +29,8 @@ function Header() {
                             {/* <li><a href="/">WINNERS</a></li> */}
                             <li><a href="/#/partners">PARTNERS</a></li>
                             <li><a href="/#/faqs">FAQ</a></li>
-
+                            <li><a href="/#/profiles">FINALISTS</a></li>
+                            <li><a href="/#/news">OUTREACH</a></li>
                         </ul>
                     </div>
                 </div>

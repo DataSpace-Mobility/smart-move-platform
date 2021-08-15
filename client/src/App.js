@@ -16,6 +16,8 @@ import Cities from './components/Cities/Cities';
 import ScrollToTop from './components/ScrollToTop';
 import Faqs from './components/Faqs/Faqs';
 import WorkFaqs from './components/WorkshopFAQ/WorkFaqs';
+import Profiles from './components/Profiles/Profiles';
+import NewsLetters from './components/NEWSLETTER/NewsLetters';
 
 function App() {
   return (
@@ -34,6 +36,8 @@ function App() {
 			<Route path="/admin" component={SignIn} />
 			<Route path="/form" component={CityForm} />
 			<Route path="/dashboard" component={AdminDashboard} />
+			<Route path="/profiles" component={Profiles} />
+			<Route path="/news" component={NewsLetters} />
 		</Switch>
 		<Footer/>
 	</Router>

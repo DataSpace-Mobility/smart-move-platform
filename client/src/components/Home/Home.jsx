@@ -19,7 +19,7 @@ import Theme3 from "./Theme3.svg";
 import button1 from "./Button1.png";
 import button2 from "./Button2.png";
 import { Link } from "react-router-dom";
-import UpdateModel from "./UpdateModal/UpdateModal";
+// import UpdateModel from "./UpdateModal/UpdateModal";
 // import Workshopimage from "./Workshop.jpg";
 
 function Home() {

@@ -1,0 +1,31 @@
+.profile {
+  margin-bottom: 50px;
+}
+
+visually-hidden {
+  display: none;
+}
+.carousel-indicators > button {
+  width: 40px;
+  margin: 2px;
+}
+.carousel-indicators .active {
+  background-color: black;
+}
+
+@media screen and (max-width: 741px) {
+  .carousel-indicators {
+    display: none;
+  }
+}
+
+.carousel-control-next-icon {
+  background-color: black;
+  height: 7vh;
+  width: 5vw;
+}
+.carousel-control-prev-icon {
+  background-color: black;
+  height: 7vh;
+  width: 5vw;
+}
