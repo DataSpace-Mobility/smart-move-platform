@@ -15,16 +15,15 @@ import CustomizedFaqAccordions from "./CustomizedFaqAccordions";
 import { useHistory } from "react-router-dom";
 
 function Cities() {
-
   const history = useHistory();
 
   const handleData = () => {
-    history.push('/form');
-  }
+    history.push("/form");
+  };
   return (
     <>
       <section className="Cities top">
-      <section className="looking top">
+        <section className="looking top">
           <div className="container ">
             <div className="heading heading-black getsetgoheadingbox heading-center">
               <h1>JOIN US A DATA PARTNER</h1>
@@ -32,10 +31,10 @@ function Cities() {
             <div className="row top">
               <div className="col-md-12">
                 <p>
-                  Be a Data Partner and get benefited from the Challenge
-                  Proposals. You can share data from a wide range of Sectors and
-                  Sub sectors. Please click the link below to begin with the
-                  Sharing Wizard.
+                  Become a data partner and get a front-seat view of the
+                  Challenge proposals. You may share data from a wide range of
+                  sectors and sub-sectors. Please click the link below, to begin
+                  sharing through SMART Move's Sharing Wizard.
                 </p>
               </div>
 
@@ -44,9 +43,7 @@ function Cities() {
                   Continue to Data Sharing Wizard
                 </button>
               </div>
-              <div className="col-md-12 learnmorebox">
-                
-              </div>
+              <div className="col-md-12 learnmorebox"></div>
             </div>
           </div>
         </section>
@@ -60,16 +57,16 @@ function Cities() {
               <div className="col-md-1"></div>
               <div className="col-md-10 missionbox align-center">
                 <p className="missiontext">
-                  SMART Move challenge is outlined considering the Government of
-                  India’s efforts towards Aatmanirbhar (self-reliance) and help
-                  cities to transform into a digitally empowered milieu. It aims
-                  to provide a common platform to young minds to brainstorm and
-                  come up with feasible solutions to tackle the multitude of
-                  issues that plague the modern urban mobility, including the
-                  threats posed by COVID-19 pandemic on transportation. With
-                  this, we hope to help the cities build efficient and resilient
-                  urban transport systems and address problems that commuters
-                  face every day.
+                  The SMART Move Challenge is outlined considering the
+                  Government of India’s efforts towards aatmanirbharta
+                  (self-reliance) and help cities transform into a digitally
+                  empowered milieus. The Challenge aims at providing a common
+                  platform to young minds to brainstorm and arrive at feasible
+                  solutions to tackle the multitude of issues that plague modern
+                  urban mobility, including the threats posed by the COVID-19
+                  pandemic on transportation. The Challenge hopes to help cities
+                  innovate towards efficient and resilient urban transport
+                  systems and address problems that commuters face every day.
                 </p>
               </div>
               <div className="col-md-1"></div>
@@ -152,7 +149,6 @@ function Cities() {
 
           <div className="row">
             <CustomizedAccordions />
-           
           </div>
         </section>
         <section className="container top bottom">
@@ -162,11 +158,8 @@ function Cities() {
 
           <div className="row">
             <CustomizedFaqAccordions />
-           
           </div>
         </section>
-
-        
       </section>
     </>
   );

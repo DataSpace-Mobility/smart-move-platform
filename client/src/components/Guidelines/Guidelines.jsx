@@ -9,6 +9,7 @@ import Financially from "../Home/Costeff.png";
 import Measurable from "../Home/System.png";
 import DataChal from "../Home/datachal@2x.png";
 import DataIdea from "../Home/dataidea.png";
+import Welfare from "../Home/Welfare.png";
 import GetSetGo from "../Home/getsetgo.svg";
 import GetSetGoMob from "../Home/getsetgomob.svg";
 import Lookup from "../Home/lookup.png";
@@ -133,8 +134,6 @@ function Guideline() {
             </div>
 
             <div className="row ">
-              <div className="col-md-1 iconheading"></div>
-
               <div className="col-md-3 iconheading">
                 <img
                   className="distinct-image"
@@ -160,6 +159,10 @@ function Guideline() {
                   alt="Measurable"
                 />
                 <p>Measurable and Verifiable Outcomes</p>
+              </div>
+              <div className="col-md-3 iconheading">
+                <img className="distinct-image" src={Welfare} alt="Welfare" />
+                <p>Welfare-oriented</p>
               </div>
               <div className="ideaparabox row ">
                 <div className="col-md-12 top">

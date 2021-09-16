@@ -57,7 +57,7 @@ function Home() {
           </p>
           <p>
             Calling all innovators and disruptors to propose innovative solution
-            to address urban mobility challenges faced by Indian Cities.
+            to address urban mobility challenges faced by Indian cities.
             Collaborate and co-create data-powered sustainable digital solutions
             to reimagine the way we commute in our Indian cities.
           </p>
@@ -92,7 +92,7 @@ function Home() {
             to unlock innovation through co-creation.
           </p>
           <p>
-            SMART MOVE Innovative Urban Mobility Challenge is an initiative by
+            SMART MOVE : Innovative Urban Mobility Challenge is an initiative by
             the Ministry of Housing and Urban Affairs supported by the Smart
             Cities Mission, the National Institute of Urban Affairs and GIZ
             India.
@@ -224,9 +224,10 @@ function Home() {
           </h1>
           <p>
             The top 3 proposals will be provided contracts jointly worth ₹
-            20,00,000 with a minimum contract value of ₹ 5,00,000. Additionally,
-            the winning teams will have an opportunity to present their solution
-            to Smart Cities Mission, Government of India.
+            20,00,000. Additionally, the winning teams will receive incubation
+            facilitation from the National Institute of Urban Affairs and will
+            receive the opportunity to present their solution to Smart Cities
+            Mission, Ministry of Housing and Urban Affairs, Government of India.
           </p>
         </div>
       </section>
@@ -251,7 +252,7 @@ function Home() {
               <div className="col-md-4">
                 <img src={NIUA} alt="" />
                 <p>
-                  Implementation Partner:
+                  Implemented by:<br></br>
                   <a href="http://niua.org/" target="_blank" rel="noreferrer">
                     National Institute of Urban Affairs
                   </a>
@@ -260,7 +261,7 @@ function Home() {
               <div className="col-md-4">
                 <img src={MOHUA} alt="" />
                 <p>
-                  Organised by the{" "}
+                  Organised by :<br></br>
                   <a
                     href="http://mohua.gov.in/"
                     target="_blank"
@@ -273,7 +274,7 @@ function Home() {
               <div className="col-md-4">
                 <img className="scm-logo" src={SCM} alt="" />
                 <p>
-                  Supported by the{" "}
+                  Supported by : <br></br>
                   <a
                     href="http://smartcities.gov.in/content/"
                     target="_blank"
@@ -288,7 +289,7 @@ function Home() {
               <div className="col-md-4">
                 <img className="dataspace-logo" src={DataSpace} alt="" />
                 <p>
-                  Technology Partner:{" "}
+                  Technology Partner: <br></br>
                   <a
                     href="https://dataspace.mobi/"
                     target="_blank"
@@ -301,7 +302,7 @@ function Home() {
               <div className="col-md-4">
                 <img className="giz-logo" src={GIZ} alt="" />
                 <p>
-                  Supported by{" "}
+                  Supported by: <br></br>
                   <a
                     href="https://www.giz.de/en/worldwide/368.html"
                     target="_blank"
@@ -314,7 +315,7 @@ function Home() {
               <div className="col-md-4">
                 <img src={CitiesForum} alt="" />
                 <p>
-                  Technical Partner:{" "}
+                  Technical Partner: <br></br>
                   <a
                     href="https://www.citiesforum.org/"
                     target="_blank"
