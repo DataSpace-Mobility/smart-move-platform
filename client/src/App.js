@@ -18,6 +18,7 @@ import Faqs from './components/Faqs/Faqs';
 import WorkFaqs from './components/WorkshopFAQ/WorkFaqs';
 import Profiles from './components/Profiles/Profiles';
 import NewsLetters from './components/NEWSLETTER/NewsLetters';
+import Pilot from './components/Pilot/Pilot';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
 			<Route path="/dashboard" component={AdminDashboard} />
 			<Route path="/profiles" component={Profiles} />
 			<Route path="/news" component={NewsLetters} />
+			<Route path="/pilot" component={Pilot} />
 		</Switch>
 		<Footer/>
 	</Router>

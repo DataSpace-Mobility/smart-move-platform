@@ -31,6 +31,7 @@ function Header() {
                             <li><a href="/#/faqs">FAQ</a></li>
                             <li><a href="/#/profiles">FINALISTS</a></li>
                             <li><a href="/#/news">OUTREACH</a></li>
+                            <li><a href="/#/pilot">PILOT</a></li>
                         </ul>
                     </div>
                 </div>
