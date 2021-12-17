@@ -19,19 +19,10 @@ import Theme3 from "./Theme3.svg";
 import button1 from "./Button1.png";
 import button2 from "./Button2.png";
 import { Link } from "react-router-dom";
-// import UpdateModel from "./UpdateModal/UpdateModal";
-// import Workshopimage from "./Workshop.jpg";
 
 function Home() {
-  // const workshopBtnHandler = () => {
-  //   window.open(
-  //     "https://mohua-india.webex.com/mohua-india/onstage/g.php?MTID=e9403c97a4c730f7f020af62ce822ea54"
-  //   );
-  // };
   return (
     <section className="Home">
-      {/* Disable Update notification */}
-      {/* <UpdateModel /> */}
       <section className="hero">
         <div className="container">
           <div className="row">
@@ -39,9 +30,7 @@ function Home() {
               <img src={Hero} alt="" />
             </div>
             <div className="col-md-7 hero-text">
-              <h1>
-                JOIN THE GLOBAL CALL TO REIMAGINE MOBILITY IN INDIAN CITIES
-              </h1>
+              <h1>REIMAGINING MOBILITY IN INDIAN CITIES THROUGH INNOVATION</h1>
               <img src={PartnerLogos} alt="" />
             </div>
           </div>
@@ -50,6 +39,7 @@ function Home() {
 
       <section className="about">
         <div className="container">
+          <Link to="/profiles" style={{fontSize:"30px", textDecoration:"underline"}}> Meet our Winners </Link>
           <p>
             Do you think you can solve India’s most complex urban mobility
             challenges? Let’s bring your ideas from the drawing board to
